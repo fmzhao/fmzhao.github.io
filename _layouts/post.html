@@ -5,11 +5,11 @@ layout: default
   <span class="time">
     <time datetime="{{ page.date | date:"%Y-%m-%d" }}">{{ page.date | date:"%Y-%m-%d" }}</time>
   </span>
-  {% if page.categorie.size != 0 %}
+  {% if page.categories.size != 0 %}
   | 
   <span class="categories">
     分类
-    {% for cat in page.categorie %}
+    {% for cat in page.categories %}
     <a href="/categories/#{{ cat }}" title="{{ cat }}">{{ cat }}</a>&nbsp;
     {% endfor %}
   </span>
