@@ -1,10 +1,10 @@
 #markdown: rdiscount
 permalink: /:title/
-url: http://fmzhao.github.io
+url: https://fmzhao.github.io
 #highlighter: pygments
 highlighter: rouge
 gems: [jekyll-paginate]
-paginate: 100
+paginate: 50
 paginate_path: "page:num"
 name: 麦羞 
 description: :))) | Talk is so cheap, show me the code.
