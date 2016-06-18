@@ -1,0 +1,6 @@
+---
+layout: post
+title: java二维数组备注
+category: java
+---
+##由于java语言的二维数组和jekyll语言会冲突，因此将数组该为MATLAB形式{ ; ; ;}

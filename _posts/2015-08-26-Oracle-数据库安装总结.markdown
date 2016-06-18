@@ -1,0 +1,21 @@
+---
+layout: post
+title: Oracle数据库安装总结
+category: diary
+---
+
+Oracle数据库安装了整整一天也没有成功，尝试了各种方法，主要的可能失败总结
+
+* User的名称有中文字符或者其他不合法字符导致安装失败，可以通过百变默认临时文件夹地址来解决，默认的临时文件夹地址为：`C:\User\Username\Appdata\Local\Temp`，在doc命令中输入指令：`set temp=C:\TEMP`，这样既可改变默认临时文件地址，既可避免Username中的中文字符的问题
+
+* 需要共享C盘，在doc命令窗口中输入指令：`net share c$=C:`，可以设定C盘的共享
+
+* 注册表设置：`HKE_LOCAL_MACHINE\System\CurrentControlSet\Service\LanmanServer\Parameters\`： change the key AutoSahreServer and AutoShareWks to value "1"
+
+* 注册表设置：`HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\system`：new DWORD 文件；Right-click LocalAccountTokenFilterPolicy；In the Value data box, type 1, and then click OK
+
+>注册表编辑方法：cmd --> regedit
+
+>Oracle 12C 最新版本至今没有安装成功，显示30131错误，请确认当前用户访问临时文件夹的权限，试了各种上面的方法，没有成功。
+
+Oracle 11g安装成功，安装方法参考：[李兴华Oracle笔记](http://www.mldn.cn/course/2) ，里面有详细的安装教程！

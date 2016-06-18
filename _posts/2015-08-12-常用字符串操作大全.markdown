@@ -1,0 +1,17 @@
+---
+layout: post
+title: 常用字符串操作大全
+category: java
+---
+
+### 将字符串转化为数字
+
+`public static int parseInt(String s)throws NumberFormatException`
+
+>将字符串解析为整数
+
+`public static int parseInt(String s,int radix)throws NumberFormatException`
+
+>将字符串解析为指定基数的整数(基数指的是进制的方法(二进制、十进制、十六进制等))
+
+### 将数字转换为字符串

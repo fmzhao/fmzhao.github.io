@@ -6,12 +6,12 @@ highlighter: rouge
 gems: [jekyll-paginate]
 paginate: 100
 paginate_path: "page:num"
-name: fmz 
-description: :))) | Stop talking, start doing.
-author: fmz
+name: 麦羞 
+description: :))) | Talk is so cheap, show me the code.
+author: fengmengzhao
 email: fengmengzhao@gmail.com
 duoshuo: fmz
-weibo: 1891858481
-hub: fmz 
+weibo: 1911291317 
+hub: fmzhao 
 safe: false
-about: "热爱生命"
+about: "留余"
