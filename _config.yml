@@ -1,17 +1,17 @@
 #markdown: rdiscount
 permalink: /:title/
-url: http://github.thinkingbar.com
+url: http://fmzhao.github.io
 #highlighter: pygments
 highlighter: rouge
 gems: [jekyll-paginate]
 paginate: 100
 paginate_path: "page:num"
-name: 飘过的小牛
-description: 飘过的小牛 | Stop talking, start doing.
-author: niushuai
-email: hnns1990@gmail.com
-duoshuo: fengmengzhao
+name: fmz 
+description: :))) | Stop talking, start doing.
+author: fmz
+email: fengmengzhao@gmail.com
+duoshuo: fmz
 weibo: 1891858481
-hub: niushuai
+hub: fmz 
 safe: false
-about: "弱菜一枚。"
+about: "热爱生命"
