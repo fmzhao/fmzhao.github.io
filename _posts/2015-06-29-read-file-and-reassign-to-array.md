@@ -13,7 +13,7 @@ tags: 文件读取 赋值数据
 4. 字符串数组转化为数值，并赋值为数组	
 5. 文本文件是以字节的形式储存的。在txt文件中一个数字或者字母表示一个字节，比如0为（byte）48，9为（byte）57，空格为（byte）32，a为（byte）97，z为（byte）122，A为（byte）65，Z为（byte）90。
 
-	public class ReadTxtFileToOneDimensionalArray {
+    public class ReadTxtFileToOneDimensionalArray {
 		public static void main(String args[])throws Exception{
 			File file = new File("G:\\文档文件\\临时文件\\时间表1.txt") ;
 			InputStream input = new FileInputStream(file) ;
@@ -32,7 +32,7 @@ tags: 文件读取 赋值数据
 			}
 			input.close() ; 
 		}
-	}
+    }
 		
 ### 从txt文件中读取数据赋值给二维数组
 
