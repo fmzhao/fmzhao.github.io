@@ -1,9 +1,11 @@
 ---
 layout: post
 title: 数据结构之java基于数组对Stack的实现
-categories 技术 Java
+categories: 技术 Java
 tags: 数据结构 Stack
 ---
+
+MyStack.java
 
 	class MyStack{
 		int[] array ;
