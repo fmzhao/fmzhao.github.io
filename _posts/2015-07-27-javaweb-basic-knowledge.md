@@ -1,12 +1,13 @@
 ---
 layout: post
-title: javaweb 基础知识
-category: diary
+title: Javaweb基础知识
+categories: 笔记 JavaEE
+tags: HTML XML
 ---
 
 2015/7/22
 
->HTML(Hypertext Markup Language) is the standard markup language used to cread web pages,是一种超文本标记语言。
+> HTML(Hypertext Markup Language) is the standard markup language used to cread web pages,是一种超文本标记语言。
 
 ### 表格HTML代码示例
 
@@ -83,7 +84,7 @@ category: diary
 		</body>
 	</html>
 
->JavaScript是一种基于对象的脚本语言(Scripting language),可以直接使用已经提供好的对象进行操作。JavaScript中所有的变量都用`var`声明，变量的类型由具体的变量内容决定，变量声明为了简便可以不用声明直接使用变量。
+> JavaScript是一种基于对象的脚本语言(Scripting language),可以直接使用已经提供好的对象进行操作。JavaScript中所有的变量都用`var`声明，变量的类型由具体的变量内容决定，变量声明为了简便可以不用声明直接使用变量。
 JavaScript中的函数都使用`function`关键字来声明，如果需要函数有返回值则直接通过`return`返回即可。
 
 ### 九九乘法表HTML代码示例（JavaScript）
@@ -324,7 +325,7 @@ JavaScript中的函数都使用`function`关键字来声明，如果需要函数
 		</body>
 	</html>
 
->父窗口
+> 父窗口
 
 	<!doctype html>
 	<html>
@@ -344,7 +345,7 @@ JavaScript中的函数都使用`function`关键字来声明，如果需要函数
 		</body>
 	</html>
 
->子窗口
+> 子窗口
 
 ### window之父窗口返回子窗口内容
 
@@ -367,7 +368,7 @@ JavaScript中的函数都使用`function`关键字来声明，如果需要函数
 		</body>
 	</html>
 
->父窗口
+> 父窗口
 
 	<!doctype html>
 	<html>
@@ -396,7 +397,7 @@ JavaScript中的函数都使用`function`关键字来声明，如果需要函数
 		</body>
 	</html>
 
->子窗口
+> 子窗口
 
 ***
 
@@ -461,15 +462,15 @@ XML和HTML类似，都是标记性语言，两者都是由SGML(Standard General 
 		font-weight:normal;
 		font-style:italic;	}
 
->使用css样式可以让一个XML文件按照HTML的样式进行显示，但是从实际上来讲，XML并不是用来显示的，更多的是用于数据结构的描述，如果想要进行数据的显示，则使用HTML会更加方便。
+> 使用css样式可以让一个XML文件按照HTML的样式进行显示，但是从实际上来讲，XML并不是用来显示的，更多的是用于数据结构的描述，如果想要进行数据的显示，则使用HTML会更加方便。
 
->XML的注释语法`<[!CDATA[不解析内容]]>`
+> XML的注释语法`<[!CDATA[不解析内容]]>`
 
 ### XML解析
 
 #### DOM解析
 
->DOM(Document Object Model,文档对象模型)，在应用程序中基于DOM的XML解析器将一个XML文档转换成一个对象模型集合(通常称为DOM树)，应用程序通过对这个对象模型的操作，来实现XML文档的数据操作。通过DOM接口，应用程序可以在任何时候访问XML文档的任何一部分数据，因此这种利用DOM接口的机制称作随机访问机制。
+> DOM(Document Object Model,文档对象模型)，在应用程序中基于DOM的XML解析器将一个XML文档转换成一个对象模型集合(通常称为DOM树)，应用程序通过对这个对象模型的操作，来实现XML文档的数据操作。通过DOM接口，应用程序可以在任何时候访问XML文档的任何一部分数据，因此这种利用DOM接口的机制称作随机访问机制。
 DOM分析器将整个XML文档转化成DOM树存放在内存中
 
 ##### XML文档-联系人
@@ -486,15 +487,15 @@ DOM分析器将整个XML文档转化成DOM树存放在内存中
 		</linkman>
 	</addresslist>
 
->DOM解析中四个核心接口
+> DOM解析中四个核心接口
 
->>`Document`,代表整个XML文档，表示整颗DOM树的根，提供了对文档中数据进行访问和操作的入口
+> `Document`,代表整个XML文档，表示整颗DOM树的根，提供了对文档中数据进行访问和操作的入口
 
->>`Node`,每一个Node接口代表DOM树中的一个节点
+> `Node`,每一个Node接口代表DOM树中的一个节点
 
->>`NodeList`,此接口表示一个节点的集合，一般用于表示顺序关系的一组节点
+> `NodeList`,此接口表示一个节点的集合，一般用于表示顺序关系的一组节点
 
->>`NamedNodeMap`,此节点表示一组节点和其唯一名称对应的一一对应关系，主要用于属性节点的表示
+> `NamedNodeMap`,此节点表示一组节点和其唯一名称对应的一一对应关系，主要用于属性节点的表示
 
 ##### Dom解析XML文件的步骤
 
@@ -548,7 +549,7 @@ DOM分析器将整个XML文档转化成DOM树存放在内存中
 		</linkman>
 	</addresslist>
 
->待解析XML文件
+> 待解析XML文件
 
 	import java.io.*;
 	import javax.xml.parsers.*;
@@ -576,7 +577,7 @@ DOM分析器将整个XML文档转化成DOM树存放在内存中
 		}
 	}
 
->解析XML文件代码
+> 解析XML文件代码
 
 ##### DOM将XML文档写入硬盘
 
@@ -643,9 +644,9 @@ DOM分析器将整个XML文档转化成DOM树存放在内存中
 
 ### SAX解析
 
->SAX(Simple APIS for XML,操作XML的简单接口)，SAX采用的是一种顺序的模式进行访问，是一种快速读取XML数据的方式。
+> SAX(Simple APIS for XML,操作XML的简单接口)，SAX采用的是一种顺序的模式进行访问，是一种快速读取XML数据的方式。
 
->如果在开发中想要使用SAX解析，首先需要编写一SAX解析器。
+> 如果在开发中想要使用SAX解析，首先需要编写一SAX解析器。
 
 #### 编写SAX解析器
 
@@ -738,11 +739,11 @@ DOM分析器将整个XML文档转化成DOM树存放在内存中
 		}
 	}
 
->SAX解析明显要比DOM解析更加容易，DOM解析适合于对文件进行修改和随机存储的操作，但不适于大型文件的操作。SAX采用部分读取的方式，可以处理大型文件，而且只需要从文件中读取特定内容，SAX可以由用户自己建立自己的对象模型。
+> SAX解析明显要比DOM解析更加容易，DOM解析适合于对文件进行修改和随机存储的操作，但不适于大型文件的操作。SAX采用部分读取的方式，可以处理大型文件，而且只需要从文件中读取特定内容，SAX可以由用户自己建立自己的对象模型。
 
 ### JDOM
 
->JDOM = DOM + SAX,[JDOM](http://www.jdom.org/ "JODM组件下载")是一个开源的java组件，它以直接易懂的形式向java开发者描述了XML文档和文档的内容。
+> JDOM = DOM + SAX,[JDOM](http://www.jdom.org/ "JODM组件下载")是一个开源的java组件，它以直接易懂的形式向java开发者描述了XML文档和文档的内容。
 
 #### JDOM输出文件代码(与DOM的输出相比较)
 
@@ -840,9 +841,9 @@ DOM分析器将整个XML文档转化成DOM树存放在内存中
 
 ### DOM4J
 
->[DOM4J](http://www.sourceforge.net/projects/dom4j/files/ "DOM4J组件下载")也是XML的一个开源的操作组件包，主要用来读写XML文件，一些框架例如Hibernate和Spring都使用了DOM4J进行XML的解析。
+> [DOM4J](http://www.sourceforge.net/projects/dom4j/files/ "DOM4J组件下载")也是XML的一个开源的操作组件包，主要用来读写XML文件，一些框架例如Hibernate和Spring都使用了DOM4J进行XML的解析。
 
->>在导入包的过程中，还要导入lib\jaxen-1.1-beta-6.jar文件，否则执行时可能抛出java.lang.NoClassDefFoundError: org\jaxen\JaxenException 异常
+> 在导入包的过程中，还要导入lib\jaxen-1.1-beta-6.jar文件，否则执行时可能抛出java.lang.NoClassDefFoundError: org\jaxen\JaxenException 异常
 
 #### DOM4J输出XML文档代码
 
@@ -909,11 +910,11 @@ DOM分析器将整个XML文档转化成DOM树存放在内存中
 		}
 	}
 
->XML的解析操作工具非常多，如JAXP和STAX等，但是其核心从操作原理就是DOM和SAX，只要掌握住核心就可以了
+> XML的解析操作工具非常多，如JAXP和STAX等，但是其核心从操作原理就是DOM和SAX，只要掌握住核心就可以了
 
 ### 使用JavaScript操作DOM
 
->由于在HTML语言中，其本身采用了标记语言的方式，所以在HTML中通过JavaScript进行DOM操作，这样可以使页面运行更加绚丽、丰富。
+> 由于在HTML语言中，其本身采用了标记语言的方式，所以在HTML中通过JavaScript进行DOM操作，这样可以使页面运行更加绚丽、丰富。
 
 2015/8/3
 
@@ -1021,7 +1022,7 @@ DOM分析器将整个XML文档转化成DOM树存放在内存中
 		</body>
 	</html>
 
->以上的代码通过JavaScript完成，增加和删除的操作也可以通过DOM完成
+> 以上的代码通过JavaScript完成，增加和删除的操作也可以通过DOM完成
 
 	<!doctype html>
 	<html>
@@ -1124,15 +1125,15 @@ Tomcat服务器安装后，默认端口号是8080，可以通过Tomcat目录conf
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
 
->默认值为`index.html`可以修改为其他，如：`main.html`
+> 默认值为`index.html`可以修改为其他，如：`main.html`
 
 2015/8/4
 
 ### 编写第一个jsp文件
 
->jsp(Java Server page),jsp文件后缀必须为*.jsp,文件名的字母要求全部是小写
+> jsp(Java Server page),jsp文件后缀必须为*.jsp,文件名的字母要求全部是小写
 
->所谓的jsp程序代码开发指的是在HTML代码中嵌入大量的java代码而已
+> 所谓的jsp程序代码开发指的是在HTML代码中嵌入大量的java代码而已
 
 #### jsp文件执行过程
 
@@ -1172,5 +1173,4 @@ JSP文件(input.jsp)
 		</body>
 	</html>
 
->以上完成了一个简单的交互程序操作，可以通过表单与服务器进行交互，在JSP中服务器要想取得客户端输入的信息，需要使用`request.getParameter("info")`操作，
-其中`request`就是JSP提供的一个内置对象，而`getParameter()`方法接收的参数就是表单中文本框对应的名称。
+> 以上完成了一个简单的交互程序操作，可以通过表单与服务器进行交互，在JSP中服务器要想取得客户端输入的信息，需要使用`request.getParameter("info")`操作，其中`request`就是JSP提供的一个内置对象，而`getParameter()`方法接收的参数就是表单中文本框对应的名称。

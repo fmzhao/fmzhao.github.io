@@ -1,7 +1,8 @@
 ---
 layout: post
 title: 用户登录程序开发
-category: diary
+categories: 笔记 JavaEE
+tags: 登录界面 jdbc
 ---
 
 ### 完成登录界面需要的页面
@@ -162,4 +163,4 @@ category: diary
 		</body>
 	</html>
 
->jdbc链接mysql数据库，在显示中文时，出现乱码，目前还没有解决。
+> jdbc链接mysql数据库，在显示中文时，出现乱码，目前还没有解决。

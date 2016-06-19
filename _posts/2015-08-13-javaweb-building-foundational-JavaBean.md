@@ -1,7 +1,8 @@
 ---
 layout: post
 title: javaweb开发基础篇之JavaBean
-category: diary
+categories: 笔记 JavaEE
+tags: jsp JavaBean DAO
 ---
 
 ## 目录
@@ -14,13 +15,13 @@ category: diary
 
 	* [2.2 使用JSP的page指令导入所需要的JavaBean](#2.2)
 
-	* [2.3 使用`<jsp:useBean/>`指令](#2.3)
+	* [2.3 使用`<jsp:useBean/> `指令](#2.3)
 
 * [3 JavaBean与表单](#3)
 
-* [4 设置属性`<jsp:setProperty/>`](#4)
+* [4 设置属性`<jsp:setProperty/> `](#4)
 
-* [5 取得属性`<jsp:getProperty/>`](#5)
+* [5 取得属性`<jsp:getProperty/> `](#5)
 
 * [6 JavaBean的保存范围](#6)
 
@@ -48,7 +49,7 @@ category: diary
 
 ***
 
-<h2 id="1">1 JavaBean简介</h2>
+<h2 id="1"> 1 JavaBean简介</h2> 
 
 &emsp;&emsp;JavaBean是使用java语言开发的一个可重用组件，在JSP开发中可以使用JavaBean减少重复代码，使整个JSP代码开发更加简洁。
 
@@ -94,15 +95,15 @@ category: diary
 		}
 	}
 
-> 如果一个类中只包含了属性和 setter、getter，那么这种类就称为简单的JavaBean。类似的这种称呼有：POJO(Plain Ordinary Java Objects)，简单的java对象、VO(Value Object)，值对象、TO(Transfers Object)，传输对象
+>  如果一个类中只包含了属性和 setter、getter，那么这种类就称为简单的JavaBean。类似的这种称呼有：POJO(Plain Ordinary Java Objects)，简单的java对象、VO(Value Object)，值对象、TO(Transfers Object)，传输对象
 
 ***
 
 ***
 
-<h2 id="2">2 在JSP中使用JavaBean</h2>
+<h2 id="2"> 2 在JSP中使用JavaBean</h2> 
 
-<h3 id="2.1">2.1 web开发的标准目录结构</h3>
+<h3 id="2.1"> 2.1 web开发的标准目录结构</h3> 
 
 &emsp;&emsp;web开发的标准目录结构
 
@@ -147,115 +148,115 @@ category: diary
 		}
 	}
 
->在编译时，可以直接通过打包编译：`javac -d . -encoding utf-8 SimlpleBean.java`，这样可以直接将编译后的class文件放在定义的包中
+> 在编译时，可以直接通过打包编译：`javac -d . -encoding utf-8 SimlpleBean.java`，这样可以直接将编译后的class文件放在定义的包中
 
-<h3 id="2.2">2.2 使用JSP的page指令导入所需要的JavaBean</h3>
+<h3 id="2.2"> 2.2 使用JSP的page指令导入所需要的JavaBean</h3> 
 
 &emsp;&emsp;此种方法就相当于导入了相应的class文件的包
 
-	<%@ page contentType="text/html" pageEncoding="utf-8"%>
-	<%@ page import="cn.fmz.demo.*"%>
-	<!doctype html>
-	<html>
-		<head>
-			<meta charset="utf-8">
-			<title></title>
-		</head>
-		<body>
+	<%@ page contentType="text/html" pageEncoding="utf-8"%> 
+	<%@ page import="cn.fmz.demo.*"%> 
+	<!doctype html> 
+	<html> 
+		<head> 
+			<meta charset="utf-8"> 
+			<title> </title> 
+		</head> 
+		<body> 
 			<%
 				SimpleBean simple = new SimpleBean() ;
 				simple.setName("冯孟昭") ;
 				simple.setAge(25) ;
-			%>
-			<h3><%=simple%></h3>
-		</body>
-	</html>
+			%> 
+			<h3> <%=simple%> </h3> 
+		</body> 
+	</html> 
 
-<h3 id="2.3">2.3 使用<jsp:useBean/>指令</h3>
+<h3 id="2.3"> 2.3 使用<jsp:useBean/> 指令</h3> 
 
-&emsp;&emsp;除了import语句之外，还可以使用<jsp:useBean>JSP标签来完JSP对JavaBean的使用，代码格式如下：
+&emsp;&emsp;除了import语句之外，还可以使用<jsp:useBean> JSP标签来完JSP对JavaBean的使用，代码格式如下：
 
-`<jsp:useBean id="实例化对象的名称" scope="保存范围" class="包.类名称"/>`
+`<jsp:useBean id="实例化对象的名称" scope="保存范围" class="包.类名称"/> `
 
->scope一共有四种属性范围：page、request、session、application。
+> scope一共有四种属性范围：page、request、session、application。
 
-&emsp;&emsp;如果修改了JavaBean，则在编译之后，需要重新启动浏览器才能完成对新的JavaBean的加载，如果想要Tomcat服务器实时更新JavaBean的修改，需要修改Tomcat配置文件conf/server.xml：`<Context path="/fmz" docBase="D:\fmzwebDemo" reloadable="true"/>`
+&emsp;&emsp;如果修改了JavaBean，则在编译之后，需要重新启动浏览器才能完成对新的JavaBean的加载，如果想要Tomcat服务器实时更新JavaBean的修改，需要修改Tomcat配置文件conf/server.xml：`<Context path="/fmz" docBase="D:\fmzwebDemo" reloadable="true"/> `
 
->注意：当真正的项目运行的时候，一定要将reloadable设置为false，因为不断的加载会使系统运行的性能比较低；Tomcat重新加载新的内容后，所有的操作都将初始化，所有设置过的session属性都将消失。
+> 注意：当真正的项目运行的时候，一定要将reloadable设置为false，因为不断的加载会使系统运行的性能比较低；Tomcat重新加载新的内容后，所有的操作都将初始化，所有设置过的session属性都将消失。
 
-&emsp;&emsp;使用`<jsp:useBean/>`标签指令的时候，可以直接进行对象的实例化，在开发中带来了很多方便，其内部的实现原理是反射机制完成的，其中要求的 包.类名称 和 无参构造方法 都是反射机制的前提条件。
+&emsp;&emsp;使用`<jsp:useBean/> `标签指令的时候，可以直接进行对象的实例化，在开发中带来了很多方便，其内部的实现原理是反射机制完成的，其中要求的 包.类名称 和 无参构造方法 都是反射机制的前提条件。
 
-<h3 id="3">3 JavaBean与表单</h3>
+<h3 id="3"> 3 JavaBean与表单</h3> 
 
 &emsp;&emsp;在JavaBean语法中，实际上最大的特点就是与表单的交互上
 
 &emsp;&emsp;输入表单-input_bean.html
 
-	<!doctype html>
-	<html>
-		<head>
-			<meta charset="utf-8">
-			<title></title>
-		</head>
-		<body>
-			<form action="input_bean.jsp" method="post">
-				姓名：<input type="text" name="name"><br>
-				年龄：<input type="text" name="age"><br>
-				<input type="submit" value="提交">
-				<input type="reset" value="重置">
-			</form>
-		</body>
-	</html>
+	<!doctype html> 
+	<html> 
+		<head> 
+			<meta charset="utf-8"> 
+			<title> </title> 
+		</head> 
+		<body> 
+			<form action="input_bean.jsp" method="post"> 
+				姓名：<input type="text" name="name"> <br> 
+				年龄：<input type="text" name="age"> <br> 
+				<input type="submit" value="提交"> 
+				<input type="reset" value="重置"> 
+			</form> 
+		</body> 
+	</html> 
 
 &emsp;&emsp;JSP文件接收参数-input_bean.jsp
 
-	<%@ page contentType="text/html" pageEncoding="utf-8"%>
-	<%@ page import="cn.fmz.demo.*"%>
-	<!doctype html>
-	<html>
-		<head>
-			<meta charset="utf-8">
-			<title></title>
-		</head>
-		<body>
+	<%@ page contentType="text/html" pageEncoding="utf-8"%> 
+	<%@ page import="cn.fmz.demo.*"%> 
+	<!doctype html> 
+	<html> 
+		<head> 
+			<meta charset="utf-8"> 
+			<title> </title> 
+		</head> 
+		<body> 
 			<%
 				request.setCharacterEncoding("utf-8") ;
 				SimpleBean simple = new SimpleBean() ;
 				simple.setName(request.getParameter("name")) ;
 				simple.setAge(Integer.parseInt(request.getParameter("age"))) ;
-			%>
-			<h2><%=simple%></h2>
-		</body>
-	</html>
+			%> 
+			<h2> <%=simple%> </h2> 
+		</body> 
+	</html> 
 
->这样的方式，如果接收表单的参数过多的话，接收起来非常麻烦。
+> 这样的方式，如果接收表单的参数过多的话，接收起来非常麻烦。
 
 &emsp;&emsp;使用JavaBean标签来接受参数，编写JSP文件-input_bean01.jsp
 
-	<%@ page contentType="text/html" pageEncoding="utf-8"%>
-	<!doctype html>
-	<html>
-		<head>
-			<meta charset="utf-8">
-			<title></title>
-		</head>
-		<body>
+	<%@ page contentType="text/html" pageEncoding="utf-8"%> 
+	<!doctype html> 
+	<html> 
+		<head> 
+			<meta charset="utf-8"> 
+			<title> </title> 
+		</head> 
+		<body> 
 			<%
 				request.setCharacterEncoding("utf-8") ;
-			%>
-			<jsp:useBean id="simple" scope="page" class="cn.fmz.demo.SimpleBean"/>
-			<jsp:setProperty name="simple" property="*"/>
-			<h2><%=simple%></h2>
-		</body>
-	</html>
+			%> 
+			<jsp:useBean id="simple" scope="page" class="cn.fmz.demo.SimpleBean"/> 
+			<jsp:setProperty name="simple" property="*"/> 
+			<h2> <%=simple%> </h2> 
+		</body> 
+	</html> 
 
-&emsp;&emsp;`<jsp:setProperty name="javaBean对象" property="*"/>`，property表示要操作的属性值，*表示自动匹配(接收所有的参数)。此处的原理是：如果匹配成功，则会自动调用 setter 方法进行内容的设置。
-
-***
+&emsp;&emsp;`<jsp:setProperty name="javaBean对象" property="*"/> `，property表示要操作的属性值，*表示自动匹配(接收所有的参数)。此处的原理是：如果匹配成功，则会自动调用 setter 方法进行内容的设置。
 
 ***
 
-<h2 id="4">4 设置属性 jsp:setProperty</h2>
+***
+
+<h2 id="4"> 4 设置属性 jsp:setProperty</h2> 
 
 &emsp;&emsp;设置属性的操作
 
@@ -270,11 +271,11 @@ category: diary
 
 ***
 
-<h2 id="5">5 取得属性 jsp:getProperty</h2>
+<h2 id="5"> 5 取得属性 jsp:getProperty</h2> 
 
 &emsp;&emsp;取得属性格式：
 
-`<jsp:getProperty name="实例化对象名称" property="属性名称"/>`
+`<jsp:getProperty name="实例化对象名称" property="属性名称"/> `
 
 &emsp;&emsp;此标签取得属性的原理是：自动调用JavaBean中的 getter 方法。
 
@@ -282,9 +283,9 @@ category: diary
 
 ***
 
-<h2 id="6">6 JavaBean的保存范围</h2>
+<h2 id="6"> 6 JavaBean的保存范围</h2> 
 
-&emsp;&emsp;在`<jsp:useBean/>`标签的指令上存在一个scope属性，表示一个JavaBean的保存范围，共有四种保存范围：
+&emsp;&emsp;在`<jsp:useBean/> `标签的指令上存在一个scope属性，表示一个JavaBean的保存范围，共有四种保存范围：
 
 &emsp;&emsp;1. page：保存在一个页的范围之内，跳转后此JavaBean无效
 
@@ -298,7 +299,7 @@ category: diary
 
 ***
 
-<h2 id="7">7 删除JavaBean</h2>
+<h2 id="7"> 7 删除JavaBean</h2> 
 
 &emsp;&emsp;如果一个JavaBean不再使用，可以使用四个属性范围的方法进行删除：
 
@@ -314,7 +315,7 @@ category: diary
 
 ***
 
-<h2 id="8">8 实例操作：注册验证</h2>
+<h2 id="8"> 8 实例操作：注册验证</h2> 
 
 &emsp;&emsp;JavaBean文件-Register.java
 
@@ -325,13 +326,13 @@ category: diary
 		private String name ;
 		private String age ;
 		private String email ;
-		private Map<String,String> errors = null ;
+		private Map<String,String>  errors = null ;
 
 		public Register(){
 			this.name = "" ;
 			this.age = "" ;
 			this.email = "" ;
-			this.errors = new HashMap<String,String>() ;
+			this.errors = new HashMap<String,String> () ;
 		}
 
 		public boolean isValidate(){
@@ -379,110 +380,110 @@ category: diary
 		}
 
 		public String toString(){
-			return "姓名："+this.name+"<br>年龄："+this.age+"<br>E-mail："+this.email ;
+			return "姓名："+this.name+"<br> 年龄："+this.age+"<br> E-mail："+this.email ;
 		}
 	}
 
 &emsp;&emsp;表单文件-index.jsp
 
-	<%@ page contentType="text/html" pageEncoding="utf-8"%>
+	<%@ page contentType="text/html" pageEncoding="utf-8"%> 
 	<%
 		request.setCharacterEncoding("utf-8") ;
-	%>
-	<jsp:useBean id="reg" scope="request" class="cn.fmz.demo.Register"/>
+	%> 
+	<jsp:useBean id="reg" scope="request" class="cn.fmz.demo.Register"/> 
 
-	<!doctype html>
-	<html>
-		<head>
-			<meta charset="utf-8">
-			<title></title>
-		</head>
-		<body>
-			<form action="check.jsp" method="post">
-				姓名：<input type="text" name="name" value="<jsp:getProperty name="reg" property="name"/>">
-				<%=reg.getErrorMsg("errorname")%><br>
-				年龄：<input type="text" name="age" value="<jsp:getProperty name="reg" property="age"/>">
-				<%=reg.getErrorMsg("errorage")%><br>
-				邮箱：<input type="text" name="email" value="<jsp:getProperty name="reg" property="email"/>"><%-- 表单中加入value属性的作用是：当只有一个属性错误时，其他属性的内容能保持不变 --%>
-				<%=reg.getErrorMsg("erroremail")%><br>
-				<input type="submit" value="提交">
-				<input type="reset" value="重置">
-			</form>
-		</body>
-	</html>
+	<!doctype html> 
+	<html> 
+		<head> 
+			<meta charset="utf-8"> 
+			<title> </title> 
+		</head> 
+		<body> 
+			<form action="check.jsp" method="post"> 
+				姓名：<input type="text" name="name" value="<jsp:getProperty name="reg" property="name"/> "> 
+				<%=reg.getErrorMsg("errorname")%> <br> 
+				年龄：<input type="text" name="age" value="<jsp:getProperty name="reg" property="age"/> "> 
+				<%=reg.getErrorMsg("errorage")%> <br> 
+				邮箱：<input type="text" name="email" value="<jsp:getProperty name="reg" property="email"/> "> <%-- 表单中加入value属性的作用是：当只有一个属性错误时，其他属性的内容能保持不变 --%> 
+				<%=reg.getErrorMsg("erroremail")%> <br> 
+				<input type="submit" value="提交"> 
+				<input type="reset" value="重置"> 
+			</form> 
+		</body> 
+	</html> 
 
 &emsp;&emsp;检查页文件-check.jsp
 
-	<%@ page contentType="text/html" pageEncoding="utf-8"%>
+	<%@ page contentType="text/html" pageEncoding="utf-8"%> 
 	<%
 		request.setCharacterEncoding("utf-8") ;
-	%>
-	<jsp:useBean id="reg" scope="request" class="cn.fmz.demo.Register"/>
-	<jsp:setProperty name="reg" property="*"/>
+	%> 
+	<jsp:useBean id="reg" scope="request" class="cn.fmz.demo.Register"/> 
+	<jsp:setProperty name="reg" property="*"/> 
 
-	<!doctype html>
-	<html>
-		<head>
-			<meta charset="utf-8">
-			<title></title>
-		</head>
-		<body>
+	<!doctype html> 
+	<html> 
+		<head> 
+			<meta charset="utf-8"> 
+			<title> </title> 
+		</head> 
+		<body> 
 			<%
 				if(reg.isValidate()){
-			%>
-					<jsp:forward page="success.jsp"/>
+			%> 
+					<jsp:forward page="success.jsp"/> 
 			<%
 				}else{
-			%>
-					<jsp:forward page="index.jsp"/>
+			%> 
+					<jsp:forward page="index.jsp"/> 
 			<%
 					}
-			%>
-		</body>
-	</html>
+			%> 
+		</body> 
+	</html> 
 
 &emsp;&emsp;成功登陆文件-success.jsp
 
-	<%@ page contentType="text/html" pageEncoding="utf-8"%>
+	<%@ page contentType="text/html" pageEncoding="utf-8"%> 
 	<%
 		request.setCharacterEncoding("utf-8") ;
-	%>
-	<jsp:useBean id="reg" scope="request" class="cn.fmz.demo.Register"/>
+	%> 
+	<jsp:useBean id="reg" scope="request" class="cn.fmz.demo.Register"/> 
 
-	<!doctype html>
-	<html>
-		<head>
-			<meta charset="utf-8">
-			<title></title>
-		</head>
-		<body>
-		<center>
-			<h2>
+	<!doctype html> 
+	<html> 
+		<head> 
+			<meta charset="utf-8"> 
+			<title> </title> 
+		</head> 
+		<body> 
+		<center> 
+			<h2> 
 			<%--
-				姓名：<jsp:getProperty name="reg" property="name"/><br>
-				年龄：<jsp:getProperty name="reg" property="age"/><br>
-				E-mail：<jsp:getProperty name="reg" property="email"/><br>
-			--%>
-				<%=reg%>
-			</h2>
-		</center>
+				姓名：<jsp:getProperty name="reg" property="name"/> <br> 
+				年龄：<jsp:getProperty name="reg" property="age"/> <br> 
+				E-mail：<jsp:getProperty name="reg" property="email"/> <br> 
+			--%> 
+				<%=reg%> 
+			</h2> 
+		</center> 
 		
-		</body>
-	</html>
+		</body> 
+	</html> 
 
 ***
 
 ***
 
-<h2 id="9">9 DAO设计模式</h2>
+<h2 id="9"> 9 DAO设计模式</h2> 
 
 &emsp;&emsp;DAO(Data Access Object，数据访问对象)的主要功能是数据操作，在程序的标砖开发构架中属于数据层的操作。
 
-<h3 id="9.1">9.1 DAO设计模式简介</h3>
+<h3 id="9.1"> 9.1 DAO设计模式简介</h3> 
 
 &emsp;&emsp;程序的标准开发框架
 
-&emsp;&emsp;客户层(Client) --> 显示层(JSP/Servlet) --> 业务层(BO) --> 数据层(DAO) --> 资源层(DataBase)
+&emsp;&emsp;客户层(Client) -->  显示层(JSP/Servlet) -->  业务层(BO) -->  数据层(DAO) -->  资源层(DataBase)
 
 &emsp;&emsp;客户层：因为现在都使用B/S开发框架，所以一般使用浏览器进行访问。
 
@@ -520,11 +521,11 @@ category: diary
 
 &emsp;&emsp;工厂类：xxx.factory.DAOFactory。
 
-<h3 id="9.2">9.2 DAO开发</h3>
+<h3 id="9.2"> 9.2 DAO开发</h3> 
 
 &emsp;&emsp;DAO开发完全是围绕着数据操作进行的。
 
-<h4 id="9.2.1">9.2.1 VO类设计</h4>
+<h4 id="9.2.1"> 9.2.1 VO类设计</h4> 
 
 &emsp;&emsp;定义对应的VO类-Emp.java
 
@@ -573,13 +574,13 @@ category: diary
 		}
 	}
 
->每一个VO类的对象，表示表中的一条记录，包括属性和一系列 getter 和 setter 方法，注意：此处使用的日期格式是 java.util.Date 类。
+> 每一个VO类的对象，表示表中的一条记录，包括属性和一系列 getter 和 setter 方法，注意：此处使用的日期格式是 java.util.Date 类。
 
-<h4 id="9.2.2">9.2.2 数据库连接及数据库工厂模式设计</h4>
+<h4 id="9.2.2"> 9.2.2 数据库连接及数据库工厂模式设计</h4> 
 
 &emsp;&emsp;定义数据库连接
 
->数据库为了实现在不同的数据库下都能连接成功，需要创建接口和工厂模式进行取得。
+> 数据库为了实现在不同的数据库下都能连接成功，需要创建接口和工厂模式进行取得。
 
 &emsp;&emsp;1. 定义数据库接口-IDatabaseConnection.java
 
@@ -673,9 +674,9 @@ category: diary
 		}
 	}
 
->数据库连接工厂管理器里面定义了工厂方法：`getDatabaseConnectionFactory(String DB)`，通过此方法可以取得不同数据库的连接，当参数输入不正确时会抛出异常。
+> 数据库连接工厂管理器里面定义了工厂方法：`getDatabaseConnectionFactory(String DB)`，通过此方法可以取得不同数据库的连接，当参数输入不正确时会抛出异常。
 
->注意：放回的类型的接口的类型，这是java程序设计语言对象多态性的设计模式。
+> 注意：放回的类型的接口的类型，这是java程序设计语言对象多态性的设计模式。
 
 &emsp;&emsp;4. 数据库连接错误异常抛出类-ErrorSQLConnectionException.java
 
@@ -689,7 +690,7 @@ category: diary
 
 &emsp;&emsp;通过以上4个接口和类，可以取得不同的数据库连接：`DatabaseConnectionFactoryManager.getDatabaseConnectionFactory("mysql")`方法会返回一个`new MySQLDatabaseConnection() ;`，放回类型为：`IDatabaseConnection`，通过自动向上转型完成子类对父类接口的实例化，体现出了JAVA语言的对象的多态性。
 
-<h4 id="9.2.3">9.2.3 DAO设计模式</h4>
+<h4 id="9.2.3"> 9.2.3 DAO设计模式</h4> 
 
 &emsp;&emsp;在DAO设计模式中，最重要的就是定义DAO接口，在进行DAO接口定义之前必须对业务进行详细的分析，要清楚知道一张表在一个系统之中应该具备何种功能。
 
@@ -716,11 +717,11 @@ category: diary
 		  * @return 返回全都的查询结果，每一个Emp对象表示表的一行记录
 		  * @throws Exception 有异常交给别调用处处理
 		  */
-		public List<Emp> findAll(String keyWord)throws Exception ;
+		public List<Emp>  findAll(String keyWord)throws Exception ;
 
 		/**
 		  * 根据雇员标号查询雇员信息，
-		  * @List<Emp>(retutn type) 返回多条查询结果
+		  * @List<Emp> (retutn type) 返回多条查询结果
 		  * @param empno 雇员编号
 		  * @return 雇员的VO对象
 		  * @throws Exception 有异常交给别调用处处理
@@ -764,15 +765,15 @@ category: diary
 			this.pstmt.setString(3,emp.getJob()) ;
 			this.pstmt.setDate(4,new java.sql.Date(emp.getHiredate().getTime())) ;
 			this.pstmt.setFloat(5,emp.getSal()) ;
-			if(this.pstmt.executeUpdate() > 0){
+			if(this.pstmt.executeUpdate() >  0){
 				flag = true ;
 			}
 			this.pstmt.close() ;
 			return flag ;
 		}
 
-		public List<Emp> findAll(String keyWord)throws Exception{
-			List<Emp> list = new ArrayList<Emp>() ;
+		public List<Emp>  findAll(String keyWord)throws Exception{
+			List<Emp>  list = new ArrayList<Emp> () ;
 			String sql = "SELECT empno,ename,job,hiredate,sal FROM emp WHERE ename LIKE ? OR job LIKE ?" ;
 			this.pstmt = this.conn.prepareStatement(sql) ;
 			this.pstmt.setString(1,"%"+keyWord+"%") ;//百分号是模糊查询的作用
@@ -851,8 +852,8 @@ category: diary
 			return flag ;
 		}
 
-		public List<Emp> findAll(String keyWord)throws Exception{
-			List<Emp> list = null ;
+		public List<Emp>  findAll(String keyWord)throws Exception{
+			List<Emp>  list = null ;
 			try{
 				list = this.dao.findAll(keyWord) ;
 			}catch(Exception e){
@@ -888,13 +889,13 @@ category: diary
 		}
 	}
 
->可以发现：在代理类的构造方法中实例化了数据库连接类的对象以及真实主题的实现类，而在代理类的各个方法中知识调用了真实主题类的相应方法。
+> 可以发现：在代理类的构造方法中实例化了数据库连接类的对象以及真实主题的实现类，而在代理类的各个方法中知识调用了真实主题类的相应方法。
 
->可以在代理类中加入事务控制。
+> 可以在代理类中加入事务控制。
 
->在这里之所以要加入代理类，主要是为以后进行更复杂的业务准备的，这样可以有效的避免程序的耦合度过高的问题，在简单的代码中作用并不明显。
+> 在这里之所以要加入代理类，主要是为以后进行更复杂的业务准备的，这样可以有效的避免程序的耦合度过高的问题，在简单的代码中作用并不明显。
 
->>如果一个程序可以由A-->B，那么中间最好加一个过渡，使用A-->C-->B的形式，目的是避免程序的耦合度过高。
+> > 如果一个程序可以由A--> B，那么中间最好加一个过渡，使用A--> C--> B的形式，目的是避免程序的耦合度过高。
 
 &emsp;&emsp;4. DAO工厂类-DAOFactory.java
 
@@ -909,9 +910,9 @@ category: diary
 		}
 	}
 
->注意：返回对象为中间代理类(中间代理类实例化了具体实现类的对象，并且具有对应的处理-此处为数据库的关闭操作)，返回类型为接口类，通过自动向上转型体现Java程序设计语言的对象多态性。
+> 注意：返回对象为中间代理类(中间代理类实例化了具体实现类的对象，并且具有对应的处理-此处为数据库的关闭操作)，返回类型为接口类，通过自动向上转型体现Java程序设计语言的对象多态性。
 
-<h4 id="9.2.4">9.2.4 测试类</h4>
+<h4 id="9.2.4"> 9.2.4 测试类</h4> 
 
 &emsp;&emsp;1. TestDAOInset.java
 
@@ -955,10 +956,10 @@ category: diary
 
 	public class TestDAOFindAll{
 		public static void main(String args[])throws Exception{
-			List<Emp> list = null ;
+			List<Emp>  list = null ;
 			list = DAOFactory.getIEmpDAOInstance().findAll("冯孟昭") ;
 
-			Iterator<Emp> itr = list.iterator() ;
+			Iterator<Emp>  itr = list.iterator() ;
 			while(itr.hasNext()){
 				System.out.println(itr.next()) ;
 			}
@@ -981,44 +982,44 @@ category: diary
 		}
 	}
 
-<h3 id="9.3">9.3 JSP调用DAO</h3>
+<h3 id="9.3"> 9.3 JSP调用DAO</h3> 
 
 &emsp;&emsp;1. 增加雇员-emp_insert.jsp、emp_insert_do.jsp
 
-	<%@ page contentType="text/html" pageEncoding="utf-8"%>
+	<%@ page contentType="text/html" pageEncoding="utf-8"%> 
 
-	<!doctype html>
-	<html>
-		<head>
-			<meta charset="utf-8">
-			<title></title>
-		</head>
-		<body>
-			<form action="emp_insert_do.jsp" method="post">
-				雇员编号：<input type="text" name="empno"><br>
-				雇员姓名：<input type="text" name="ename"><br>
-				雇员工作：<input type="text" name="job"><br>
-				雇用日期：<input type="text" name="hiredate"><br>
-				雇员工资：<input type="text" name="sal"><br>
-				<input type="submit" value="提交">
-				<input type="reset" value="重置">
-			</form>
-		</body>
-	</html>
+	<!doctype html> 
+	<html> 
+		<head> 
+			<meta charset="utf-8"> 
+			<title> </title> 
+		</head> 
+		<body> 
+			<form action="emp_insert_do.jsp" method="post"> 
+				雇员编号：<input type="text" name="empno"> <br> 
+				雇员姓名：<input type="text" name="ename"> <br> 
+				雇员工作：<input type="text" name="job"> <br> 
+				雇用日期：<input type="text" name="hiredate"> <br> 
+				雇员工资：<input type="text" name="sal"> <br> 
+				<input type="submit" value="提交"> 
+				<input type="reset" value="重置"> 
+			</form> 
+		</body> 
+	</html> 
 
->表单jsp文件
+> 表单jsp文件
 
-	<%@ page contentType="text/html" pageEncoding="utf-8"%>
-	<%@ page import="cn.fmz.factory.*,cn.fmz.vo.*"%>
-	<%@ page import="java.text.*"%>
+	<%@ page contentType="text/html" pageEncoding="utf-8"%> 
+	<%@ page import="cn.fmz.factory.*,cn.fmz.vo.*"%> 
+	<%@ page import="java.text.*"%> 
 
-	<!doctype html>
-	<html>
-		<head>
-			<meta charset="utf-8">
-			<title></title>
-		</head>
-		<body>
+	<!doctype html> 
+	<html> 
+		<head> 
+			<meta charset="utf-8"> 
+			<title> </title> 
+		</head> 
+		<body> 
 			<%
 				request.setCharacterEncoding("utf-8") ;
 				Emp emp = new Emp() ;
@@ -1029,37 +1030,37 @@ category: diary
 				emp.setSal(Float.parseFloat(request.getParameter("sal"))) ;
 				try{
 					if(DAOFactory.getIEmpDAOInstance().doCreate(emp)){
-			%>
-						<h3>雇员信息添加成功！</h3>
+			%> 
+						<h3> 雇员信息添加成功！</h3> 
 			<%
 					}else{
-			%>
-						<h3>雇员信息添加失败！</h3>
+			%> 
+						<h3> 雇员信息添加失败！</h3> 
 			<%
 				}
 			}catch(Exception e){
 				e.printStackTrace() ;
 			}
-			%>
-		</body>
-	</html>
+			%> 
+		</body> 
+	</html> 
 
->信息添加文件
+> 信息添加文件
 
->注意：日期的格式要从字符串转换为java.util.Date，转变方法为`new SimpleDateFormat("yyy-MM-dd").parse(request.getParameter("hiredate"))`
+> 注意：日期的格式要从字符串转换为java.util.Date，转变方法为`new SimpleDateFormat("yyy-MM-dd").parse(request.getParameter("hiredate"))`
 
 &emsp;&emsp;2. 雇员信息模糊查询-emp_list_FuzzyQuery.jsp
 
-	<%@ page contentType="text/html" pageEncoding="utf-8"%>
-	<%@ page import="cn.fmz.vo.*,cn.fmz.factory.*"%>
-	<%@ page import="java.util.*"%>
-	<!doctype html>
-	<html>
-		<head>
-			<meta charset="utf-8">
-			<title></title>
-		</head>
-		<body>
+	<%@ page contentType="text/html" pageEncoding="utf-8"%> 
+	<%@ page import="cn.fmz.vo.*,cn.fmz.factory.*"%> 
+	<%@ page import="java.util.*"%> 
+	<!doctype html> 
+	<html> 
+		<head> 
+			<meta charset="utf-8"> 
+			<title> </title> 
+		</head> 
+		<body> 
 			<%
 				request.setCharacterEncoding("utf-8") ;
 
@@ -1068,60 +1069,60 @@ category: diary
 					if(keyWord == null){
 						keyWord = "" ;
 					}
-					List<Emp> all = DAOFactory.getIEmpDAOInstance().findAll(keyWord) ; 
-			%>
-				<center>
-					<form action="emp_list_FuzzyQuery.jsp" method="post">
-						请输入雇员姓名或者雇员工作：<input type="text" name="kw">
-						<input type="submit" value="提交">
-					</form>
-					<table border="1" width="80%">
-						<tr>
-							<td>雇员编号</td>
-							<td>雇员姓名</td>
-							<td>雇员工作</td>
-							<td>雇用日期</td>
-							<td>雇员工资</td>
-						</tr>
+					List<Emp>  all = DAOFactory.getIEmpDAOInstance().findAll(keyWord) ; 
+			%> 
+				<center> 
+					<form action="emp_list_FuzzyQuery.jsp" method="post"> 
+						请输入雇员姓名或者雇员工作：<input type="text" name="kw"> 
+						<input type="submit" value="提交"> 
+					</form> 
+					<table border="1" width="80%"> 
+						<tr> 
+							<td> 雇员编号</td> 
+							<td> 雇员姓名</td> 
+							<td> 雇员工作</td> 
+							<td> 雇用日期</td> 
+							<td> 雇员工资</td> 
+						</tr> 
 			<%
-					Iterator<Emp> itr = all.iterator() ;
+					Iterator<Emp>  itr = all.iterator() ;
 					while(itr.hasNext()){
 						Emp emp = itr.next() ;
-			%>
-						<tr>
-							<td><%=emp.getEmpno()%></td>
-							<td><%=emp.getEname()%></td>
-							<td><%=emp.getJob()%></td>
-							<td><%=emp.getHiredate()%></td>
-							<td><%=emp.getSal()%></td>
-						</tr>
+			%> 
+						<tr> 
+							<td> <%=emp.getEmpno()%> </td> 
+							<td> <%=emp.getEname()%> </td> 
+							<td> <%=emp.getJob()%> </td> 
+							<td> <%=emp.getHiredate()%> </td> 
+							<td> <%=emp.getSal()%> </td> 
+						</tr> 
 			<%
 					}
-			%>
-					</table>
-				</center>
+			%> 
+					</table> 
+				</center> 
 			<%
 				}catch(Exception e){
 					throw e ;
 				}
-			%>
-		</body>
-	</html>
+			%> 
+		</body> 
+	</html> 
 
->注意：`字符串 == null 和字符串 == ""`的区别，在jsp文件中经常会报错！
+> 注意：`字符串 == null 和字符串 == ""`的区别，在jsp文件中经常会报错！
 
 &emsp;&emsp;3. 根据雇员编号查询-emp_list_QueryFindById.jsp
 
-	<%@ page contentType="text/html" pageEncoding="utf-8"%>
-	<%@ page import="cn.fmz.vo.*,cn.fmz.factory.*,cn.fmz.custom.string.*"%>
-	<%@ page import="java.util.*"%>
-	<!doctype html>
-	<html>
-		<head>
-			<meta charset="utf-8">
-			<title></title>
-		</head>
-		<body>
+	<%@ page contentType="text/html" pageEncoding="utf-8"%> 
+	<%@ page import="cn.fmz.vo.*,cn.fmz.factory.*,cn.fmz.custom.string.*"%> 
+	<%@ page import="java.util.*"%> 
+	<!doctype html> 
+	<html> 
+		<head> 
+			<meta charset="utf-8"> 
+			<title> </title> 
+		</head> 
+		<body> 
 			<%
 				request.setCharacterEncoding("utf-8") ;
 
@@ -1135,7 +1136,7 @@ category: diary
 
 					int id ;
 					id = Integer.parseInt(empno) ;
-					List<Emp> list = new ArrayList<Emp>() ;
+					List<Emp>  list = new ArrayList<Emp> () ;
 					if(id == -1){
 						list = DAOFactory.getIEmpDAOInstance().findAll("") ; 
 					}else{
@@ -1146,45 +1147,45 @@ category: diary
 							errorMsg = "查询结果不存在！" ;
 						}
 					}
-			%>
-				<center>
-					<form action="emp_list_QueryById.jsp" method="post">
-						请输入雇员编号：<input type="text" name="empno">
-						<input type="submit" value="提交">&nbsp;<%=errorMsg%>
-					</form>
-					<table border="1" width="80%">
-						<tr>
-							<td>雇员编号</td>
-							<td>雇员姓名</td>
-							<td>雇员工作</td>
-							<td>雇用日期</td>
-							<td>雇员工资</td>
-						</tr>
+			%> 
+				<center> 
+					<form action="emp_list_QueryById.jsp" method="post"> 
+						请输入雇员编号：<input type="text" name="empno"> 
+						<input type="submit" value="提交"> &nbsp;<%=errorMsg%> 
+					</form> 
+					<table border="1" width="80%"> 
+						<tr> 
+							<td> 雇员编号</td> 
+							<td> 雇员姓名</td> 
+							<td> 雇员工作</td> 
+							<td> 雇用日期</td> 
+							<td> 雇员工资</td> 
+						</tr> 
 			<%
-					Iterator<Emp> itr = list.iterator() ;
+					Iterator<Emp>  itr = list.iterator() ;
 					while(itr.hasNext()){
 						Emp emp = itr.next() ;
-			%>
-						<tr>
-							<td><%=emp.getEmpno()%></td>
-							<td><%=emp.getEname()%></td>
-							<td><%=emp.getJob()%></td>
-							<td><%=emp.getHiredate()%></td>
-							<td><%=emp.getSal()%></td>
-						</tr>
+			%> 
+						<tr> 
+							<td> <%=emp.getEmpno()%> </td> 
+							<td> <%=emp.getEname()%> </td> 
+							<td> <%=emp.getJob()%> </td> 
+							<td> <%=emp.getHiredate()%> </td> 
+							<td> <%=emp.getSal()%> </td> 
+						</tr> 
 			<%	
 					}
-			%>
-					</table>
-				</center>
+			%> 
+					</table> 
+				</center> 
 			<%
 					}catch(Exception e){
 						throw e ;
 					}
-			%>
+			%> 
 
-		</body>
-	</html>
+		</body> 
+	</html> 
 
 ***
 
