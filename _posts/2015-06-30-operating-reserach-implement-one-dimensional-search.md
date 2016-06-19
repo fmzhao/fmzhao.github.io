@@ -1,9 +1,10 @@
 ---
 layout: post
 title: 运筹学之单峰函数一维搜索算法
-category: java
+categories: 技术 Java 算法
+tags: 运筹学 一维搜索 斐波那契 黄金分割
 ---
-###斐波那契（Fibonacci）一维搜索算法
+### 斐波那契（Fibonacci）一维搜索算法
 
 	import java.text.*;
 	public class FibonacciOneDimensionalSearch {
@@ -93,7 +94,7 @@ category: java
 		}
 	}
 
-###黄金分割一维搜索算法
+### 黄金分割一维搜索算法
 
 	import java.text.*;
 	public class GoldenOneDimensionalSearch {

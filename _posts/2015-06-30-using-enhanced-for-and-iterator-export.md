@@ -1,7 +1,8 @@
 ---
 layout: post
 title: 用增强的for循环和Iterator输出
-category: java
+categories: 技术 Java
+tags: 增强for循环 Iterator
 ---
 
 	import java.util.*;
@@ -33,7 +34,7 @@ category: java
 		}
 	}
 
-###使用泛型`<>`增强的for循环和Iterator输出
+### 使用泛型`<>`增强的for循环和Iterator输出
 
 	import java.util.*;
 

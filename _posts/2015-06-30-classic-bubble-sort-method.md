@@ -1,7 +1,8 @@
 ---
 layout: post
 title: 经典的冒泡排序算法
-category: java
+categories: 技术 Java
+tags: 冒泡排序
 ---
 
 	public class LianXi6 {//经典冒泡排序法！！！

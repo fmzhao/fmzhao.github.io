@@ -1,7 +1,8 @@
 ---
 layout: post
-title: 数据结构之java基于数组对普通数组的实现
-category: java
+title: 数据结构之java基于数组对Vector的实现
+categories: 技术 Java
+tags: 数据结构 Vector
 ---
 
 	class MyVector{

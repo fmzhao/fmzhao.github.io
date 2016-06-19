@@ -1,7 +1,8 @@
 ---
 layout: post
 title: 数据结构之二叉树前中后序遍历算法
-category: java
+categories: 技术 Java
+tags: 数据结构 BinaryTree 遍历二叉树
 ---
 
 	class BinaryTrees{

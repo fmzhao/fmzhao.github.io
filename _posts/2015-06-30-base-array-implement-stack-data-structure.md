@@ -1,7 +1,8 @@
 ---
 layout: post
-title: 数据结构之java基于数组对栈的实现
-category: java
+title: 数据结构之java基于数组对Stack的实现
+categories 技术 Java
+tags: 数据结构 Stack
 ---
 
 	class MyStack{

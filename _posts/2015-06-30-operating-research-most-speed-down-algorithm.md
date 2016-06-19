@@ -1,7 +1,8 @@
 ---
 layout: post
 title: 运筹学之最速下降算法
-category: java
+categories: 技术 Java 算法
+tags: 运筹学 最速下降
 ---
 
 	class MultiArray{

@@ -1,10 +1,11 @@
 ---
 layout: post
 title: 数据结构之java对二叉树的实现
-category: java
+categories: 技术 Java
+tags: 数据结构 BinaryTree 
 ---
 
-###无内部类的java二叉树实现
+### 无内部类的java二叉树实现
 
 	class OnlyNode{
 		public String element ;
@@ -67,7 +68,7 @@ category: java
 		}
 	}
 
-###有内部类的java二叉树实现
+### 有内部类的java二叉树实现
 
 	class BinaryTreeNode{
 		class Node{

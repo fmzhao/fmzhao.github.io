@@ -1,7 +1,8 @@
 ---
 layout: post
 title: 数据结构之java队列实现
-category: java
+categories: 技术 Java
+tags: 数据结构 Queue
 ---
 
 	class MyQueue{

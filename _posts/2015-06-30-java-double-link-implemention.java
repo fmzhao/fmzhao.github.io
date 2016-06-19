@@ -1,7 +1,8 @@
 ---
 layout: post
 title: 数据结构之java双链表实现
-category: java
+categories: 技术 Java
+tags: 数据结构 双链表
 ---
 
 	class Node{

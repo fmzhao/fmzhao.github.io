@@ -1,9 +1,10 @@
 ---
 layout: post
 title: 简单的递归求最大数的方法
-category: java
+categories: 技术 Java
+tags: 递归 迭代
 ---
->1. 递归真是一个神奇的东西！！！
+1. 递归真是一个神奇的东西！！！
 2. 自己的理解：递归其实是一种内循环（迭代）！！！
 
 	public class RecursiveMax {

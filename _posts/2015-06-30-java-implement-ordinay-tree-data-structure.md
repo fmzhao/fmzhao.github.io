@@ -1,7 +1,8 @@
 ---
 layout: post
 title: 数据结构之普通树状结构实现
-category: java
+categories: 技术 Java
+tags: 数据结构 树
 ---
 
 	class Tree{

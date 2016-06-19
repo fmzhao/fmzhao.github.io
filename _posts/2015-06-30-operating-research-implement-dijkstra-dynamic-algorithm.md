@@ -1,7 +1,8 @@
 ---
 layout: post
 title: 运筹学之Dijkstra动态规划算法
-category: java
+categories: 技术 Java 算法
+tags: 运筹学 Dijkstra 动态规划
 ---
 
 	import java.util.*;
@@ -150,4 +151,4 @@ category: java
 				System.out.println("Path:"+path) ;
 			}
 		}
-    	}
+    }
