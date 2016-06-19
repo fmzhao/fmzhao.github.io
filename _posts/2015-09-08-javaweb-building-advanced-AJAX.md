@@ -1,7 +1,8 @@
 ---
 layout: post
 title: javaweb开发高级篇之AJAX技术
-category: diary
+categories: JavaEE 笔记 
+tags: AJAX 异步
 ---
 
 ## 目录
@@ -20,23 +21,23 @@ category: diary
 
 ***
 
-<h2 id="1">1 AJAX技术简介</h2>
+<h2 id="1"> 1 AJAX技术简介</h2> 
 
 &emsp;&emsp;AJAX(Asynchronous JavaScript and XML，异步JavaScript和XML)主要的目的是用于页面的局部刷新
 ***
 
 ***
 
-<h2 id="2">2 XMLHttpRequest对象</h2>
+<h2 id="2"> 2 XMLHttpRequest对象</h2> 
 
 &emsp;&emsp;创建XMLHttpRequest对象-create_ajax.html
 
-	<!doctype html>
-	<html>
-		<head>
-			<meta charset="utf-8">
-			<title></title>
-			<script language="javaScript">
+	<!doctype html> 
+	<html> 
+		<head> 
+			<meta charset="utf-8"> 
+			<title> </title> 
+			<script language="javaScript"> 
 				var xmlHttp ;//AJAX核心对象名称
 				function creatXMLHttp(){//创建XMLHttpRequest核心对象
 					if(window.XMLHttpRequest){//判断当前使用的浏览器类型
@@ -45,18 +46,18 @@ category: diary
 						xmlHttp = new ActiveXObject("Microsoft.XMLHTTP") ;
 					}
 				}
-			</script>
-		</head>
-		<body>
+			</script> 
+		</head> 
+		<body> 
 			
-		</body>
-	</html>
+		</body> 
+	</html> 
 
 ***
 
 ***
 
-<h2 id="3">3 第一个AJAX程序</h2>
+<h2 id="3"> 3 第一个AJAX程序</h2> 
 
 &emsp;&emsp;返回数据页面-content.html
 
@@ -64,12 +65,12 @@ category: diary
 
 &emsp;&emsp;使用异步处理-ajax_receive_content.html
 
-	<!doctype html>
-	<html>
-		<head>
-			<meta charset="utf-8">
-			<title></title>
-			<script language="javaScript">
+	<!doctype html> 
+	<html> 
+		<head> 
+			<meta charset="utf-8"> 
+			<title> </title> 
+			<script language="javaScript"> 
 				var xmlHttp ;//AJAX核心对象名称
 				function creatXMLHttp(){//创建XMLHttpRequest核心对象
 					if(window.XMLHttpRequest){//判断当前使用的浏览器类型
@@ -96,28 +97,28 @@ category: diary
 						}
 					}
 				}
-			</script>
-		</head>
-		<body>
-			<input type="button" onclick="showMsg()" value="调用AJAX显示内容">
-			<span id="msg"></span>
-		</body>
-	</html>
+			</script> 
+		</head> 
+		<body> 
+			<input type="button" onclick="showMsg()" value="调用AJAX显示内容"> 
+			<span id="msg"> </span> 
+		</body> 
+	</html> 
 
 ***
 
 ***
 
-<h2 id="4">4 异步验证</h2>
+<h2 id="4"> 4 异步验证</h2> 
 
 &emsp;&emsp;编写注册表表单-register.html
 
-	<!doctype html>
-	<html>
-		<head>
-			<meta charset="utf-8">
-			<title></title>
-			<script language="javaScript">
+	<!doctype html> 
+	<html> 
+		<head> 
+			<meta charset="utf-8"> 
+			<title> </title> 
+			<script language="javaScript"> 
 				var xmlHttp ;
 				var flag ;
 				function creatXMLHttp(){
@@ -151,18 +152,18 @@ category: diary
 				function checkForm(){
 					return flag ;
 				}
-			</script>
-		</head>
-		<body>
-			<form action="register.jsp" method="post" onsubmit="return checkForm()">
-				用户ID：<input type="text" name="userid" onblur="checkUserid(this.value)"><span id="msg"></span><br>
-				姓&nbsp;名：<input type="text" name="uname"><br>
-				密&nbsp;码：<input type="password" name="upass"><br>
-				<input type="submit" value="注册">
-				<input type="reset" value="重置">
-			</form>
-		</body>
-	</html>
+			</script> 
+		</head> 
+		<body> 
+			<form action="register.jsp" method="post" onsubmit="return checkForm()"> 
+				用户ID：<input type="text" name="userid" onblur="checkUserid(this.value)"> <span id="msg"> </span> <br> 
+				姓&nbsp;名：<input type="text" name="uname"> <br> 
+				密&nbsp;码：<input type="password" name="upass"> <br> 
+				<input type="submit" value="注册"> 
+				<input type="reset" value="重置"> 
+			</form> 
+		</body> 
+	</html> 
 
 &emsp;&emsp;验证用户名是否存在Servlet程序-CheckServlet.java
 
@@ -194,7 +195,7 @@ category: diary
 				pstmt.setString(1,userid) ;
 				rs = pstmt.executeQuery() ;
 				if(rs.next()){
-					if(rs.getInt(1) > 0){
+					if(rs.getInt(1) >  0){
 						out.print("true") ;
 					}else{
 						out.print("false") ;
@@ -222,34 +223,34 @@ category: diary
 
 ***
 
-<h2 id="5">5 返回xml数据</h2>
+<h2 id="5"> 5 返回xml数据</h2> 
 
 &emsp;&emsp;xml文件-allarea.xml
 
-	<?xml version="1.0" encoding="utf-8"?>
-	<allarea>
-		<area>
-			<id>1</id>
-			<title>北京</title>
-		</area>
-		<area>
-			<id>2</id>
-			<title>上海</title>
-		</area>
-		<area>
-			<id>3</id>
-			<title>广州</title>
-		</area>
-	</allarea>
+	<?xml version="1.0" encoding="utf-8"?> 
+	<allarea> 
+		<area> 
+			<id> 1</id> 
+			<title> 北京</title> 
+		</area> 
+		<area> 
+			<id> 2</id> 
+			<title> 上海</title> 
+		</area> 
+		<area> 
+			<id> 3</id> 
+			<title> 广州</title> 
+		</area> 
+	</allarea> 
 
 &emsp;&emsp;使用AJAX解析，并生成下拉列表框-ajax_select.html
 
-	<!doctype html>
-	<html>
-		<head>
-			<meta charset="utf-8">
-			<title></title>
-			<script language="javaScript">
+	<!doctype html> 
+	<html> 
+		<head> 
+			<meta charset="utf-8"> 
+			<title> </title> 
+			<script language="javaScript"> 
 				var xmlHttp ;
 				function createXMLHttp(){
 					if(window.XMLHttpRequest){
@@ -274,7 +275,7 @@ category: diary
 							for(var i=0;i < allarea.length;i++){
 								var area = allarea[i] ;
 								var option = document.createElement("option") ;//创建option元素
-								var id = area.getElementsByTagName("id")[0].firstChild.nodeValue ;//取得每一个<area>中的id元素
+								var id = area.getElementsByTagName("id")[0].firstChild.nodeValue ;//取得每一个<area> 中的id元素
 								var title = area.getElementsByTagName("title")[0].firstChild.nodeValue ;
 								option.setAttribute("value",id) ;//在option元素中设置显示内容
 								option.appendChild(document.createTextNode(title)) ;
@@ -283,19 +284,19 @@ category: diary
 						}
 					}
 				}
-			</script>
-		</head>
-		<body onLoad="getCity()">
-			<form action="" method="post">
+			</script> 
+		</head> 
+		<body onLoad="getCity()"> 
+			<form action="" method="post"> 
 				请选择喜欢的城市：
-				<select name="city">
-					<option value="0">=====请选择城市=====</option>
-				</select>
-			</form>
-		</body>
-	</html>
+				<select name="city"> 
+					<option value="0"> =====请选择城市=====</option> 
+				</select> 
+			</form> 
+		</body> 
+	</html> 
 
->解析文件没有成功！！！
+> 解析文件没有成功！！！
 
 &emsp;&emsp;利用dom解析，Servlet程序-CityServlet.java
 
@@ -351,12 +352,12 @@ category: diary
 
 &emsp;&emsp;调用Servlet程序，生成下拉列表框-ajax_select_servlet.html
 
-	<!doctype html>
-	<html>
-		<head>
-			<meta charset="utf-8">
-			<title></title>
-			<script language="JavaScript">
+	<!doctype html> 
+	<html> 
+		<head> 
+			<meta charset="utf-8"> 
+			<title> </title> 
+			<script language="JavaScript"> 
 				var xmlHttp ;
 				function createXMLHttp(){
 					if(window.XMLHttpRequest){
@@ -381,7 +382,7 @@ category: diary
 							for(var i=0;i < allarea.length;i++){
 								var area = allarea[i] ;
 								var option = document.createElement("option") ;//创建option元素
-								var id = area.getElementsByTagName("id")[0].firstChild.nodeValue ;//取得每一个<area>中的id元素
+								var id = area.getElementsByTagName("id")[0].firstChild.nodeValue ;//取得每一个<area> 中的id元素
 								var title = area.getElementsByTagName("title")[0].firstChild.nodeValue ;
 								option.setAttribute("value",id) ;//在option元素中设置显示内容
 								option.appendChild(document.createTextNode(title)) ;
@@ -390,19 +391,19 @@ category: diary
 						}
 					}
 				}
-			</script>
-		</head>
-		<body onLoad="getCity()">
-			<form action="" method="post">
+			</script> 
+		</head> 
+		<body onLoad="getCity()"> 
+			<form action="" method="post"> 
 				请选择喜欢的城市：
-				<select name="city">
-					<option value="0">=====请选择城市=====</option>
-				</select>
-			</form>
-		</body>
-	</html>
+				<select name="city"> 
+					<option value="0"> =====请选择城市=====</option> 
+				</select> 
+			</form> 
+		</body> 
+	</html> 
 
->解析文件没有成功！！！
+> 解析文件没有成功！！！
 
 ***
 
