@@ -1,7 +1,8 @@
 ---
 layout: post
-title: Awsome Language Syntax
-category: java
+title: 令人吃惊的java语法
+categories: Java
+tags: for-each object-oriented
 ---
 
 ### Use for-each syntax to output two-dimensional array

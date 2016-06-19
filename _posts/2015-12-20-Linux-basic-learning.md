@@ -1,7 +1,8 @@
 ---
 layout: post
 title: Linux basic leaning
-category: diary
+categories: 技术 OS 笔记
+tags: linux 域名解析 网卡配置 alternatives
 ---
 
 ***

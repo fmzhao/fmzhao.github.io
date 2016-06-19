@@ -1,7 +1,8 @@
 ---
 layout: post
 title: Data Mining Overiew
-category: diary
+categories: 笔记 数据挖掘
+tags: 分类 预测
 ---
 
 ### 数据挖掘的过程

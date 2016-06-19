@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 炒菜
+title: 家常食谱
 category: share
 ---
 
