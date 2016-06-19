@@ -1,7 +1,7 @@
 ---
 layout: post
 title: JavaEE之Head First Servlet AND JSP
-categories: 技术 JAVAEE 笔记 
+categories: 技术 JavaEE 笔记 
 tags: jsp servlet
 ---
 
