@@ -11,7 +11,9 @@ tags: 文件读取 赋值数据
 2. 字节数组转化为字符串
 3. 字符创解析为字符串数组
 4. 字符串数组转化为数值，并赋值为数组	
-5. 文本文件是以字节的形式储存的。在txt文件中一个数字或者字母表示一个字节，比如0为（byte）48，9为（byte）57，空格为（byte）32，a为（byte）97，z为（byte）122，A为（byte）65，Z为（byte）90。
+5. 文本文件是以字节的形式储存的。
+
+> 在txt文件中一个数字或者字母表示一个字节，比如0为（byte）48，9为（byte）57，空格为（byte）32，a为（byte）97，z为（byte）122，A为（byte）65，Z为（byte）90。
 
     public class ReadTxtFileToOneDimensionalArray {
 		public static void main(String args[])throws Exception{

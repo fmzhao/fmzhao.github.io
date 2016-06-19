@@ -4,10 +4,11 @@ title: 简单的递归求最大数的方法
 categories: 技术 Java
 tags: 递归 迭代
 ---
+
 1. 递归真是一个神奇的东西！！！
 2. 自己的理解：递归其实是一种内循环（迭代）！！！
 
-	public class RecursiveMax {
+    public class RecursiveMax {
 		public static int recursiveMax(int[] A,int n){
 			if(n >= A.length){
 				System.out.println("数组中没有足够的数") ;
@@ -23,7 +24,7 @@ tags: 递归 迭代
 			int[] A = {2,4,5,3,9,4,6,3,8,12,3,7} ;
 			System.out.println(recursiveMax(A,11)) ;
 		}
-	}
+    }
 
 ***
 

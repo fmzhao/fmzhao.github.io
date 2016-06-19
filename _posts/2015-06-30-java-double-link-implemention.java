@@ -5,7 +5,7 @@ categories: 技术 Java
 tags: 数据结构 双链表
 ---
 
-	class Node{
+    class Node{
 		String element ;
 		Node previous ;
 		Node next ;
@@ -42,8 +42,8 @@ tags: 数据结构 双链表
 			n.previous = null ;
 			return temp ;
 		}
-	}
-	public class DoublyLinkedListImplements {
+    }
+    public class DoublyLinkedListImplements {
 		public static void main(String args[]){
 			Node nfront = new Node("头结点") ;
 			Node nrear = new Node("尾节点") ;
@@ -71,4 +71,4 @@ tags: 数据结构 双链表
 			n4 = Node.insertAfter(nfront,"成都") ;
 			System.out.println(n4) ;
 		}
-	}
+    }
