@@ -5,6 +5,8 @@ categories: 技术 Java
 tags: 数据结构 Stack
 ---
 
+### 基于数组实现栈的数据结构 
+
 MyStack.java
 
 	class MyStack{
