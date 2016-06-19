@@ -1,7 +1,8 @@
 ---
 layout: post
-title: markdown 语法
-category: java
+title: Markdown基本语法
+categories: 笔记 
+tags: Markdown语法
 ---
 
 ### 标题
@@ -96,7 +97,7 @@ category: java
 
 	`[text][id]` `[id]: url "Title"`表示参考式链接
 
->行内式链接和参考式链接之间可以相互转化，[github不支持参考式链接](http://fengmengzhao.github.io/diary/2015/07/09/%E5%8F%82%E8%80%83%E5%BC%8F%E9%93%BE%E6%8E%A5%E7%9A%84%E8%8C%83%E4%BE%8B.html)
+> 行内式链接和参考式链接之间可以相互转化，[github不支持参考式链接](http://fengmengzhao.github.io/diary/2015/07/09/%E5%8F%82%E8%80%83%E5%BC%8F%E9%93%BE%E6%8E%A5%E7%9A%84%E8%8C%83%E4%BE%8B.html)
 参考式链接的冒号与url之间必须有空格
 
 ***

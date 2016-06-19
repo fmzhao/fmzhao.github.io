@@ -1,7 +1,8 @@
 ---
 layout: post
 title: cplex求解优化问题——ilog自带经典案例
-category: java
+categories: 技术 Java 引用
+tags: cplex 案例
 ---
 
 ### Warehouse Problem
@@ -1124,4 +1125,4 @@ category: java
 	   }
 	}
 
->等多问题请参考cplex自带案例
+> 更多问题请参考cplex自带案例

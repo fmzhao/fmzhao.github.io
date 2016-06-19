@@ -1,7 +1,8 @@
 ---
 layout: post
-title: Step By Step to Becoming a Great Software Developer
-category: share
+title: 通向优秀软件开发者之道 
+categories: 引用 上层建筑
+tags: 思想
 ---
 
 ### Step1: Pick one language,learn the basics
