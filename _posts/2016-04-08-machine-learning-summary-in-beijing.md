@@ -5,7 +5,7 @@ categories: 机器学习 笔记
 tags: 北京 朴素贝叶斯 感知机 支持向量机
 ---
 
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
 
 ## 目录
 
