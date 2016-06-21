@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 与君共勉
-categories: 随笔 多么痛的领悟
+categories: 随笔 多么痛的领悟 研究生时代
 tags: 本科助教 留有余
 ---
 

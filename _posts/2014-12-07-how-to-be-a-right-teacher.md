@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 为人师表
-categories: 随笔 大学时代 多么痛的领悟
+categories: 随笔 研究生时代 多么痛的领悟
 tags: 李雪健 立德树人
 ---
 

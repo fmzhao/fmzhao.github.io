@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 兄弟二三事
-categories: 随笔 大学时代
+categories: 随笔 研究生时代
 tags: 兄弟 光头强
 ---
 

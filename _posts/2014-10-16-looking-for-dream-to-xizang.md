@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 川藏路上的寻梦人
-categories: 随笔 大学时代 多么痛的领悟
+categories: 随笔 研究生时代 多么痛的领悟
 tags: 火车 寻梦 农民工
 ---
 
