@@ -22,7 +22,7 @@ tags: 可视化 UML EnterpriseArchitect
 - 只针对DSA的小白，如果你是大神，请指教
 - **可视化**的重要性，要在脑海中建立抽象模型
 - 源代码要看完之后自己coding
-- 项目的`https://github.com/FengMengZhao/step_by_step_learn_DSA/blob/master/src`目录下有源代码和大量的测试代码，所有代码均为亲测可行
+- Git项目[step_by_step_learn_DSA](https://github.com/FengMengZhao/step_by_step_learn_DSA/)的`src`目录下有源代码和大量的测试代码，所有代码均为亲测可行
 
 #### 亮点
 
@@ -40,13 +40,13 @@ tags: 可视化 UML EnterpriseArchitect
 
 #### 结构框架
 
-![结构框架](..image/dsa_learn_scheme.png "结构框架")
+![结构框架](../image/dsa_learn_scheme.png "结构框架")
 
 ---
 
 #### Vector(array-based)
 
-![Vector](..image/dynamic_fixed_vector.png "Vector")
+![Vector](../image/dynamic_fixed_vector.png "Vector")
 
 **vector**: a random-access collection of elements
 
@@ -80,7 +80,7 @@ tags: 可视化 UML EnterpriseArchitect
 
 #### Heap(array-based)
 
-![Heap](..image/max_min_heap.png)
+![Heap](../image/max_min_heap.png)
 
 **Heap** : Heap是一个“部分有序完全二叉树(partially ordered complete binary tree)”；部分有序指：堆的父元素总是比子元素小(大)，父元素比子元素大称之为MaxHeap，父元素比子元素小称之为MinHeap。
 
@@ -123,13 +123,13 @@ Vector和Heap都是array-based，因此我们可以将二者抽象为**ArrayCont
 
 **ArrayContainer**
 
-![array container](..image/array_container.png "array container")
+![array container](../image/array_container.png "array container")
 
 ---
 
 #### Stack(sequential-based, single lined-list)
 
-![Stack](..image/stack.png)
+![Stack](../image/stack.png)
 
 > 我们可以很容易的使用array container来实现Stack，但是我们通常使用链表来实现Stack。
 
@@ -178,7 +178,7 @@ Vector和Heap都是array-based，因此我们可以将二者抽象为**ArrayCont
 
 #### Queue(sequential-based, double linked-list)
 
-![Queue](..image/queue.png)
+![Queue](../image/queue.png)
 
 **Queue**: 一组线性元素组成的Collection，只能从Collection的末尾获取元素；我们感兴趣的元素称之为front element；最后一个元素称之为back element
 
@@ -214,7 +214,7 @@ Vector和Heap都是array-based，因此我们可以将二者抽象为**ArrayCont
 
 #### Deque(sequential-based, double linked-list)
 
-![Deque](..image/deque_extends_queue.png)
+![Deque](../image/deque_extends_queue.png)
 
 **Deque**: 称之为double-ended queue；可以在队列两段进行插入和删除操作
 
@@ -243,13 +243,13 @@ Vector和Heap都是array-based，因此我们可以将二者抽象为**ArrayCont
 
 #### 抽象化Stack、Queue和Deque为LinearLinkedContainer
 
-![linear linked container](..image/linear_linked_container.png)
+![linear linked container](../image/linear_linked_container.png)
 
 ---
 
 #### 抽象化LinkedContainer和ArrayContainer为Container
 
-![array-container linear linked-container](..image/array_linear_linked_container.png)
+![array-container linear linked-container](../image/array_linear_linked_container.png)
 
 ---
 
@@ -257,11 +257,11 @@ Vector和Heap都是array-based，因此我们可以将二者抽象为**ArrayCont
 
 接下来我们要讲解General Binary Tree，由于General Binary Tree是Linked Container，但是不是Linear Linked Container，所以我么有必要将我们的UML模型记性进一步的抽象。
 
-![结构框架](..image/dsa_learn_scheme.png "结构框架")
+![结构框架](../image/dsa_learn_scheme.png "结构框架")
 
 **Container-ArrayContiner部分**
 
-![container arrayContainer](..image/container_arrayContainer.png)
+![container arrayContainer](../image/container_arrayContainer.png)
 
 *源代码*
 
@@ -283,7 +283,7 @@ Vector和Heap都是array-based，因此我们可以将二者抽象为**ArrayCont
 
 **Container-LinkedContainer部分**
 
-![Container linkedContainer](..image/container_linkedContainer.png)
+![Container linkedContainer](../image/container_linkedContainer.png)
 
 **源代码**
 
@@ -307,7 +307,7 @@ Vector和Heap都是array-based，因此我们可以将二者抽象为**ArrayCont
 
 #### General Binary Tree
 
-![binary tree](..image/binary_tree.png)
+![binary tree](../image/binary_tree.png)
 
 操作:
 
@@ -335,7 +335,7 @@ Vector和Heap都是array-based，因此我们可以将二者抽象为**ArrayCont
 
 #### BinarySearchTree(BST)
 
-![binary search tree](..image/binary_search_tree.png)
+![binary search tree](../image/binary_search_tree.png)
 
 **BST**: 是一个绝对有序的二叉树(totally ordered binary tree)。绝对有序指的是：一个node的leftChild的data小于node的data；node的rightChild的data大于或者等于node的data。
 
