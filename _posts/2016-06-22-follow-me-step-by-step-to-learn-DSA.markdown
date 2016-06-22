@@ -4,6 +4,7 @@ title: 一步一个脚印学习数据结构与算法(Java)
 categories: 技术 数据结构 算法 笔记 
 tags: 可视化 UML EnterpriseArchitect
 ---
+
 ### 跟着我，一步一个脚印，学习数据结构与算法 
 
 从底层实现是数组的**Vector、Heap**到底层实现是链表的**Stack、Queue、Deque、BinaryTree、BinarySearchTree**，一步一步用源代码解开数据结构神秘的面纱
@@ -21,7 +22,7 @@ tags: 可视化 UML EnterpriseArchitect
 - 只针对DSA的小白，如果你是大神，请指教
 - **可视化**的重要性，要在脑海中建立抽象模型
 - 源代码要看完之后自己coding
-- 项目的`src`目录下有源代码和大量的测试代码，所有代码均为亲测可行
+- 项目的`https://github.com/FengMengZhao/step_by_step_learn_DSA/blob/master/src`目录下有源代码和大量的测试代码，所有代码均为亲测可行
 
 #### 亮点
 
@@ -69,11 +70,11 @@ tags: 可视化 UML EnterpriseArchitect
 
 **Implementation**
 
-[Vector.java](src/Vector.java)
+[Vector.java](https://github.com/FengMengZhao/step_by_step_learn_DSA/blob/master/src/Vector.java)
 
-[FixedVector.java](src/FixedVector.java)
+[FixedVector.java](https://github.com/FengMengZhao/step_by_step_learn_DSA/blob/master/src/FixedVector.java)
 
-[DynamicVector.java](src/DynamicVector.java)
+[DynamicVector.java](https://github.com/FengMengZhao/step_by_step_learn_DSA/blob/master/src/DynamicVector.java)
 
 ---
 
@@ -102,17 +103,17 @@ tags: 可视化 UML EnterpriseArchitect
 
 **Implementation**
 
-[Heap.java](src/Heap.java)
+[Heap.java](https://github.com/FengMengZhao/step_by_step_learn_DSA/blob/master/src/Heap.java)
 
-[MinHeap.java](src/MinHeap.java)
+[MinHeap.java](https://github.com/FengMengZhao/step_by_step_learn_DSA/blob/master/src/MinHeap.java)
 
-[MaxHeap.java](src/MaxHeap.java)
+[MaxHeap.java](https://github.com/FengMengZhao/step_by_step_learn_DSA/blob/master/src/MaxHeap.java)
 
 **Heap应用**
 
 - 堆排序(MinHeap)
 
-[HeapSort.java](src/HeapSort.java)
+[HeapSort.java](https://github.com/FengMengZhao/step_by_step_learn_DSA/blob/master/src/HeapSort.java)
 
 ---
 
@@ -155,21 +156,21 @@ Vector和Heap都是array-based，因此我们可以将二者抽象为**ArrayCont
 
 **linear liked node**
 
-[LinearNode.java](src/LinearNode.java)
+[LinearNode.java](https://github.com/FengMengZhao/step_by_step_learn_DSA/blob/master/src/LinearNode.java)
 
 **Implementation**
 
-[Stack.java](src/stack.java)
+[Stack.java](https://github.com/FengMengZhao/step_by_step_learn_DSA/blob/master/src/stack.java)
 
 **Stack应用**
 
 - 括号匹配
 
-[BracketsMatch.java](src/BracketsMatch.java)
+[BracketsMatch.java](https://github.com/FengMengZhao/step_by_step_learn_DSA/blob/master/src/BracketsMatch.java)
 
 - 中缀表达式计算
 
-[InfixExpressionEvaluate.java](src/InfixExpressionEvaluate.java)
+[InfixExpressionEvaluate.java](https://github.com/FengMengZhao/step_by_step_learn_DSA/blob/master/src/InfixExpressionEvaluate.java)
 
 > 中缀表达式的软代码中使用的是java自带的Stack数据结构
 
@@ -194,15 +195,15 @@ Vector和Heap都是array-based，因此我们可以将二者抽象为**ArrayCont
 
 **修改上述的LineaNode为SLNode(Single linear linked node)**
 
-[SLNode.java](src/SLNode.java)
+[SLNode.java](https://github.com/FengMengZhao/step_by_step_learn_DSA/blob/master/src/SLNode.java)
 
 **Double linear linked node**
 
-[DLNode.java](src/DLNode.java)
+[DLNode.java](https://github.com/FengMengZhao/step_by_step_learn_DSA/blob/master/src/DLNode.java)
 
 **Implementation**
 
-[Queue.java](src/Queue.java)
+[Queue.java](https://github.com/FengMengZhao/step_by_step_learn_DSA/blob/master/src/Queue.java)
 
 **Queue应用**
 
@@ -232,7 +233,7 @@ Vector和Heap都是array-based，因此我们可以将二者抽象为**ArrayCont
 
 **Implementation**
 
-[Deque.java](src/Deque.java)
+[Deque.java](https://github.com/FengMengZhao/step_by_step_learn_DSA/blob/master/src/Deque.java)
 
 **Deque应用**
 
@@ -264,21 +265,21 @@ Vector和Heap都是array-based，因此我们可以将二者抽象为**ArrayCont
 
 *源代码*
 
-[Container.java](src/generalize/Container.java)
+[Container.java](https://github.com/FengMengZhao/step_by_step_learn_DSA/blob/master/src/generalize/Container.java)
 
-[ArrayContainer.java](src/generalize/ArrayContainer.java)
+[ArrayContainer.java](https://github.com/FengMengZhao/step_by_step_learn_DSA/blob/master/src/generalize/ArrayContainer.java)
 
-[Vector.java](src/generalize/Vector.java)
+[Vector.java](https://github.com/FengMengZhao/step_by_step_learn_DSA/blob/master/src/generalize/Vector.java)
 
-[FixedVector.java](src/generalize/FixedVector.java)
+[FixedVector.java](https://github.com/FengMengZhao/step_by_step_learn_DSA/blob/master/src/generalize/FixedVector.java)
 
-[DynamicVector.java](src/generalize/DynamicVector.java)
+[DynamicVector.java](https://github.com/FengMengZhao/step_by_step_learn_DSA/blob/master/src/generalize/DynamicVector.java)
 
-[Heap.java](src/generalize/Heap.java)
+[Heap.java](https://github.com/FengMengZhao/step_by_step_learn_DSA/blob/master/src/generalize/Heap.java)
 
-[MaxHeap.java](src/generalize/MaxHeap.java)
+[MaxHeap.java](https://github.com/FengMengZhao/step_by_step_learn_DSA/blob/master/src/generalize/MaxHeap.java)
 
-[MinHeap.java](src/generalize/MinHeap.java)
+[MinHeap.java](https://github.com/FengMengZhao/step_by_step_learn_DSA/blob/master/src/generalize/MinHeap.java)
 
 **Container-LinkedContainer部分**
 
@@ -286,21 +287,21 @@ Vector和Heap都是array-based，因此我们可以将二者抽象为**ArrayCont
 
 **源代码**
 
-[LinkedContainer.java](src/generalize/LinkedContainer.java)
+[LinkedContainer.java](https://github.com/FengMengZhao/step_by_step_learn_DSA/blob/master/src/generalize/LinkedContainer.java)
 
-[LinearLinkedContainer.java](src/generalize/LinearLinkedContainer.java)
+[LinearLinkedContainer.java](https://github.com/FengMengZhao/step_by_step_learn_DSA/blob/master/src/generalize/LinearLinkedContainer.java)
 
-[Stack.java](src/generalize/Stack.java)
+[Stack.java](https://github.com/FengMengZhao/step_by_step_learn_DSA/blob/master/src/generalize/Stack.java)
 
-[Queue.java](src/generalize/Queue.java)
+[Queue.java](https://github.com/FengMengZhao/step_by_step_learn_DSA/blob/master/src/generalize/Queue.java)
 
-[Deque.java](src/generalize/Deque.java)
+[Deque.java](https://github.com/FengMengZhao/step_by_step_learn_DSA/blob/master/src/generalize/Deque.java)
 
-[TreeContainer.java](src/generalize/TreeContainer.java)
+[TreeContainer.java](https://github.com/FengMengZhao/step_by_step_learn_DSA/blob/master/src/generalize/TreeContainer.java)
 
-[BinaryTree.java](src/generalize/BinaryTree.java)
+[BinaryTree.java](https://github.com/FengMengZhao/step_by_step_learn_DSA/blob/master/src/generalize/BinaryTree.java)
 
-[BinarySearchTree.java](src/generalize/BinarySearchTree.java)
+[BinarySearchTree.java](https://github.com/FengMengZhao/step_by_step_learn_DSA/blob/master/src/generalize/BinarySearchTree.java)
 
 ---
 
@@ -321,9 +322,9 @@ Vector和Heap都是array-based，因此我们可以将二者抽象为**ArrayCont
 
 > 此时我们已经建立的完全的抽象模型，实现也是基于模型进行。
 
-[TreeContainer.java](src/generalize/TreeContainer.java)
+[TreeContainer.java](https://github.com/FengMengZhao/step_by_step_learn_DSA/blob/master/src/generalize/TreeContainer.java)
 
-[BinaryTree.java](src/generalize/BinaryTree.java)
+[BinaryTree.java](https://github.com/FengMengZhao/step_by_step_learn_DSA/blob/master/src/generalize/BinaryTree.java)
 
 **BinaryTree的应用**
 
@@ -355,7 +356,7 @@ Vector和Heap都是array-based，因此我们可以将二者抽象为**ArrayCont
 
 **Implementation**
 
-[BinarySearchTree.java](src/generalize/BinarySearchTree.java)
+[BinarySearchTree.java](https://github.com/FengMengZhao/step_by_step_learn_DSA/blob/master/src/generalize/BinarySearchTree.java)
 
 **BST应用**
 
