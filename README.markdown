@@ -1,6 +1,6 @@
 ### [麦羞](http://fmzhao.github.io)
 
-**成熟的小麦总是被累累硕果压低了头，就像害羞了一样**
+**累累硕果压低了成熟麦穗害羞的头**
 
 ---
 
@@ -21,7 +21,7 @@
 
 ![标签](image/tags.png "git博客标签页")
 
-#### 留言(https://fmzhao.github.io/guestbook/ "guestbook")
+#### [留言](https://fmzhao.github.io/guestbook/ "guestbook")
 
 ![留言](image/guestbook.png "git博客留言页")
 
