@@ -1,8 +1,8 @@
 ---
 layout: post
-title: 主流排序算法
+title: 可视化主流排序算法
 categories: 技术 算法
-tags: 冒泡排序 选择排序 插入排序 归并排序 堆排序 Shell排序 递归
+tags: 冒泡排序 选择排序 插入排序 归并排序 堆排序 Shell排序 递归 可视化
 ---
 
 ### 冒泡排序(Bubble Sort)
