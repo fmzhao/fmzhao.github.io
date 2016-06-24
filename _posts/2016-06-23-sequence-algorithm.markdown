@@ -7,13 +7,13 @@ tags: 冒泡排序 选择排序 插入排序 归并排序 堆排序 Shell排序 
 
 ### 目录
 
-[1 冒泡排序(Bubble Sort)](#1)
-[2 选择排序(Selection Sort)](#2)
-[3 插入排序(Insertion Sort)](#3)
-[4 堆排序(Heap Sort)](#4)
-[5 归并排序(Merge Sort)](#5)
-[6 快速排序(Quick Sort)](#6)
-[7 Shell排序(Shell Sort)](#7)
+- [1 冒泡排序(Bubble Sort)](#1)
+- [2 选择排序(Selection Sort)](#2)
+- [3 插入排序(Insertion Sort)](#3)
+- [4 堆排序(Heap Sort)](#4)
+- [5 归并排序(Merge Sort)](#5)
+- [6 快速排序(Quick Sort)](#6)
+- [7 Shell排序(Shell Sort)](#7)
 
 ---
 

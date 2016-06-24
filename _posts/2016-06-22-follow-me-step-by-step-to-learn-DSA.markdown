@@ -7,18 +7,18 @@ tags: 可视化 UML EnterpriseArchitect
 
 目录
 
-[0 前言](#0)
-[1 Vector(array-based)](#1)
-[2 Heap(array-based)](#2)
-[3 抽象化Vector、Heap](#3)
-[4 Stack(sequential-based, single link)](#4)
-[5 Queue(sequential-based, double link)](#5)
-[6 Deque(Sequential-based, double link)](#6)
-[7 抽象化Stack、Queue、Deque](#7)
-[8 抽象化ArrayContainer、LinearLikedContainer](#8)
-[9 完全抽象化(ArrayContainer、LinearLikedContainerinear、TreeContainer](#9)
-[10 GeneralBinaryTree(sequential-based,tree link)](#10)
-[11 BinarySearchTree(sequential-based,tree link)](#11)
+- [0 前言](#0)
+- [1 Vector(array-based)](#1)
+- [2 Heap(array-based)](#2)
+- [3 抽象化Vector、Heap](#3)
+- [4 Stack(sequential-based, single link)](#4)
+- [5 Queue(sequential-based, double link)](#5)
+- [6 Deque(Sequential-based, double link)](#6)
+- [7 抽象化Stack、Queue、Deque](#7)
+- [8 抽象化ArrayContainer、LinearLikedContainer](#8)
+- [9 完全抽象化(ArrayContainer、LinearLikedContainerinear、TreeContainer](#9)
+- [10 GeneralBinaryTree(sequential-based,tree link)](#10)
+- [11 BinarySearchTree(sequential-based,tree link)](#11)
 
 ---
 
