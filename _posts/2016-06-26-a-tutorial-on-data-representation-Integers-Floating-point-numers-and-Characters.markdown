@@ -414,6 +414,12 @@ UTF-8的文档默认是Big-Endian储存的。然而在Windows系统中，BOM作�
 
 ---
 
+### Referece:
+
+- [http://www.ntu.edu.sg/home/ehchua/programming/java/datarepresentation.html](http://www.ntu.edu.sg/home/ehchua/programming/java/datarepresentation.html "参考文章")
+
+---
+
 <center>End</center>
 
 ---
