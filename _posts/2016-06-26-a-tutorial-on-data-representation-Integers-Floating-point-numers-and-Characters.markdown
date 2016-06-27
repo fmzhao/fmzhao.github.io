@@ -358,7 +358,7 @@ ISO/IEC-8859是西方语言的标准。ISO/IEC 8859-1又称为Latin alphabet No.
 
 **Latin-1可打印字符表(省略ASCII可打印字符)：**
 
-![Latin No1 Printable](..image/Latin_no1_printable.png)
+![Latin No1 Printable](../image/Latin_no1_printable.png)
 
 > ISO/IEC=8895共分为16个部分，最常用的是Part 1，Part 2主要覆盖中欧(波兰、捷克、匈牙利等)，Part 3主要覆盖南欧(土耳其等)，Part 4主要覆盖北欧(爱沙尼亚、拉脱维亚等)，Part 5主要是为西里尔字母，Part 7主要是为希腊，Part8主要是为希伯来人(以色列)，Part 9主要是为土耳其，Part 10主要是为北欧人，Part 11主要是为泰国，Part 12已经被抛弃，Part 13主要是为波罗的海沿岸，Part 14主要是为赛尔特语，Part 15主要是为法国、芬兰等，Part 16主要是为欧洲东南部。
 
@@ -370,7 +370,7 @@ ANSI(American National Standard Institude)(aka Windowns-1252)是8-bit的字符�
 
 **Windowns-1252部分字符表：**
 
-![Windows Code 1252](../image/Windowns_code_1252.png)
+![Windows Code 1252](../image/Windows_code_1252.png)
 
 <h4 id="5.4">5.4 Unicode(aka ISO/IEC 10646 Universal Character Set)</h4>
 
