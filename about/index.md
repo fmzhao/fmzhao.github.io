@@ -8,4 +8,4 @@ comments: no
 
 GitHub: [https://github.com/FengMengZhao](https://github.com/FengMengZhao)
 
-简历：[Curriculum Vitae Download](https://raw.githubusercontent.com/fmzhao/fmzhao.github.io/master/image/resume_web.pdf)
+简历：[CV Download](https://raw.githubusercontent.com/fmzhao/fmzhao.github.io/master/image/resume_web.pdf)
