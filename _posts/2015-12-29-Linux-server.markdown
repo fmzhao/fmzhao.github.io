@@ -349,7 +349,6 @@ bash中支持的引号：反引号是命令替换；`""`：弱引用，可以实
 #### bash的配置文件，分为全局配置和个人配置
 
 全局配置：`/etc/profile`、`/etc/profile.d/*.sh`、`/etc/.bashrc`
-<fmz>
 
 个人配置：`~/.bash_profile`、`~/.bashrc`
 
