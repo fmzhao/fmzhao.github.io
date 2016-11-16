@@ -5,29 +5,9 @@ category: 校园招聘
 tags: 校招 笔试
 ---
 
-* 数据库表设计:一个公司生产产品,每个产品由很多配件组成，配件由厂商生产,根据此设计数据库表
+---
 
-* 三次握手和四次挥手
-
-* 语言实现链表倒序
-
-* 数组中存储很多整数,求两个数和等于N的数组下标,找到两个即可停止.(尽量优化算法)
-
-* 数据库的优化语句,如何实现查询效率尽可能高(索引)
-
-* 三个数组均存储整数,三个数组分别从大到小已经排好序,如何求前k个最大值(堆)
-
-* 三个线程,并发进行,如何统计三个文件中关键词的个数(竞争锁,HashMap)
-
-* 每个线程有个looper,它管理messageQueue,他是如何做到各个looper独立运行的
-
-* java的内存结构,堆栈的介绍,堆栈中的方法和变量是线程共享的吗
-
-* 设计模式,单例模式介绍,懒汉式饿汉式加载模式,如何保证懒汉式加载线程安全
-
-* hashMap如何保证线程安全
-
-* string是不可变(immutable/final)的,如何理解?比较stringbuffer  stringBuiler他们之间区别
+*string是不可变(immutable/final)的,如何理解?比较stringbuffer  stringBuiler他们之间区别*
 
 ```
 String is immutable/final generally for two reasons:
@@ -73,27 +53,9 @@ public final class Student{
 }
 ```
 
-* 做过的项目比较有特色的介绍一下
+---
 
-* ==和equals和hashcode有什么区别,分别介绍
-
-* linkedList和arraylist区别,从数据存储,查询,删除方面分析,他们的效率
-
-* 进程和线程的区别,安卓如何实现多进程和多线程,安卓如何新建线程
-
-### 2016-08-25
-
-* http状态码(blabla)和缓存相关的头(cache－control expires etag Last-Modified)
-
-* 简介tcp ip?(...说的不太好) tcp怎么实现可靠性?(数据分块,重传,滑动窗口)无状态的http怎么实现一个状态?(cookie session,长连接,websocket?最后一个是胡说的...)
-
-* 输入url到页面现实的过程...(大概对了,说的不太好)遇到link script标签怎么处理?(同步执行?不太确定)
-
-* 手写个归并吧(写出来了，但是不流利)
-
-### 2016-09-06
-
-* 什么是多线程，为什么要使用多线程，多线程与多进程的区别
+*什么是多线程，为什么要使用多线程，多线程与多进程的区别*
 
 ```
 What is thread?
@@ -116,9 +78,9 @@ Why we need multi therad?
 computing and substantial I/O, having threads allows these activities to overlap, thus speeding up the application. 
 ```
 
-### 2016-09-22
+---
 
-* How final keyword works
+*How final keyword works*
 
 ```
 import java.util.*;
@@ -156,9 +118,9 @@ Final method can be a override method(this is in subclass)
 Final keyword can decorate: class, field(static field), local variable, parameter, method
 ```
 
-### 2016-09-26
+---
 
-* 对设计模式的设计原则是如何理解的
+*对设计模式的设计原则是如何理解的*
 
 ```
 设计模式的主要原则有：
@@ -262,7 +224,9 @@ class Robot implements IWorkable{
 6. 迪米特法则(LoD, Law of Demeter), 也称之为最少知识原则(LKP, Least Knowledge Principle)
 ```
 
-* 类在什么情况下会触发加载
+---
+
+*类在什么情况下会触发加载*
 
 ```
 1) A new instance of a class is created(in bytecode, the execution of a new instruction. Alternatively, via implicit creation: reflection, cloning, or deserialization)
@@ -277,3 +241,5 @@ class Robot implements IWorkable{
 
 6) The designation of a class as the initial class(with the main() method) when Java Virtual Machine starts up
 ```
+
+---
