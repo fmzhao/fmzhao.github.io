@@ -7,7 +7,7 @@ tags: 校招 笔试
 
 ---
 
-*string是不可变(immutable/final)的,如何理解?比较stringbuffer  stringBuiler他们之间区别*
+**string是不可变(immutable/final)的,如何理解?比较stringbuffer  stringBuiler他们之间区别**
 
 ```
 String is immutable/final generally for two reasons:
@@ -37,7 +37,9 @@ So the solutions:
 3) If String is going to change and will be accessed from multiple threads, use a StringBuffer for the thread-safety synchronization
 ```
 
-* An immutable class for example?
+---
+
+**An immutable class for example?**
 
 ```
 public final class Student{
@@ -55,7 +57,7 @@ public final class Student{
 
 ---
 
-*什么是多线程，为什么要使用多线程，多线程与多进程的区别*
+**什么是多线程，为什么要使用多线程，多线程与多进程的区别**
 
 ```
 What is thread?
@@ -80,7 +82,7 @@ computing and substantial I/O, having threads allows these activities to overlap
 
 ---
 
-*How final keyword works*
+**How final keyword works**
 
 ```
 import java.util.*;
@@ -120,7 +122,7 @@ Final keyword can decorate: class, field(static field), local variable, paramete
 
 ---
 
-*对设计模式的设计原则是如何理解的*
+**对设计模式的设计原则是如何理解的**
 
 ```
 设计模式的主要原则有：
@@ -226,7 +228,7 @@ class Robot implements IWorkable{
 
 ---
 
-*类在什么情况下会触发加载*
+**类在什么情况下会触发加载**
 
 ```
 1) A new instance of a class is created(in bytecode, the execution of a new instruction. Alternatively, via implicit creation: reflection, cloning, or deserialization)
