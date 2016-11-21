@@ -11,21 +11,17 @@ tags: 计算机网络 计算机基础课程
 
 > 以能够相互共享资源的方式互联起来的自治计算机系统的集合
 
-主要特征：
+* 主要特征
+    * 资源共享
+    * 分布在不同的地理位置的"自治系统"
+    * 遵循一定的规则-协议
 
-* 资源共享
-* 分布在不同的地理位置的"自治系统"
-* 遵循一定的规则-协议
-
-计算机网络的发展历史：
-
-* 以单处理机为中心的多终端联机系统(集中式)
-
-* 分组交换网络(数据分组，存储转化)
-    * 分布式控制
-    * 网络分层：通信子网和资源子网
-
-* 体系结构标准化网络
+* 计算机网络的发展历史
+    * 以单处理机为中心的多终端联机系统(集中式)
+    * 分组交换网络(数据分组，存储转化)
+        * 分布式控制
+        * 网络分层：通信子网和资源子网
+    * 体系结构标准化网络
 
 **拓扑结构(物理结构)**
 
@@ -52,27 +48,24 @@ tags: 计算机网络 计算机基础课程
 ### 网络体系结构
 
 * 研究方法
-
     * 按功能抽象分层(层)
     * 定义层间的接口和提供的服务(服务)
     * 定义同层间通信的规则-协议(协议)
 
 * 网络体系的定义
-
     * 层
     * 服务
     * 协议
 
-*要解决的问题*
-
-* 编址机制(addressing)
-* 数据传输(data transferring)
-* 差错问题(error controlling)
-* 顺序问题(sequence controlling)
-* 流量控制(flow controlling)
-* 拆分与重组(disassembling and reassembling)
-* 复用与解复用(multiplexing & demultiplexing)
-* 路由(routing)
+* 要解决的问题
+    * 编址机制(addressing)
+    * 数据传输(data transferring)
+    * 差错问题(error controlling)
+    * 顺序问题(sequence controlling)
+    * 流量控制(flow controlling)
+    * 拆分与重组(disassembling and reassembling)
+    * 复用与解复用(multiplexing & demultiplexing)
+    * 路由(routing)
 
 * 实体
     * 层中的活动单元
