@@ -38,9 +38,6 @@ title: 深入理解计算机系统
 `gcc -o p p1.c p2.c`
 
 > 首先，C预处理器(Preprocessor)将有`#include`定义的命令(command)和宏(Macros)加载(expand)到文件当中；
-
-然后，编译器(Complier)产生汇编语言版本的文件p1.s和p2.s；
-
-接着，汇编器(Assembler)将汇编源码转化为二进制对象文件(object-code)p1.o和p2.o，对象代码是机器代码的一种，它包含了所有指令的二进制表示，但是不包含全局变量的地址；
-
-最后，链接器(Liker)组合者两个对象文件以及代码实现中的库函数(library function, e.g., printf)并且生成最终的可执行文件，这是严格意义上被处理器执行的代码格式
+> 然后，编译器(Complier)产生汇编语言版本的文件p1.s和p2.s；
+> 接着，汇编器(Assembler)将汇编源码转化为二进制对象文件(object-code)p1.o和p2.o，对象代码是机器代码的一种，它包含了所有指令的二进制表示，但是不包含全局变量的地址；
+> 最后，链接器(Liker)组合者两个对象文件以及代码实现中的库函数(library function, e.g., printf)并且生成最终的可执行文件，这是严格意义上被处理器执行的代码格式
