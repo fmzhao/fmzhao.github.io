@@ -9,7 +9,7 @@ title: 底层编程(汇编语言)
 
 ### Introduction
 
-**What is kernel**
+**What is kernel?**
 
 The kernel is the core part of an operating system keeps track of everything.
 
@@ -124,4 +124,67 @@ Register addressing mode simply moves data in or out of a register.
 
 ### All about functions
 
+Programming can either be viewed as breaking a large program down into smaller pieces until you get to the primitive functions, or incrementally building functions on top of primitives until you get the large pitcure in focus.
 
+> Functions are perhaps the most fundamental language feature for abstraction and code reuse.
+
+**Inorder to understand function calls, you need to understand the stack!**
+
+when a program starts executing, a certain contiguous section of memory is set aside for the program called stack.
+
+**When calling function, how stack works?**
+
+Before executing a function, a program pushes all of parameters for the function onto the stack in the reverse order that the are documented. Then the program issue a `call` instruction indicating which function it wishes to start. The call instruction does two things:
+
+First, it pushes the address of the next indtruction, which is the return address, onto the stack;
+
+Then, it modifies the instruction pointer(%eip) to point the start of the function. So, at the time the function starts;
+
+```
+Parameter #N
+...
+Parameter 2
+Parameter 1
+Return Address <-- (%esp)
+```
+
+Now the function itself has some work to do:
+
+First, save the current base pointer register %ebp, by doing `pushl %ebp`;
+
+Next, it copy the stack pointer to %ebp by doing `movl %esp, %ebp`, this allows you to be able to access the function parameter(and local variables too) as fixed indexes from the base pointer.
+
+```
+Parameter N*4+4(%ebp)
+...
+Parameter 12(%ebp)
+Parameter 8(%ebp)
+Return Address <-- 4(%ebp)
+old %ebp <-- (%ebp) and (%esp)
+```
+
+Next, the function reserves space on the stack for any local variable it needs by simply moving the stack pointer out of the way. e.g., we are going to need two words(remember, a word is four byte long) of memory to run a function:`subl $8, %esp`
+
+
+```
+Parameter N*4+4(%ebp)
+...
+Parameter 12(%ebp)
+Parameter 8(%ebp)
+Return Address <-- 4(%ebp)
+old %ebp <-- (%esp) and (%ebp)
+Local Variable 1 <-- -4(%ebp)
+Local Variable 2 <-- -8(%ebp) and (%esp)
+```
+
+When the function is done executing, it does three things:
+
+1. It stores its return value in %eax
+2. It resets the stack to what it was when it was called(it gets rid of the current stack frame and puts the stack frame of the calling code back into effect)
+3. It returns control back to wherever it was called from. This is done using the `ret` instruction, which pops whatever value is at the top of the stack, and sets the instruction pointer, %eip, to the value.
+
+```
+movl %ebp, %esp
+popl %ebp
+ret
+```
