@@ -134,7 +134,7 @@ when a program starts executing, a certain contiguous section of memory is set a
 
 **When calling function, how stack works?**
 
-Before executing a function, a program pushes all of parameters for the function onto the stack in the reverse order that the are documented. Then the program issue a `call` instruction indicating which function it wishes to start. The call instruction does two things:
+Before executing a function, a program pushes all of parameters for the function onto the stack in the reverse order that the are documented. Then the program issue a `call` instruction indicating which function it wishes to start. The call instruction does two things(the caller's action before executing the callee function):
 
 First, it pushes the address of the next indtruction, which is the return address, onto the stack;
 
@@ -148,7 +148,7 @@ Parameter 1
 Return Address <-- (%esp)
 ```
 
-Now the function itself has some work to do:
+Now the function itself has some work to do(the callee action while executing):
 
 First, save the current base pointer register %ebp, by doing `pushl %ebp`;
 
@@ -177,7 +177,7 @@ Local Variable 1 <-- -4(%ebp)
 Local Variable 2 <-- -8(%ebp) and (%esp)
 ```
 
-When the function is done executing, it does three things:
+When the function is done executing, it does three things(the caller's action after the callee is done):
 
 1. It stores its return value in %eax
 2. It resets the stack to what it was when it was called(it gets rid of the current stack frame and puts the stack frame of the calling code back into effect)
@@ -188,3 +188,4 @@ movl %ebp, %esp
 popl %ebp
 ret
 ```
+
