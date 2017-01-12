@@ -206,18 +206,19 @@ Parameter 8(%ebp) <-- (%esp)
      .global _start
     _start:
      pushl $0 #第二个参数入栈
-     pushl $2 #第一个参数入栈 (见栈图1)
-     call power #调用函数power(见栈图2)
-     addl $8, %esp #栈指针回到栈顶(清空参数parameters)(见栈图3)
+     pushl $2 #第一个参数入栈 (栈图1)
+     call power #调用函数power(栈图2)
+     addl $8, %esp #栈指针回到栈顶(清空参数parameters)(栈图3)
 
-     pushl %eax #第二次调用函数前，将前一个结果保存至栈顶(见栈图4)
+     pushl %eax #第二次调用函数前，将前一个结果保存至栈顶
 
 
      pushl $3 #第二个参数入栈
-     pushl $3 #第一个参数入栈(见栈图5)
-     call power #调用函数power(见栈图6)
-     addl $8, %esp #清空栈顶参数parameters(见栈图7)
-     popl %ebx #将上次结果保存至%ebx中(见栈图8)
+     pushl $3 #第一个参数入栈
+     call power #调用函数power
+     addl $8, %esp #清空栈顶参数parameters
+
+     popl %ebx #将上次结果保存至%ebx中
 
      addl %eax, %ebx #第二次计算结果加入到第一次计算结果中
 
@@ -256,66 +257,11 @@ Parameter 8(%ebp) <-- (%esp)
      popl %ebp #保存_start函数的%ebp
      ret #交还函数的控制权，pop %eip
 
-栈图说明:
-
 ```
 栈图1:
 
 ...
-... <-- (%ebp)(_start函数)
+... <-- (%ebp)
 ...
-#parameter2 $0
-#parameter1 $2 <--(%esp)
-
-栈图2:
-
-...
-... <-- (%ebp)(_start函数)
-...
-#parameter2 $0
-#parameter1 $2 <--(%esp)
-
-栈图3:
-
-...
-... <-- (%ebp)(_start函数)
-... <-- (%esp)
-
-栈图4:
-
-...
-... <-- (%ebp)(_start函数)
-... 
-%eax <--(%esp)
-
-栈图5:
-
-...
-... <-- (%ebp)(_start函数)
-... 
-%eax
-#parameter2 $3
-#parameter1 $3 <--(%esp)
-
-栈图6:
-
-...
-... <-- (%ebp)(_start函数)
-... 
-%eax
-#parameter2 $3
-#parameter1 $3 <--(%esp)
-
-栈图7:
-
-...
-... <-- (%ebp)(_start函数)
-... 
-%eax <-- (%esp)
-
-栈图8:
-
-...
-... <-- (%ebp)(_start函数)
-... <-- (%esp)
+#parameter2 %2
 ```
