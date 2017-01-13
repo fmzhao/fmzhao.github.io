@@ -319,3 +319,108 @@ Parameter 8(%ebp) <-- (%esp)
 ... <-- (%ebp)(_start函数)
 ... <-- (%esp)
 ```
+
+**阶乘递归函数(factorial)**
+
+     .section .data
+
+     .section .text
+
+     .global _start
+
+    _start:
+     pushl $5
+
+     call factorial
+     addl $4, %esp
+
+     movl %eax, %ebx
+
+     movl $1, %eax
+     int $0x80
+
+    factorial:
+     pushl %ebp
+     movl %esp, %ebp
+     movl 8(%ebp), %eax
+     cmpl $1, %eax
+     je end_factorial
+
+     decl %eax
+     pushl %eax
+     call factorial
+     movl 8(%ebp), %ebx
+     imull %ebx, %eax
+
+    end_factorial:
+     movl %ebp, %esp
+     popl %ebp
+     ret
+
+**递归的Iteration模式**
+
+     .section .data
+
+     .section .text
+
+     .global _start
+    _start:
+     movl $3, %ebx
+     movl %ebx, %eax
+
+    start_loop:
+     cmpl $1, %ebx
+     je loop_end
+
+     decl %ebx
+     imull %ebx, %eax
+     jmp start_loop
+
+    loop_end:
+     movl %eax, %ebx
+     movl $1, %eax
+     int $0x80
+
+---
+
+### Dealing with files
+
+**The Unix File concept**
+
+Unix files, no matter what program created them, can all be accessed as a sequential stream of bytes. When you access a file, you start opening it by name. The operating system then gives you a number, called *file descriptor*, which you use to refer to the file until you are through with it. You can the read and write to the file using its file descriptor. When you are done reading and writing, you then close the file, which then makes the file descriptor useless.
+
+In our programs we will deal with files in the following ways:
+
+1. Tell the name of the file to open, and in what mode you want it opend(read, write, both read and write, create it if it doesn't exist, etc.). This is handled with the `open` system call, which takes a file name, a number representing the mode, and a permission set as its parameters. %eax will hold the system call number, which is 5. Tha address of the first character of file name should be stored in %ebx. The read/write intentions, represented as a number, should be stored in %ecx. Finally, the permission set should be stored as a number in %edx.
+2. Linux will return to you a file descriptor in %eax, Remember, this is a number that you use to refer to this file throughout you program.
+3. Next you will operate on the file doing reads and/or writes, each time giving linux the file descriptor you want to use. `read` is system call 3, and to call it you need to have the file descriptor in %ebx, the address of a buffer for storing data that is read in %ecx, and the size of buffer in %edx. Read will return the number of characters read from the file, or error code. `write` is system call 4, and it requires the same parameters as the read system call, except that the buffer should already be filed with the data to write out. The write system call will give back the number of bytes written in %eax or an error code.
+4. When you are through with your files, you can the tell Linux to close them. Afterwards, you file descriptor is no longer valid. This is done by using `close`, system call 6. The only parameter to close is the file descriptor, which is placed in %ebx.
+
+**Buffers and .bss**
+
+A buffer is a continuous block of bytes used for bulk data transfer. Usually buffers are only used to store data temporarily, and it is then read from buffers and converted to a form that is easier for programs to handle.
+
+Buffers are a fixed size, set by programmer.
+
+`.section .bss` is another section just as `.section .data`, however, it doesn't take up space in the executable. This section can reverse storage, but it can't initialize it. It is useful for buffers:
+
+```
+.section .bss
+ .lcomm my_buffer, 500
+```
+
+> This directive will create a symbol, my_buffer, that refers to a 500-byte storage location that we can use as a buffer.
+
+**Standard and Special Files**
+
+STDIN
+
+> This is standard input. It is a read-only file, and usually represents your keyboard. This is always file descriptor 0.
+
+STDOUT
+
+> This is standard out. It is a write-only file, and usually represents you screen display. This is always file descriptor 1.
+
+STDERR
+
+> This is standard error. It is a write-only file, and usually represents you screen display. This is always file descriptor 2.
