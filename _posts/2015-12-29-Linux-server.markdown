@@ -1939,3 +1939,5 @@ auto_git_push.sh
 1. 查看是否有`scp`命令，如果没有需要进行安装`opensshl`
 2. `scp /file/to/some_path username@localhost:/file/to/some_path`，例如：`scp /home/fmz/.vimrc fmz@192.168.1.2:`，缺省的目录是用户的家目录，也就是文件复制到了`/home/fmz/`文件夹中
 3. 也可以从其他的服务器中复制文件到本地：`scp username@localhost:/file/to/some_path /file/to/some_path`，例如：`scp root@192.168.1.4:dead.letter .`，这样就把其他服务器上的文件复制到了本地的目录中，这里的`.`指的是当前敲入命令的家目录
+
+#### 如何让Linux终端支持256种颜色
