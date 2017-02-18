@@ -1942,6 +1942,17 @@ auto_git_push.sh
 
 #### 如何让Linux终端支持256种颜色
 
-正常的情况下Linux终端只支持8种颜色，可以通过如下代码来检验终端支持多少种颜色:
+正常的情况下Linux终端只支持8种颜色，$TERM=xterm，可以通过如下代码来检验终端支持多少种颜色:
 
 `(x=`tput op` y=`printf %76s`;for i in {0..256};do o=00$i;echo -e ${o:${#o}-3:3} `tput setaf $i;tput setab $i`${y// /=}$x;done)`
+
+需要通过在`.bashrc`文件中加入以下代码，将$TERM变为xterm-256color:
+
+```
+f [ "$TERM" == "xterm"  ]; then
+    # No it isn't, it's gnome-terminal
+    export TERM=xterm-256color
+fi
+```
+
+如果使用PUTTY进行终端连接，需要将`PUTTY --> Connection --> Data --> Terminal-type string --> xterm-256color`
