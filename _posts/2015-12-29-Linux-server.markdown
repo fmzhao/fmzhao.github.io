@@ -1941,3 +1941,7 @@ auto_git_push.sh
 3. 也可以从其他的服务器中复制文件到本地：`scp username@localhost:/file/to/some_path /file/to/some_path`，例如：`scp root@192.168.1.4:dead.letter .`，这样就把其他服务器上的文件复制到了本地的目录中，这里的`.`指的是当前敲入命令的家目录
 
 #### 如何让Linux终端支持256种颜色
+
+正常的情况下Linux终端只支持8种颜色，可以通过如下代码来检验终端支持多少种颜色:
+
+`(x=`tput op` y=`printf %76s`;for i in {0..256};do o=00$i;echo -e ${o:${#o}-3:3} `tput setaf $i;tput setab $i`${y// /=}$x;done)`
