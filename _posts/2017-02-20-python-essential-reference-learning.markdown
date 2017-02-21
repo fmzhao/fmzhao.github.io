@@ -196,20 +196,20 @@ You can use the `def` statement to create a function
 
 函数不仅仅能产生一个或者几个值，还可以产生一个generator。
 
-#!/usr/bin python
+    #!/usr/bin python
 
-def countdown(n):
-    print "Counting down!"
-    while n > 0:
-        yield n # thd statement create generator
-        n -= 1
+    def countdown(n):
+        print "Counting down!"
+        while n > 0:
+            yield n # thd statement create generator
+            n -= 1
 
-c = countdown(9)
+    c = countdown(9)
 
-#print c.next()
+    #print c.next()
 
-for i in countdown(5):
-    print i
+    for i in countdown(5):
+        print i
 
 > Specially, when you write a statement such as for item in s, s could represent a list of items, the lines of a file, the result of a generator function, or any number of other objects that support iteration.
 
