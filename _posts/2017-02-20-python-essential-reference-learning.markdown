@@ -10,6 +10,9 @@ tags: python 实习
 可以使用Python的命令提示符(prompt)进行计算功能，`_`表示一个特殊变量，用来保存上一次的计算结果。
 
 Python是动态类型语言(dynamically typed language)，在程序的执行过程中，变量的名字可以与不同类型的值进行绑定。这种语言的特性和c语言有很大的不同，c语言中一个变量名是代表固定的类型、大小、内存地址。
+
+> java and c language are static typed language, python and php are dynamic typed language; java and python are strong typed language, c and php is wead typed language. 
+
     #!/usr/bin python
 
     principal = 1000
