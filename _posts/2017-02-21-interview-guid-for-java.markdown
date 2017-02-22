@@ -142,14 +142,32 @@ Java当中的绑定指的是，将一个方法的调用与一个方法的主题�
 
 ---
 
+### java并发
+
+(待续)...
+
 ### 数据库
 
-...
+(待续)...
+
+### 操作系统
+
+(待续)...
 
 ### 网络
 
-...
+(待续)...
+
 
 ### 面试中常见的问题汇总
 
 参考总结：[秋季校招笔面试](https://fmzhao.github.io/autumn-interview-problems-collection/ "笔试面试")
+
+### 书籍推荐
+
+* 《Java编程思想》第四版
+* 《深入理解Java虚拟机》第二版
+* 《Java与模式》作者：阎宏
+* 《java并发编程实战》英文名：《Java concurrency in practice》
+* 《现代操作系统》英文名：《Modern Operating System》
+* ...
