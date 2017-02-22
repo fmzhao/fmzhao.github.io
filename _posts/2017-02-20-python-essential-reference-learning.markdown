@@ -255,4 +255,6 @@ from div import *
 
 Python的结构是由缩进来决定的，例如：方法体(bodies of functions)，条件语句，循环语句和类的定义，如果这些结构中只包含一个语句，可以将它们放在同一行中。
 
-    
+---
+
+### Types and Objects
