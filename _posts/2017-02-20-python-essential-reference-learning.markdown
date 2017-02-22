@@ -249,4 +249,10 @@ from div import *
 
 ---
 
-###
+### 惯例与语法
+
+`\` 是 line-continue character。但是，当遇到truple-quoted string，list，Tuple，directory跨越多行时，不需要line-contine符号。
+
+Python的结构是由缩进来决定的，例如：方法体(bodies of functions)，条件语句，循环语句和类的定义，如果这些结构中只包含一个语句，可以将它们放在同一行中。
+
+    
