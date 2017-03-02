@@ -171,3 +171,77 @@ Java当中的绑定指的是，将一个方法的调用与一个方法的主题�
 * 《java并发编程实战》英文名：《Java concurrency in practice》
 * 《现代操作系统》英文名：《Modern Operating System》
 * ...
+
+---
+---
+
+## Questions
+
+### \#1 为什么代码的输出结果是"父亲"
+
+    public class Child extends Father{
+        private String name = "孩子";
+        public static void main(String args[]){
+            Child c = new Child();
+            System.out.println(c.getName());
+        }
+    }
+
+    class Father {
+        private String name = "父亲";
+        public String getName(){
+            return name;
+        }
+    }// output: "父亲"
+
+*Answer:*
+
+`Child`类继承了`Father`类，当然也继承了`Father`类中的`getName()`方法。当`Child`对象调用`getName()`方法的时候，要去`Father`类中进行调用，`name`属性的值为"父亲"。这里，我的理解是自动向上转型。
+
+当代码变为如下：
+
+    public class Child extends Father{
+        private String name = "孩子";
+        @Override
+        public String getName(){
+            return name;
+        }
+        public static void main(String args[]){
+            Father c = new Child();// 或者 Child c = new Child()
+            System.out.println(c.getName());
+        }
+    }
+
+    class Father {
+        private String name = "父亲";
+        public String getName(){
+            return name;
+        }
+    }// output: "孩子"
+
+输出的结果都是："孩子"。
+
+当代码变为如下：
+
+    public class Child extends Father{
+        private String name = "孩子";
+        @Override
+        public String getName(){
+            return name;
+        }
+        public static void main(String args[]){
+            Father c = new Father();
+            System.out.println(c.getName());
+        }
+    }
+
+    class Father {
+        private String name = "父亲";
+        public String getName(){
+            return name;
+        }
+    }// output: "父亲"
+
+输出结果是: "父亲"。
+
+---
