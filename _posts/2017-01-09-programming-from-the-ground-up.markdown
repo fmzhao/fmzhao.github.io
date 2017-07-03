@@ -424,3 +424,13 @@ STDOUT
 STDERR
 
 > This is standard error. It is a write-only file, and usually represents you screen display. This is always file descriptor 2.
+
+`.equ` directive allows you to assign names to numbers. e.g., if you did `.equ LINUX_SYSCALL, 0x80`, any time after that you wrote LINUX_SYSCALL, the assembler would substitue 0x80 for that. You can write:
+
+In assembly language, we declare contants with the `.equ` directive.
+
+`int LINUX_SYSCALL`
+
+---
+
+### Developing Robust Programs
