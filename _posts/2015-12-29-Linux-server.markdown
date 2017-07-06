@@ -1939,3 +1939,20 @@ auto_git_push.sh
 1. 查看是否有`scp`命令，如果没有需要进行安装`opensshl`
 2. `scp /file/to/some_path username@localhost:/file/to/some_path`，例如：`scp /home/fmz/.vimrc fmz@192.168.1.2:`，缺省的目录是用户的家目录，也就是文件复制到了`/home/fmz/`文件夹中
 3. 也可以从其他的服务器中复制文件到本地：`scp username@localhost:/file/to/some_path /file/to/some_path`，例如：`scp root@192.168.1.4:dead.letter .`，这样就把其他服务器上的文件复制到了本地的目录中，这里的`.`指的是当前敲入命令的家目录
+
+#### 如何让Linux终端支持256种颜色
+
+正常的情况下Linux终端只支持8种颜色，$TERM=xterm，可以通过如下代码来检验终端支持多少种颜色:
+
+`(x=`tput op` y=`printf %76s`;for i in {0..256};do o=00$i;echo -e ${o:${#o}-3:3} `tput setaf $i;tput setab $i`${y// /=}$x;done)`
+
+需要通过在`.bashrc`文件中加入以下代码，将$TERM变为xterm-256color:
+
+```
+f [ "$TERM" == "xterm"  ]; then
+    # No it isn't, it's gnome-terminal
+    export TERM=xterm-256color
+fi
+```
+
+如果使用PUTTY进行终端连接，需要将`PUTTY --> Connection --> Data --> Terminal-type string --> xterm-256color`
