@@ -89,12 +89,16 @@ url可以写成两种情况
 
 [More...](http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000)
 
-**git 忽略掉删除的文件**
+#### git 忽略掉删除的文件
 
-- git add --a
-- git commit -m" "
-- git push origin master
+     git add --a
+     git commit -m" "
+     git push origin master
 
 **git恢复删除的文件**
 
-git checkout -- .
+`git checkout -- .`
+
+**windows git status 中文乱码**
+
+`git config --global core.quotepath false`
