@@ -102,3 +102,11 @@ url可以写成两种情况
 **windows git status 中文乱码**
 
 `git config --global core.quotepath false`
+
+**git将用户名(username)和密码(passwd)加入remote url**
+
+`git remote set-url origin https://username:passwd@github.com/repo.git`
+
+例如:`git remote set-url origin https://fmzhao:FENG799520.Github@github.com/fmzhao/fmzhao.github.io.git`
+
+> 这样clone一个项目之后(自己的账号,知道用户名和密码),直接可以push而不需要ssh设置
