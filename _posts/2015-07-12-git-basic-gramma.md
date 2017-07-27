@@ -17,7 +17,7 @@ url可以写成两种情况
 
 > FengMengZhao 为 github 的 username；FengMengZhao.github.io 为仓库(Repository)的名称
 
-> 最好使用第二个URL，第一个URL每次在进行pull的时候需要输入密码，如果需要可以使用`git remote set-url origin git@github.com:username/repo.git`
+> 最好使用第二个URL，第一个URL每次在进行push的时候需要输入密码，如果需要可以使用`git remote set-url origin git@github.com:username/repo.git`
 
 ### Git Modification Status
 
