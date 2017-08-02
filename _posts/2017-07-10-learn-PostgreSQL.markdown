@@ -100,3 +100,5 @@ tags: 数据库 学习
 
     # 备份文件
     pg_dump -h hostname -p port -U user_name -d database_name -s schema_name -t table_name > dump_file
+    
+    #
