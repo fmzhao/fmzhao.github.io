@@ -11,14 +11,12 @@ tags: 数据库 学习
 
 `host all all 0.0.0.0/0 trust`
 
-> all database all users all host will be trust
+> all DATABASE all users all host will be trust
 
 ##### 常用的数据库命令
 
     # 控制台连接数据库
-    psql -U user -d database -h host -p port
-
-    # 
+    psql -U user_name -d database_name -h host -p port
 
     # 控制台常用命令
     \h: 查看sql命令的解释,比如\h select
@@ -29,6 +27,8 @@ tags: 数据库 学习
     \d [table_name]: 列出一张表格的结构
     \du: 列出所有的用户
     \e: 打开文本编辑器
+    \x: 扩展显示打开|关闭(以列的形式展示数据)
+    \o file_name: 将控制台输出重定向到文件file_name中
     \conninfo: 列出当前的数据库和连接信息
     \password user_name: 为用户设置密码
     \q: 退出控制台
@@ -36,31 +36,67 @@ tags: 数据库 学习
 ##### 用户管理常用命令-控制台
 
     # 创建用户[设置密码]
-    create user user_name [with passord 'password'];
+    CREATE USER user_name [WITH PASSWORD 'password'];
 
     # 创建数据库并指定拥有者
-    create database database_name owner user_name;
+    CREATE DATABASE database_name OWNER user_name;
 
     # 将数据库(database_name)的所有权都赋予用户(user_name),否则用户只能登陆,没有任何数据库操作权限
-    grant all privileges on database database_name to user_name
+    GRANT ALL PRIVILEGES ON DATABASE database_name TO user_name
 
     # 创建超级用户
-    create user user_name superuser password 'password';
+    CREATE USER user_name SUPERUSER PASSWORD 'password';
 
     # 删除用户
-    drop user if exists user_name 
+    DROP USER IF EXISTS user_name 
 
     # 为用户指定查询路径(search_path)
-    alter user user_name set search_path to schema_name, database_name;
+    ALTER USER user_name SET SEARCH_PATH TO schema_name, database_name;
 
 ##### 用户管理常用命令-shell
 
     # 创建用户
-    sudo -u postgres createuser --superuser user_name
+    sudo -u postgres CREATEuser --superuser user_name
 
     # 设置密码
     \password user_name
 
     # shell命令下创建数据库并指定拥有者
-    sudo -u postgres createdb -O user_name database_name
+    sudo -u postgres CREATEdb -O user_name database_name
 
+##### 数据库操作
+
+    # 创建新表
+    CREATE TABLE table_name(name VARCHAR(20), time DATE);
+
+    # 插入数据
+    INSERT into table_name(name, time) VALUES('张三', '2017-08-02')
+
+    # 选择记录
+    select * from table_name;
+
+    # 删除记录
+    UPDATE table_name SET name = '李四' where name = '张三';
+
+    # 添加栏位
+    ALTER TABLE table_name ADD email VARCHAR(40);
+
+    # 更新结构     
+    ALTER TABLE table_name ALTER COLUMN time SET NOT NULL;
+
+    # 更名栏位
+    ALTER TABLE table_name RENANE COLUMN time TO currenttime;
+
+    # 删除栏位
+    ALTER TABLE table_name DROP COLUMN email;
+
+    # 删除表格
+    DROP TABLE IF EXISTS table_name;
+
+##### 备份还原操作
+
+    # 执行sql文件
+    psql -U user_name database_name < sql_file
+
+    # 备份文件
+    pg_dump -h hostname -p port -U user_name -d database_name -s schema_name -t table_name > dump_file
