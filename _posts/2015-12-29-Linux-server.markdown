@@ -1885,7 +1885,7 @@ linux的bootloader
 
 1. 添加一个普通用户：`user add cll`
 2. 添加用户密码：`passwd cll`
-3. 将wheel用户改为具有所有权限：`vim /etc/sudoers`找到其中的一个entry，将注释去掉 --> `wheel ALL=(ALL) NOPASSWD: ALL`，
+3. 将wheel用户改为具有所有权限：`vim /etc/sudoers`找到其中的一个entry，将注释去掉 --> `%wheel ALL=(ALL) NOPASSWD: ALL`，
 4. 将用户cll添加一个附属组wheel：`usermod -a -G wheel cll`
 
 > 这样用户cll不用输入密码的情况下可以实现sudo开完成一些需要管理员才能完成的指令
