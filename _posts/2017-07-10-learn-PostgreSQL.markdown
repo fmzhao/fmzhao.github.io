@@ -53,6 +53,9 @@ tags: 数据库 学习
     # 为用户指定查询路径(search_path)
     ALTER USER user_name SET SEARCH_PATH TO schema_name, database_name;
 
+    # 更改数据库的owner
+    alter DATABASE database_name owner TO user_name
+
 ##### 用户管理常用命令-shell
 
     # 创建用户
@@ -96,7 +99,11 @@ tags: 数据库 学习
 ##### 备份还原操作
 
     # 执行sql文件
-    psql -U user_name database_name < sql_file
+    psql -U user_name [-d] database_name < sql_file
 
     # 备份文件
-    pg_dump -h hostname -p port -U user_name -d database_name -s schema_name -t table_name > dump_file
+    pg_dump -h hostname -p port -U user_name -d database_name [--schema=schema_name] -t table_name > dump_file
+
+> 执行sql 文件`-d`参数可以缺省
+
+> 备份一个表格时schema名字可缺省,指定schema时要用格式`--schema=schema_name`
