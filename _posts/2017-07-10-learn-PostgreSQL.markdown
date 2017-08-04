@@ -96,6 +96,13 @@ tags: 数据库 学习
     # 删除表格
     DROP TABLE IF EXISTS table_name;
 
+    # 删除表格的内容 
+    TRUNCATE table_name;
+    DELETE FROM table_name;
+
+    # 转变column类型
+    SELECT * FROM table_name ORDER BY colunmn_str::integer
+
 ##### 备份还原操作
 
     # 执行sql文件
