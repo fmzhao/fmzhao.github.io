@@ -2,7 +2,7 @@
 title: 学习PostgreSQL
 layout: post
 category: SQL
-tags: 数据库 学习
+tags: 数据库 学习 PostgreSQL
 ---
 
 ##### 安装之后允许non-host连接
