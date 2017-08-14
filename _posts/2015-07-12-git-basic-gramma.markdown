@@ -73,6 +73,8 @@ url可以写成两种情况
 
 > 添加的是id_rsa.pub文件夹里的内容, 将id_rsa_pub用文本编辑器打开，复制其中的内容到对应的地方，点击添加即可
 
+> 如果原来的remote URL 是`https://github.com/USER_NAME/*.git`的形式, 要将remote URL重新设置为`get@github.com:USER_NAME/*.git`
+
 ***
 
 ***
@@ -110,3 +112,7 @@ url可以写成两种情况
 例如:`git remote set-url origin https://fmzhao:FENG799520.Github@github.com/fmzhao/fmzhao.github.io.git`
 
 > 这样clone一个项目之后(自己的账号,知道用户名和密码),直接可以push而不需要ssh设置
+
+**git重命名文件**
+
+`git mv old_filename new_filename`
