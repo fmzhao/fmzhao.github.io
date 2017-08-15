@@ -112,9 +112,6 @@ tags: 数据库 学习 PostgreSQL
     pg_dump -h hostname -p port -U user_name -d database_name [--schema=schema_name] -t table_name > dump_file
 
 > 执行sql 文件`-d`参数可以缺省
-
 如果要还原一个表(表中有schema信息),必须要先建立对应的schema和数据库;如果是要还原一个schema,则要建立数据库(数据库是任意的)
-
 数据库 --> schema --> 表
-
 备份一个表格时schema名字可缺省,指定schema时要用格式`--schema=schema_name`
