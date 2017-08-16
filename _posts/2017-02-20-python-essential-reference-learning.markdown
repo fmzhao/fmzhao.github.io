@@ -13,7 +13,7 @@ tags: python 实习
 
 [3. Python类型(Type)和对象(Object)](#3)
 
-<h3 id = '1'> pthon语言特性</h3>
+<h3 id = '1'>1. pthon语言特性</h3>
 
 Python是动态类型语言(dynamically typed language),在程序的执行过程中,变量的名字可以与不同类型的值进行绑定.语言的特性和c语言有很大的不同,c语言中一个变量名是代表固定的类型,大小,内存地址.
 
@@ -35,7 +35,7 @@ Python是动态类型语言(dynamically typed language),在程序的执行过程
 
 > 代码中的变量principal最开始bound是integer(principal = 1000),执行过程中bound float(principal = principal * (1 + rate)).
 
-<h3 id = '2'>2 Python基础(fundamentals)</h3>
+<h3 id = '2'>2. Python基础(fundamentals)</h3>
 
 #### python语法
 
@@ -254,4 +254,4 @@ Python的结构是由缩进来决定的,例如：方法体(bodies of functions),
 
 ---
 
-<h3 id = '3'>3 Python类型(Type)和对象(Object)</h3>
+<h3 id = '3'>3. Python类型(Type)和对象(Object)</h3>
