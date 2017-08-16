@@ -29,18 +29,18 @@ Java中这样的写法是不合法的
     int a;// 声明的时候类型已经确定为integer
     a = '1';// 不能指向一个非integer类型的对象
 
-#### 弱类型语言(php and c) vs 强类型语言(java and python)
+#### 弱类型语言(php and c) vs 强类型语言(python and java)
 
-c语言中这样的写法是合法的
+php语言中这样的写法是合法的
 
     a = 1;
     a = 1 + '1'
 
-java语言中这样的写法是不合法的
+python语言中这样的写法是不合法的
 
-    int a = 1;
-    String b = "1"
-    a = a + b;
+    a = 1;
+    b = "1"
+    c = a + b;
 
 ### 显式类型语言(manifestly typed language) vs 隐式类型语言(implicitly typed language)
 

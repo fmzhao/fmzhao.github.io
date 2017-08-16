@@ -5,15 +5,7 @@ category: 技术 笔记
 tags: python 实习
 ---
 
-## 目录
-
-* [1 Python语言特性](#1)
-
-* [2 Python基础(fundamentals)](#2)
-
-* [3 Python类型(Type)和对象(Object)](#3)
-
-<h3 id = '1'> pthon语言特性</h3>
+### pthon语言特性
 
 Python是动态类型语言(dynamically typed language),在程序的执行过程中,变量的名字可以与不同类型的值进行绑定.语言的特性和c语言有很大的不同,c语言中一个变量名是代表固定的类型,大小,内存地址.
 
@@ -35,7 +27,7 @@ Python是动态类型语言(dynamically typed language),在程序的执行过程
 
 > 代码中的变量principal最开始bound是integer(principal = 1000),执行过程中bound float(principal = principal * (1 + rate)).
 
-<h3 id = '2'>2 Python基础(fundamentals)</h3>
+### Python fundamentals
 
 #### python语法
 
@@ -164,30 +156,34 @@ Sets支持标准的集合运算：
     c = t - s #补集 Set difference (items in t, but not in s)
     d = t ^ s #异或 Symmetric difference(items in t or s, but not both)
 
-#### Python关联数组Map(directories)
+#### Python map(Directories)
 
 A directory is an associate array or hash table that comntains indexed by keys.
 
 例如：
 
-    stodk = {
-        "name"   : "GOOG"
-        "shares" : 100
-        "price"  : 490.10
-    }
+```
+stodk = {
+    "name"   : "GOOG"
+    "shares" : 100
+    "price"  : 490.10
+}
+```
 
-通常使用字符串作为directory的key,但是也可以使用其他Python对象,比如数字、tuple,像list和directory对象不能被用作key,因为不是immutable.
+通常使用字符串作为directory的key,但是也可以使用其他Python对象,比如数字、Tuple,想List和directory对象不能被用作key,因为不是immutable.
 
 空directory可以通过两种方式创建：
 
-    prices = {} # An empty dict
-    prices = dicr() # An enmty dict
+```
+prices = {} # An empty dict
+prices = dicr() # An enmty dict
+```
 
-#### Pyton循环(looping)和迭代(iteration)
+#### Iteration and Looping
 
 `range(i, j, [,stride])`函数创造了一个list对象,代表从i到j-1的value,如果i省略,则从0开始.
 
-#### python函数
+#### Functions
 
 You can use the `def` statement to create a function
 
@@ -195,7 +191,7 @@ You can use the `def` statement to create a function
 
 可以对函数的参数设置默认值,当设置默认值调用的时候,默认值参数可以不写,也可以任意的顺序参数来调用函数,但是这样调用的时候必须写出来参数的名称.
 
-#### Python数字generator
+#### Generators
 
 函数不仅仅能产生一个或者几个值,还可以产生一个generator.
 
@@ -214,11 +210,11 @@ You can use the `def` statement to create a function
     for i in countdown(5):
         print i
 
-> Specially, when you write a statement such as for item in s, s could represent `a list of items`, `the lines of a file`, `the result of a generator function`, or `any number of other objects that support iteration`.
+> Specially, when you write a statement such as for item in s, s could represent a list of items, the lines of a file, the result of a generator function, or any number of other objects that support iteration.
 
-#### Python批处理(Coroutines)
+#### Coroutines
 
-Normally, functions operate on a sigle set of input arguements. However, a function can also be written to operate as a task that process a sequence of inputs send to it. This type of function is known as a coroutine and is created by using the yieled statement as an expression `(yield)`.
+Normally, functions operate on a sigle set of input arguements. However, a function can also be written to operate as a task that process a sequence of inputs send to it. This type of function is known as a coroutine and is created by using the yieled statement as an expression (yield).
 
     #!/usr/bin python
 
@@ -238,13 +234,18 @@ Normally, functions operate on a sigle set of input arguements. However, a funct
     matcher.send("I love python!")
     matcher.close()
 
-#### Python 模块(modules)
+#### Modules 
 
-    impourt div as foo
-    from div import divide
-    from div import *
+```
+import div
+impourt div as foo
+from div import divide
+from div import *
+```
 
-#### Python惯例
+---
+
+### 惯例与语法
 
 可以使用Python的命令提示符(prompt)进行计算功能,`_`表示一个特殊变量,用来保存上一次的计算结果.
 
@@ -254,4 +255,4 @@ Python的结构是由缩进来决定的,例如：方法体(bodies of functions),
 
 ---
 
-<h3 id = '3'>3 Python类型(Type)和对象(Object)</h3>
+### Types and Objects
