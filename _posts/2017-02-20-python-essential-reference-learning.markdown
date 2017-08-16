@@ -5,13 +5,20 @@ category: 技术 笔记
 tags: python 实习
 ---
 
-### 教程简介
+### pthon语言特性
 
-可以使用Python的命令提示符(prompt)进行计算功能，`_`表示一个特殊变量，用来保存上一次的计算结果。
 
-Python是动态类型语言(dynamically typed language)，在程序的执行过程中，变量的名字可以与不同类型的值进行绑定。这种语言的特性和c语言有很大的不同，c语言中一个变量名是代表固定的类型、大小、内存地址。
+Python是动态类型语言(dynamically typed language)，在程序的执行过程中，变量的名字可以与不同类型的值进行绑定, 这种绑定是发生在变量的声明的时候。这种语言的特性和c语言有很大的不同，c语言中一个变量名是代表固定的类型、大小、内存地址。
 
-> java and c language are static typed language, python and php are dynamic typed language; java and python are strong typed language, c and php is wead typed language. 
+在一个动态类型的语言中，每一个变量名，通过变量声明(declaration)在编译时，绑定一个声明类型或者一个对象。对象的绑定是可选的，如果没有绑定一个对象，则这个变量名为null。一旦变量名绑定一个类型之后，这个变量名只能绑定相同类型的对象，不能绑定不同类型的对象。如果试图绑定其他类型的对象则会一起类型异常(tpye error)。
+
+在一个静态类型的语言中，非null的变量名仅仅绑定一个对象。在执行的过程中，通过赋值(assignment)，这个变量名可能绑定不同类型的对象。
+
+在一个弱类型的语言中，变量可以隐含(implicitly)转化为其他非相关的类型。
+
+在一个强类型的语言中，变量不能够隐含转化为非相关的类型，如果要转化，显示的转换的必须的。
+
+> java and c language are static typed language, python and php are dynamic typed language; java and python are strong typed language, c and php is weaked typed language. 
 
     #!/usr/bin python
 
@@ -250,6 +257,8 @@ from div import *
 ---
 
 ### 惯例与语法
+
+可以使用Python的命令提示符(prompt)进行计算功能，`_`表示一个特殊变量，用来保存上一次的计算结果。
 
 `\` 是 line-continue character。但是，当遇到truple-quoted string，list，Tuple，directory跨越多行时，不需要line-contine符号。
 
