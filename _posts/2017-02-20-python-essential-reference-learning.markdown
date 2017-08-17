@@ -255,3 +255,89 @@ Python的结构是由缩进来决定的,例如：方法体(bodies of functions),
 ---
 
 <h3 id = '3'>3. Python类型(Type)和对象(Object)</h3>
+
+Python中的数据都是以对象的形式而存在的,每一个对象都有一个标识(identity),一个类型(type or called class)和一个值(Value).
+
+如果一个对象的值能够被改变,称这个对象为可改变的(mutable);如果一个对象的值不能被改变,称这个值为不可变的(immutable).
+
+属性就是和对象相关联的值;方法就是在一个对象上可以执行的某种操作.
+
+#### (内置函数)build-in function
+
+`id()` returns the identity of an object as an integer, this integer usually corresponds to the object's location.
+
+`type()` returns the type of an object.
+
+Example of compare two objects:
+
+    def compare(a, b):
+        if a is b:
+            # a and b is the same object
+            statement
+        if a == b:
+            # a and b have the same value
+            statement
+        if type(a) is type(b):
+            # a and b has the same type
+            statement
+
+`isInstance(object ,type)` return whether the object is an object of the type.
+
+Example for type checking:
+
+    if isinstance(s, list):
+        s.append(item)
+
+    if isinstance(d, dict):
+        d.update(t)
+
+#### 引用计数(Reference Counting)和垃圾收集(Garbage Collection)
+
+所有的对象都是会被引用计数的,不论是重新定义一个新的名字或者是在一个容器中增加一个引用.
+
+通过`del`语句或者是超出对象的作用域时,可以减少引用计数
+
+`sys.getrefcount()`可以得出当前对象的引用计数.
+
+当引用计数变为0时,对象会被回收(garbage-collected);但是有些时候循环引用(circular dependency)会出现在集合的使用中,在程序执行的过程中,cycle-detection algorithm会定期的执行来处理这个问题.
+
+Example for circular dependency:
+
+    a = {}
+    b = {}
+    a['b'] = b
+    b['a'] = a
+    del a
+    del b
+
+#### 引用和复制
+
+When program makes an assignment a = b, a new reference to b is created.
+
+如果b是像stirngs或者numbers等不可变对象,则上面的赋值实际上是copy了一个b对象, a和b指向的是不同的对象;如果是可变的对象,则直接将引用赋值给a, a和b指向的是相同的对象.
+
+针对集合类的copy有两种形式: shallow copy and deep copy. A shallow copy creates a new object but populate it with reference to the items contained in the origin object; A deep copy creates a new object an recursively copies all the objects it contains.
+
+Example for reference and copy:
+
+    a = [1, 2, 3, 5]
+    b = a
+    b is a #return True
+    b[2] = -100 # a = [1, 2, -100, 5]
+    
+Example for shallow copy:
+
+    a = [1, 2, [3, 4]];
+    b = list(a)
+    b is a #return False
+    b.append(100) #b = [1, 2, [3, 4], 100]; a = [1, 2, [3, 4]]
+    b[2, 0] = -100 # b = [1, 2, [-100, 4], 100]; a = [1, 2, [-100, 4]]
+
+Example for deep copy:
+
+    import copy
+    a = [1, 2, [3, 4]]
+    b = copy.deepcopy(a)
+    b[2, 0] = -100 #b = [1, 2, [-100, 4]]; a = [1, 2, [3, 4]]
+
+#### First-class Object
