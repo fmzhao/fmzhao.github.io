@@ -7,11 +7,11 @@ tags: python 实习
 
 ## 目录
 
-[1. Python语言特性](#1)
+- [1. Python语言特性](#1)
+- [2. Python基础(fundamentals)](#2)
+- [3. Python类型(Type)和对象(Object)](#3)
 
-[2. Python基础(fundamentals)](#2)
-
-[3. Python类型(Type)和对象(Object)](#3)
+---
 
 <h3 id = '1'>1. pthon语言特性</h3>
 
@@ -341,3 +341,9 @@ Example for deep copy:
     b[2, 0] = -100 #b = [1, 2, [-100, 4]]; a = [1, 2, [3, 4]]
 
 #### First-class Object
+
+---
+
+<center><span style="color: green">待续...</span><center>
+
+---
