@@ -60,6 +60,7 @@ tags: database 增量处理
 
 #### 根据不同的操作系统计算日期
 
+    #!/bin/sh
     today=$(date +%Y%m%d)
 
     case "$OSTYPE" in
@@ -90,6 +91,7 @@ tags: database 增量处理
 
 #### 下载远程数据到本地
 
+    #!/bin/sh
     # 判断${dataDownloadPath}/$today目录是否存在
     if [ ! -d "${dataDownloadPath}/${today}"  ]; then
       mkdir -p ${dataDownloadPath}/${today}
@@ -107,6 +109,7 @@ tags: database 增量处理
 
 #### 将文件中的数据导入到本地仓库
 
+    #!/bin/sh
     echo "从${dataDownloadPath}中提取数据,导入本地数据库中----------------------"
     for i in ${array_name[@]}
         do
@@ -121,6 +124,7 @@ tags: database 增量处理
 
 #### 删除一周前的本地旧数据
 
+    #!/bin/sh
     if [ -z "${deleteDay}"  ]; then 
         echo "deleteDay is empty----------------------------------------------"
         exit
@@ -136,6 +140,6 @@ tags: database 增量处理
 
 ---
 
-<center stype:"color: red">End</center>
+<center style:"color: red">End</center>
 
 ---
