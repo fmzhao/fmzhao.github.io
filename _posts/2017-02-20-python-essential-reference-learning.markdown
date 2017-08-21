@@ -344,6 +344,6 @@ Example for deep copy:
 
 ---
 
-<center><span style="color: green">待续...</span><center>
+<center><p><span style="color: green">待续...</span></p><center>
 
 ---
