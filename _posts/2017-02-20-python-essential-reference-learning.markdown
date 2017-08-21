@@ -5,6 +5,12 @@ category: 技术 笔记
 tags: python 实习
 ---
 
+---
+
+<center style="color: green">待续...</center>
+
+---
+
 ## 目录
 
 - [1. Python语言特性](#1)
