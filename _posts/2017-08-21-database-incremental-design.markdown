@@ -136,6 +136,6 @@ tags: database 增量处理
 
 ---
 
-<center><p><span stype:"color: red">End</span></p><center>
+<center stype:"color: red">End</center>
 
 ---
