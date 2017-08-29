@@ -186,7 +186,7 @@ manual：`man 命令`，man命令显示是使用章节的；1章：用户命令(
 
 #### 命令行展开
 
-Linux命令中会有`{}`展开的操作，比如说`mkdir /mnt/test{x/m,y}`，会在逗号那里隔开。
+Linux命令中会有`{}`展开的操作，比如说`mkdir /mnt/test{x/m,y}`，会在逗号那里隔开。递归创建文件夹: `mkdir -p /mnt/test/a/b`
 
 递归的创建目录：`makdir -pv /mnt/test{x/m,y}`
 
@@ -202,7 +202,7 @@ Linux的发行版：Fedooa、RedHat(CentOS)、SUSE、Debian(Ubuntn、Mint)、Gen
 
 目录管理常用命令：`ls`、`cd`、`pwd`、`mkdir`、`tree`
 
-文件管理常用命令：`touch`、`stat`、`file`、`rm`、`cp`、`mv`、`nano`
+文件管理常用命令：`touch`、`stat`、`file`、`rm`、`cp`、`mv`、`nano` `rmdir`
 
 日期时间：`date`、`clock`、`hwclock`、`cal`
 
@@ -1956,3 +1956,11 @@ fi
 ```
 
 如果使用PUTTY进行终端连接，需要将`PUTTY --> Connection --> Data --> Terminal-type string --> xterm-256color`
+
+#### Linux中Java环境增加CLASSPATH
+
+`echo $CLASSPAT`: 查看用户下Java环境的CLASSPATH
+
+`export CLASSPATH = $CLASSPATH:/path/to/classpath`: 为当前用户的Java环境临时添加CLASSPATH
+
+`javac -d . -cp ".:/path/to/classpath"` *.java: 为Java file编译时添加CLASSPATH

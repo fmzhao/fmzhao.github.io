@@ -258,6 +258,11 @@ Normally, functions operate on a sigle set of input arguements. However, a funct
 
 Python的结构是由缩进来决定的,例如：方法体(bodies of functions),条件语句,循环语句和类的定义,如果这些结构中只包含一个语句,可以将它们放在同一行中.
 
+Python中定义的变量名不能与build-in重复
+
+    str = '4'
+    str(4) #报错,str函数已经被上面的定义给破坏了.
+
 ---
 
 <h3 id = '3'>3. Python类型(Type)和对象(Object)</h3>
@@ -347,6 +352,53 @@ Example for deep copy:
     b[2, 0] = -100 #b = [1, 2, [-100, 4]]; a = [1, 2, [3, 4]]
 
 #### First-class Object
+
+first-class object表示对对象的使用没有限制,和其他的对象没有区别.
+
+A first-class is an entity that can be dynamically created, destroyed, passed to a function, return as a value, and have all the rights as other variables in the programming language have.
+
+All objects in Python are said to be "first class". This means that all objects that can be named by identifier have equal status. It also means that all objects that can be named can be treated as data.
+
+    #!/user/bin/ python
+
+    #the first class nature can be seen by adding some more unusual items
+    items = {'number': 42, 'text': "Hello World"}
+    items["func"] = abs #add the abs() function
+    import math
+    items['mod'] = math #add an module
+    items['error'] = ValueError #add an exception type
+    items['append'] = nums.append #add a method of another object
+
+Convert a line to a list
+
+    line = "Google,100,490.10"
+    field_types = [str, int, float]
+    raw_fields = line.split(',')
+    fields = [ty(val) for ty, val in zip(field_types, raw_fields)]
+
+#### Build-in Types for Representing Data
+
+Python提供了一个null对象(an object with no value),在程序中写成: `None`.
+
+None经常用在可选参数的默认值,因此函数能够检测出是否调用者真的传递了一个值给参数.
+
+None在Boolean表达式中被认为是False.
+
+##### Numeric Types
+
+Python提供5中数值类型: Booleans, integer, long integer(Pyton3中已经没有区分integer和long integer), floating-point numbers and complex numbers.
+
+Python值提供了双精度浮点数(64-bit),没有提供单精度浮点数(32-bit).
+
+Python的Boolean变量是: True, False. True和False分别mapping为1和0.
+
+##### Sequence Types(strings, lists, tuples)
+
+Sequences represents
+
+strings and tuples are immutable; all sequences support iteration.
+
+The build-in function list(s) converts any iterable type to a list. If s is already a list, this funciton constructs a new list that is a shallow copy of s.
 
 ---
 
