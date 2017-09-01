@@ -90,6 +90,9 @@ tags: 数据库 学习 PostgreSQL
     # 更名栏位
     ALTER TABLE table_name RENANE COLUMN time TO currenttime;
 
+    # 表重命名
+    ALTER TABLE table_name RENAME TO new_name;
+
     # 删除栏位
     ALTER TABLE table_name DROP COLUMN email;
 
