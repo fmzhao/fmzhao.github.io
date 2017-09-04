@@ -488,7 +488,11 @@ Chmod权限分配
 
 1. 从官方现在最新的安装包，从Binary Distribution中下载`tar.gz`，解压到制定的问价中
 
-2. 设置Java的家目录：`vi /root/.bash_profile`，在export PATH下面添加：`export JAVA_HOME=/usr/local/java/jdk1.8.0_65`
+2. 设置Java的家目录：`vi /root/.bash_profile`(用户环境)或者`vim /etc/profile`(系统环境)，在export PATH下面添加：
+
+    export JAVA_HOME=/path/to/JAVA_HOME
+    export PATH=$JAVA_HOME/bin:$PATH
+    export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar 
 
 3. 设置Tomcat的家目录：`vi /root/.bash_profile`,在export PATH下面添加：`export CATALINA_HOME=/usr/local/tomcat9/apache-tomcat-9.0.0`，可以通过`env`查看系统的环境变量，可以通过`echo $JAVA_HOME`来查找单一的环境变量；如果想要定义的环境对所有的用户都生效，需要在`/etc/profile`文件中添加上述信息
 
