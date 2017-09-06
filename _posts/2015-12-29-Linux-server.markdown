@@ -113,7 +113,7 @@ manual：`man 命令`，man命令显示是使用章节的；1章：用户命令(
 
 > 查找：`/keywords`表示向后查找关键字；`?keywords`表示向前查找关键字；`n`表示下一个查询的关键字；`N`表示上一个查询的关键字
 
-`hwclock -s`将硬件的事件同步到系统系统当中；`hwclock -w`将系统的时间同步到硬件当中
+`hwclock -s`将硬件的时间同步到系统当中；`hwclock -w`将系统的时间同步到硬件当中
 
 `info COMAND`可以获得帮助，是man命令的增强版本
 
@@ -1957,10 +1957,29 @@ fi
 
 如果使用PUTTY进行终端连接，需要将`PUTTY --> Connection --> Data --> Terminal-type string --> xterm-256color`
 
-#### Linux中Java环境增加CLASSPATH
+---
+
+---
+
+### [?]
+
+#### Linux中Java环境增加CLASSPATH[?]
 
 `echo $CLASSPAT`: 查看用户下Java环境的CLASSPATH
 
 `export CLASSPATH = $CLASSPATH:/path/to/classpath`: 为当前用户的Java环境临时添加CLASSPATH
 
 `javac -d . -cp ".:/path/to/classpath"` *.java: 为Java file编译时添加CLASSPATH
+
+
+#### Linux时区设置正确,时间不正确[?]
+
+    #安装工具
+    yum install ntp ntpdate
+
+    #设置系统时间与网络时间同步
+    ntpdate cn.pool.ntp.org
+
+    #将系统时间写入硬件时间
+    hwclock --systohc
+
