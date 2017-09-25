@@ -7,72 +7,56 @@ tags: jquery css选择器
 
 ## 目录
 
-* [1 认识JQuery](#1)
+- [1 认识JQuery](#1)
+- [2 JQuery选择器](#2)
+	- [2.1 常用的CSS(Cascading Style Sheet，层叠样式表)选择器](#2.1)
+	- [2.2 JQuery选择器](#2.2)
+	- [2.3 案例研究](#2.3)
+- [3 JQuery中的DOM操作](#3)
+- [4 JQuery中的事件和动画](#4)
+- [5 JQuery对表单、表格的操作及更多的应用](#5)
 
-* [2 JQuery选择器](#2)
-
-	* [2.1 常用的CSS(Cascading Style Sheet，层叠样式表)选择器](#2.1)
-
-	* [2.2 JQuery选择器](#2.2)
-
-	* [2.3 案例研究](#2.3)
-
-* [3 JQuery中的DOM操作](#3)
-
-* [4 JQuery中的事件和动画](#4)
-
-* [5 JQuery对表单、表格的操作及更多的应用](#5)
-
-***
-
-***
+---
 
 <h2 id="1">1 认识JQuery</h2>
 
-&emsp;&emsp;每一份DOM都可以表示成一棵树，JQuery对象就是通过JQuery包装DOM后产生的对象。
+每一份DOM都可以表示成一棵树，JQuery对象就是通过JQuery包装DOM后产生的对象。
 
->JQuery对象无法使用DOM中的任何方法，DOM也不能使用JQuery中的方法。
+> JQuery对象无法使用DOM中的任何方法，DOM也不能使用JQuery中的方法。
 
-&emsp;&emsp;将JQuery转化为DOM对象，方法1：
+将JQuery转化为DOM对象，方法1：
 
-	var $cr = $("#cr") ;	//JQuer对象
+	var $cr = $("#cr") ;	//JQuery对象
 	var cr = $cr[0] ;	//DOM对象
 	alert(cr.checked);	//检查这个checkbox是否被选中
 
-&emsp;&emsp;将JQuery转化为DOM对象，方法2：
+将JQuery转化为DOM对象，方法2：
 
 	var $cr = $("#cr") ;
 	var cr = $cr.get(0) ;
 	alert(cr.checked);
 
-&emsp;&emsp;DOM对象转化为JQuery对象
+DOM对象转化为JQuery对象
 
 	var cr = document.getElementById("cr") ;	//DOM对象
 	var $cr = $(cr) ;				//JQuery对象
 
->平时使用的JQuery对象都是通过`$()`函数制造出来的，`$()`函数就是一个JQuery对象的制造工厂。
+> 平时使用的JQuery对象都是通过`$()`函数制造出来的，`$()`函数就是一个JQuery对象的制造工厂。
 
-***
-
-***
+---
 
 <h2 id="2">2 JQuery选择器</h2>
 
 <h3 id="2.1">常用的CSS(Cascading Style Sheet，层叠样式表)选择器</h3>
 
-&emsp;&emsp;1. 标签选择器，语法：`E{css规则}`，描述：以文档元素作为选择符，示例：`td{font-size: 14px;width: 120px}`
+1. 标签选择器，语法：`E{css规则}`，描述：以文档元素作为选择符，示例：`td{font-size: 14px;width: 120px}`
+2. ID选择器，语法：`#ID{css规则}`，描述：以文档元素的唯一标识符ID作为选择器，示例：`#note{font-size: 14px;width: 120px}`
+3. 类选择器，语法：`E.className{css规则}`，描述：以文档元素的class作为选择符，示例：`div.note{font-size: 14px;width: 120px}`
+4. 群组选择器，语法：`E1,E2,E3{css规则}`，描述：多个元素应用同样样式的选择符，示例：`td,p,div.a{font-size: 14px;width: 120px}`
+5. 后代选择器，语法：`E F{css规则}`，描述：元素E的任意后代元素F，示例：`#links a{font-size: 14px;width: 120px}`
+6. 通配符选择器，语法：`*{css规则}`,描述：以文档中的所有元素作为选择符，示例：`*{font-size: 14px;width: 120px}`
 
-&emsp;&emsp;2. ID选择器，语法：`#ID{css规则}`，描述：以文档元素的唯一标识符ID作为选择器，示例：`#note{font-size: 14px;width: 120px}`
-
-&emsp;&emsp;3. 类选择器，语法：`E.className{css规则}`，描述：以文档元素的class作为选择符，示例：`div.note{font-size: 14px;width: 120px}`
-
-&emsp;&emsp;4. 群组选择器，语法：`E1,E2,E3{css规则}`，描述：多个元素应用同样样式的选择符，示例：`td,p,div.a{font-size: 14px;width: 120px}`
-
-&emsp;&emsp;5. 后代选择器，语法：`E F{css规则}`，描述：元素E的任意后代元素F，示例：`#links a{font-size: 14px;width: 120px}`
-
-&emsp;&emsp;6. 通配符选择器，语法：`*{css规则}`,描述：以文档中的所有元素作为选择符，示例：`*{font-size: 14px;width: 120px}`
-
-&emsp;&emsp;JQuery选择器，示例：
+JQuery选择器，示例：
 
 	<!doctype html>
 	<html lang="en">
@@ -93,113 +77,113 @@ tags: jquery css选择器
 
 <h3 id="2.2">JQuery选择器</h3>
 
-&emsp;&emsp;1. 简洁的写法
+1. 简洁的写法
 
-&emsp;&emsp;2. 支持CSS1到css3选择器
+2. 支持CSS1到css3选择器
 
-&emsp;&emsp;3. 完善的处理机制
+3. 完善的处理机制
 
 ### JQuery基本选择器同css类似，加上`$("")`即可
 
 ### JQuery层次选择器
 
-&emsp;&emsp;1. `$("ancestor descentant")`表示ancestor元素里的所有descendant元素
+1. `$("ancestor descentant")`表示ancestor元素里的所有descendant元素
 
-&emsp;&emsp;2. `$("parent>child")`表示parent元素下的child元素
+2. `$("parent>child")`表示parent元素下的child元素
 
-&emsp;&emsp;3. `$('prev+next')`表示紧跟在prev元素下面的next元素
+3. `$('prev+next')`表示紧跟在prev元素下面的next元素
 
-&emsp;&emsp;4. `$('prev~siblings')`表示prev元素之后的所有siblings元素
+4. `$('prev~siblings')`表示prev元素之后的所有siblings元素
 
 ### 过滤选择器
 
 #### 基本的过滤选择器
 
-&emsp;&emsp;1. `:first`表示选取第一个元素；`:last`表示选取最后一个元素
+1. `:first`表示选取第一个元素；`:last`表示选取最后一个元素
 
-&emsp;&emsp;2. `:not(selector)`去除所有与给定选择器匹配的元素
+2. `:not(selector)`去除所有与给定选择器匹配的元素
 
-&emsp;&emsp;3. `:even`选取索引是偶数的所有元素，索引从0开始；`:odd`选取索引是奇数的所有元素，索引从0开始
+3. `:even`选取索引是偶数的所有元素，索引从0开始；`:odd`选取索引是奇数的所有元素，索引从0开始
 
-&emsp;&emsp;4. `:eq(index)`选取索引等于index的元素，索引从0开始；`:gt(index)`选取索引大于index的元素，索引从0开始；`:lt(index)`选取索引小于index的元素，索引从0开始
+4. `:eq(index)`选取索引等于index的元素，索引从0开始；`:gt(index)`选取索引大于index的元素，索引从0开始；`:lt(index)`选取索引小于index的元素，索引从0开始
 
-&emsp;&emsp;5. `:header`选取所有的标题元素
+5. `:header`选取所有的标题元素
 
-&emsp;&emsp;6. `:animated`选取所有正在执行动画的所以元素
+6. `:animated`选取所有正在执行动画的所以元素
 
 #### 内容过滤选择器
 
-&emsp;&emsp;1. `:contains(text)`表示含有文本内容为text是元素
+1. `:contains(text)`表示含有文本内容为text是元素
 
-&emsp;&emsp;2. `:empty`表示不包含子元素或者文本的空元素
+2. `:empty`表示不包含子元素或者文本的空元素
 
-&emsp;&emsp;3: `:has(selector)`选取含有选择器所匹配的元素的元素
+3: `:has(selector)`选取含有选择器所匹配的元素的元素
 
-&emsp;&emsp;4：`:parent`表示选取含有子元素或者文本的元素
+4：`:parent`表示选取含有子元素或者文本的元素
 
 #### 可见过滤选择器
 
-&emsp;&emsp;1. `:hidden`表示选取所有不可见元素
+1. `:hidden`表示选取所有不可见元素
 
-&emsp;&emsp;2. `visible`表示所有可见元素
+2. `visible`表示所有可见元素
 
 #### 属性过滤选择器
 
-&emsp;&emsp;1. `[attribute]`选取拥有此属性的元素
+1. `[attribute]`选取拥有此属性的元素
 
-&emsp;&emsp;2. `[attribute=value]`选取属性值为value的元素
+2. `[attribute=value]`选取属性值为value的元素
 
-&emsp;&emsp;3. `[attribute != value]`选取属性值不等于value的元素
+3. `[attribute != value]`选取属性值不等于value的元素
 
-&emsp;&emsp;4. `[attribute ^= value]`选取属性值以value开始的元素
+4. `[attribute ^= value]`选取属性值以value开始的元素
 
-&emsp;&emsp;5. `[attribute $= value]`选取属性值以value结束的元素
+5. `[attribute $= value]`选取属性值以value结束的元素
 
-&emsp;&emsp;6. `[attribute *= value]`选取属性值含有value的元素
+6. `[attribute *= value]`选取属性值含有value的元素
 
-&emsp;&emsp;7. `[selector1][selector2][selector3]`表示用属性选择器复合成一个复合的属性选择器，满足多个条件
+7. `[selector1][selector2][selector3]`表示用属性选择器复合成一个复合的属性选择器，满足多个条件
 
 #### 子元素过滤选择器
 
-&emsp;&emsp;1. `:nth-child(index/even/odd/equation)`选取每一个父元素下的第index个子元素或者奇偶元素，示例：`:nth-child(even)`能选取每个父元素下索引值为偶数的元素。
+1. `:nth-child(index/even/odd/equation)`选取每一个父元素下的第index个子元素或者奇偶元素，示例：`:nth-child(even)`能选取每个父元素下索引值为偶数的元素。
 
-&emsp;&emsp;2. `:first-child`表示选取每一个父元素的第一个子元素；`:last-child`表示选取每一个父元素的最后一个子元素；`:only-child`表示如果只含有唯一子元素将会匹配，否则不会匹配。
+2. `:first-child`表示选取每一个父元素的第一个子元素；`:last-child`表示选取每一个父元素的最后一个子元素；`:only-child`表示如果只含有唯一子元素将会匹配，否则不会匹配。
 
 #### 表单对象属性过滤选择器
 
-&emsp;&emsp;1. ':enable'表示选取所有可用元素
+1. ':enable'表示选取所有可用元素
 
-&emsp;&emsp;2. `:disable`表示选取所有不可用元素
+2. `:disable`表示选取所有不可用元素
 
-&emsp;&emsp;3：`:checked`表示选取所有被选中元素(单选框，复选框)
+3：`:checked`表示选取所有被选中元素(单选框，复选框)
 
-&emsp;&emsp;4：`:selected`表示选取所有被选中的元素(下拉列表)
+4：`:selected`表示选取所有被选中的元素(下拉列表)
 
 #### 表单选择器
 
-&emsp;&emsp;1. `:input`表示选取所有的input textarea select button元素
+1. `:input`表示选取所有的input textarea select button元素
 
-&emsp;&emsp;2. `:text`选取所有的单行文本框
+2. `:text`选取所有的单行文本框
 
-&emsp;&emsp;3. `:password`选取所有的密码框
+3. `:password`选取所有的密码框
 
-&emsp;&emsp;4：`:radio`选取所有的单选框
+4：`:radio`选取所有的单选框
 
-&emsp;&emsp;5. `:checkbox`选取所有的复选框
+5. `:checkbox`选取所有的复选框
 
-&emsp;&emsp;6. `:submit`选取所有的提交按钮
+6. `:submit`选取所有的提交按钮
 
-&emsp;&emsp;7. `:image`选取所有的图像按钮
+7. `:image`选取所有的图像按钮
 
-&emsp;&emsp;8. `:reset`选取所有的重置按钮
+8. `:reset`选取所有的重置按钮
 
-&emsp;&emsp;9. `:button`选取所有的按钮
+9. `:button`选取所有的按钮
 
-&emsp;&emsp;10. `:file`选取所有的上传域
+10. `:file`选取所有的上传域
 
-&emsp;&emsp;11. `:hidden`选取所有的不可见元素
+11. `:hidden`选取所有的不可见元素
 
-&emsp;&emsp;用JQuery代码改进如下代码
+用JQuery代码改进如下代码
 
 	<!doctype html>
 	<html lang="en">
@@ -267,7 +251,7 @@ tags: jquery css选择器
 
 <h3 id="2.3">2.3 案例研究</h3>
 
-&emsp;&emsp;案例代码
+案例代码
 
 	<!doctype html>
 	<html lang="en">
@@ -328,17 +312,17 @@ tags: jquery css选择器
 
 <h2 id="3">3 JQuery中的DOM操作</h2>
 
-&emsp;&emsp;DOM是一种与浏览器、平台、语言无关的接口，使用该接口可以轻松的访问页面中的所有标准组件。简单说就是解决了Netscape公司的JavaScript和Microsoft公司的JScript之间从冲突，位于web设计师和开发者一套标准的方法，让他们能够轻松的获取和错做网页中的数据、脚本和表现层对象。
+DOM是一种与浏览器、平台、语言无关的接口，使用该接口可以轻松的访问页面中的所有标准组件。简单说就是解决了Netscape公司的JavaScript和Microsoft公司的JScript之间从冲突，位于web设计师和开发者一套标准的方法，让他们能够轻松的获取和错做网页中的数据、脚本和表现层对象。
 
-&emsp;&emsp;1. DOM Core并不专属于JavaScript，任何一种支持DOM的程序设计语言都可以使用它，可以处理任何一种使用标记语言编写出来的文档，例如：XML
+1. DOM Core并不专属于JavaScript，任何一种支持DOM的程序设计语言都可以使用它，可以处理任何一种使用标记语言编写出来的文档，例如：XML
 
-&emsp;&emsp;2. HTML_DOM提供了一些更加简明的记号来描述各种HTML元素的属性，如：document.forms提供了一个forms对象，element.src获取某元素的src属性。HTML_DOM只能用来处理web文档
+2. HTML_DOM提供了一些更加简明的记号来描述各种HTML元素的属性，如：document.forms提供了一个forms对象，element.src获取某元素的src属性。HTML_DOM只能用来处理web文档
 
-&emsp;&emsp;3. CSS_DOM针对CSS的操作，主要作用是获取和设置style对象的各种属性。通过Style对象的各种属性，可以使网页呈现出各种不同的效果，例如：element.style.colr="red"
+3. CSS_DOM针对CSS的操作，主要作用是获取和设置style对象的各种属性。通过Style对象的各种属性，可以使网页呈现出各种不同的效果，例如：element.style.colr="red"
 
 >JQuery作为JavaScript库，继承并且发扬了JavaScript对DOM对象的操作的特征。
 
-&emsp;&emsp;查找节点
+查找节点
 
 	<!doctype html>
 	<html lang="en">
@@ -365,7 +349,7 @@ tags: jquery css选择器
 	 </body>
 	</html>
 
-&emsp;&emsp;创建节点
+创建节点
 
 	<!doctype html>
 	<html lang="en">
@@ -390,7 +374,7 @@ tags: jquery css选择器
 	 </body>
 	</html>
 
-&emsp;&emsp;插入节点，有如下方法：append()：向每个匹配元素总追加内容；appendTo()：将所有匹配的元素追加到指定的元素中；prepend()：向每个匹配的元素内部前置内容；prependTo()： 将所有匹配的元素前置到指定的元素中；after()：在每个匹配度元素之后插入内容；insertAfter()：将所有匹配的元素插入到指定元素的后面；before()：在每个匹配的元素之前插入内容；insertBefore()：将所有的匹配元素插入到指定的元素前面，示例代码：
+插入节点，有如下方法：append()：向每个匹配元素总追加内容；appendTo()：将所有匹配的元素追加到指定的元素中；prepend()：向每个匹配的元素内部前置内容；prependTo()： 将所有匹配的元素前置到指定的元素中；after()：在每个匹配度元素之后插入内容；insertAfter()：将所有匹配的元素插入到指定元素的后面；before()：在每个匹配的元素之前插入内容；insertBefore()：将所有的匹配元素插入到指定的元素前面，示例代码：
 
 	<!doctype html>
 	<html lang="en">
@@ -428,7 +412,7 @@ tags: jquery css选择器
 
 > empty()方法，并不是删除节点，而是清空节点，它能够清空元素中所有后代的节点
 
-&emsp;&emsp;复制节点
+复制节点
 
 	<!doctype html>
 	<html lang="en">
@@ -454,7 +438,7 @@ tags: jquery css选择器
 
 >复制节点后，被复制的新元素不具有任何行为，如果需要新的元素也具有复制功能，要传递参数true：`$(this).clone(true).appendTo("ul") ;`，不传递参数生成的节点副本不具有复制功能。
 
-&emsp;&emsp;替换节点
+替换节点
 
 	<!doctype html>
 	<html lang="en">
@@ -476,7 +460,7 @@ tags: jquery css选择器
 	 </body>
 	</html>
 
-&emsp;&emsp;包裹节点，方法是：wrap()；包裹全部的节点：wrapAll()；包裹元素的子内容：wrapInner()，示例：
+包裹节点，方法是：wrap()；包裹全部的节点：wrapAll()；包裹元素的子内容：wrapInner()，示例：
 
 	<!doctype html>
 	<html lang="en">
@@ -500,15 +484,15 @@ tags: jquery css选择器
 	 </body>
 	</html>
 
-&emsp;&emsp;属性操作：`$("p").attr("title")`表示获取元素节点属性；`$("p").attr("title","your title")`表示设置设置p元素的title属性值；删除属性：`$("p").remoteAttr("title")`表示删除p元素的title属性
+属性操作：`$("p").attr("title")`表示获取元素节点属性；`$("p").attr("title","your title")`表示设置设置p元素的title属性值；删除属性：`$("p").remoteAttr("title")`表示删除p元素的title属性
 
-&emsp;&emsp;样式操作：获取和设置样式：`$("p").attr("class","your new class"`；追加样式：`$("p").addClass("class")`，此时p元素会出现两个class；移除样式：`$("p").removeClass("class")`；切换样式：`toggleBtn.toggle(function(){显示元素},funciton(){隐藏元素})`，还有另外一宗方法：`$("p").toggleClass("another")`，当不断点击切换样式时，会不停的重复切换；判断是否含有某个样式：`$("p").hasClass("another")`，实际上是调用`$("p").is(".another")`，只是为了增加代码的可读性。
+样式操作：获取和设置样式：`$("p").attr("class","your new class"`；追加样式：`$("p").addClass("class")`，此时p元素会出现两个class；移除样式：`$("p").removeClass("class")`；切换样式：`toggleBtn.toggle(function(){显示元素},funciton(){隐藏元素})`，还有另外一宗方法：`$("p").toggleClass("another")`，当不断点击切换样式时，会不停的重复切换；判断是否含有某个样式：`$("p").hasClass("another")`，实际上是调用`$("p").is(".another")`，只是为了增加代码的可读性。
 
-&emsp;&emsp;设置和获取HTML、文本和值
+设置和获取HTML、文本和值
 
-&emsp;&emsp;1. html()方法，相当于JavaScript中的innerHTML属性，可以用来读取和设置某个元素中的HTML内容。
+1. html()方法，相当于JavaScript中的innerHTML属性，可以用来读取和设置某个元素中的HTML内容。
 
-&emsp;&emsp;2. text()方法，相当于JavaScript中的innerText属性，可以用来读取和设置某个元素的文本内容。示例代码
+2. text()方法，相当于JavaScript中的innerText属性，可以用来读取和设置某个元素的文本内容。示例代码
 
 	<!doctype html>
 	<html lang="en">
@@ -534,7 +518,7 @@ tags: jquery css选择器
 	 </body>
 	</html>
 
-&emsp;&emsp;3. val()方法，相当于JavaScript中的value属性，可以用来设置或者获取元素的值，示例代码
+3. val()方法，相当于JavaScript中的value属性，可以用来设置或者获取元素的值，示例代码
 
 	<!doctype html>
 	<html lang="en">
@@ -586,15 +570,15 @@ tags: jquery css选择器
 
 >对下拉列表和单选复选的选择，select：`$("single").val("选择2号")`或者以数组的形式赋值：`$("multiple").val(["选择2号","选择三号"])`；redio：`$(":radio").val(["radio2"])`；checkbox以数组的形式：`$(":checkbox").val(["check2","check3"])`
 
-&emsp;&emsp;遍历节点
+遍历节点
 
-&emsp;&emsp;1. children()方法，用于取得匹配元素的子元素的集合，注意：此方法只考虑子元素而不考虑任何后代元素
+1. children()方法，用于取得匹配元素的子元素的集合，注意：此方法只考虑子元素而不考虑任何后代元素
 
-&emsp;&emsp;2. next()方法，用于取得匹配元素后面紧邻的同辈元素；prev()方法，用于取得匹配元素前面紧邻的同辈元素
+2. next()方法，用于取得匹配元素后面紧邻的同辈元素；prev()方法，用于取得匹配元素前面紧邻的同辈元素
 
-&emsp;&emsp;3. siblings()方法，用于取得匹配元素前后所有的同辈元素
+3. siblings()方法，用于取得匹配元素前后所有的同辈元素
 
-&emsp;&emsp;4. closest()方法，用于取得最近的匹配元素，首先查看当前元素是否匹配，如果匹配返回元素本身，如果不匹配向上查找父元素，直到找到匹配选择器的元素，如果什么也没找到返回一个空的JQuery对象，示例代码
+4. closest()方法，用于取得最近的匹配元素，首先查看当前元素是否匹配，如果匹配返回元素本身，如果不匹配向上查找父元素，直到找到匹配选择器的元素，如果什么也没找到返回一个空的JQuery对象，示例代码
 
 	<!doctype html>
 	<html lang="en">
@@ -619,27 +603,27 @@ tags: jquery css选择器
 	 </body>
 	</html>
 
-&emsp;&emsp;CSS-DOM操作
+CSS-DOM操作
 
-&emsp;&emsp;css-dom操作简单来说就是读取和设置style对象的各种属性
+css-dom操作简单来说就是读取和设置style对象的各种属性
 
-&emsp;&emsp;1. offset()方法，获取元素在当前视窗中的相对偏移，返回对象包括两个属性，即top和left，它只对可见元素有效，示例代码
+1. offset()方法，获取元素在当前视窗中的相对偏移，返回对象包括两个属性，即top和left，它只对可见元素有效，示例代码
 
 	var offset = $("p").offset() ;
 	var left = offset.left ;
 	var top = offset.right ;
 
-&emsp;&emsp;2. position()方法，获取元素相对于最近的一个position样式属性设置为relative或者absolute的祖父节点的相对偏移。返回对象包括两个属性，left和top,示例代码：
+2. position()方法，获取元素相对于最近的一个position样式属性设置为relative或者absolute的祖父节点的相对偏移。返回对象包括两个属性，left和top,示例代码：
 
 	var position = $("p").position() ;
 	var left = position.left ;
 	var top = position.right ;
 
-&emsp;&emsp;3. scrollTop()方法和scrollLeft()方法，分别获取滚动条距离顶端的距离和距离左侧的距离
+3. scrollTop()方法和scrollLeft()方法，分别获取滚动条距离顶端的距离和距离左侧的距离
 
-&emsp;&emsp;案例1
+案例1
 
-&emsp;&emsp;超链接提示效果，代码：
+超链接提示效果，代码：
 
 	<!doctype html>
 	<html lang="en">
@@ -685,7 +669,7 @@ tags: jquery css选择器
 
 >还没有解决div会动的问题
 
-&emsp;&emsp;案例2-为图片超链接添加效果，代码：
+案例2-为图片超链接添加效果，代码：
 
 	<!doctype html>
 	<html lang="en">
@@ -744,13 +728,13 @@ tags: jquery css选择器
 
 <h2 id="4">4 JQuery中的事件和动画</h2>
 
-&emsp;&emsp;JQuery中的事件
+JQuery中的事件
 
-&emsp;&emsp;1. 加载DOM，JQuery中有方法：`$(document).ready()`，此方法与JavaScript中的方法：`window.onloads`是由区别的。区别一：执行时机，JQuery中的方法是在DOM完全就绪时就可以被调用，而JavaScript中的方法是在网页中的所有元素包括元素的关联文件全部加载到浏览器中之后才执行；如果需要JQuery中的方法在全部元素加载完毕之后再执行需要用函数：`$(window).onload(function(){//编写代码})`；区别二：JQuery中的方法能够多次使用，而JavaScript中的方法会被后面的一个覆盖掉。区别三：JQuery中的方法代码可以简写为：`$(function(){//编写代码})`或者`$().read(function(){//编写代码})`
+1. 加载DOM，JQuery中有方法：`$(document).ready()`，此方法与JavaScript中的方法：`window.onloads`是由区别的。区别一：执行时机，JQuery中的方法是在DOM完全就绪时就可以被调用，而JavaScript中的方法是在网页中的所有元素包括元素的关联文件全部加载到浏览器中之后才执行；如果需要JQuery中的方法在全部元素加载完毕之后再执行需要用函数：`$(window).onload(function(){//编写代码})`；区别二：JQuery中的方法能够多次使用，而JavaScript中的方法会被后面的一个覆盖掉。区别三：JQuery中的方法代码可以简写为：`$(function(){//编写代码})`或者`$().read(function(){//编写代码})`
 
-&emsp;&emsp;2. 事件绑定，使用bind()方法对匹配的元素进行特定事件的绑定，调用格式为：`bind(type,[,date],fn);`，第一个参数是事件类型，第二个参数是可选参数，第三个参数是用来绑定的处理函数。
+2. 事件绑定，使用bind()方法对匹配的元素进行特定事件的绑定，调用格式为：`bind(type,[,date],fn);`，第一个参数是事件类型，第二个参数是可选参数，第三个参数是用来绑定的处理函数。
 
-&emsp;&emsp;基本效果，加强效果，示例代码：
+基本效果，加强效果，示例代码：
 
 	<!doctype html>
 	<html lang="en">
@@ -783,7 +767,7 @@ tags: jquery css选择器
 
 >this引用的是携带相应行为的DOM元素
 
-&emsp;&emsp;2. 改变绑定事件的类型
+2. 改变绑定事件的类型
 
 	<!doctype html>
 	<html lang="en">
@@ -814,7 +798,7 @@ tags: jquery css选择器
 	 </body>
 	</html>
 
-&emsp;&emsp;3. 简写绑定事件，代码：
+3. 简写绑定事件，代码：
 
 	$("#panel h5.head").mouseover(function(){
 		var $content = $(this).next("div.content") ;
@@ -823,9 +807,9 @@ tags: jquery css选择器
 
 >绑定事件的简写形式
 
-&emsp;&emsp;合成事件
+合成事件
 
-&emsp;&emsp;1. hover()，示例代码：
+1. hover()，示例代码：
 
 	<!doctype html>
 	<html lang="en">
@@ -855,7 +839,7 @@ tags: jquery css选择器
 
 >hover()方法准确的说是替代JQuery中的mouseenter和mouseleave方法。
 
-&emsp;&emsp;2. toggle()方法，此方法模拟的是鼠标连续单击事件，第一次单击是触发第一个函数，当再次点击同一个元素是触发第二个函数，如果有更多的元素则依次触发，直到最后一个，随后重复。代码示例：
+2. toggle()方法，此方法模拟的是鼠标连续单击事件，第一次单击是触发第一个函数，当再次点击同一个元素是触发第二个函数，如果有更多的元素则依次触发，直到最后一个，随后重复。代码示例：
 
 	<!doctype html>
 	<html lang="en">
@@ -885,7 +869,7 @@ tags: jquery css选择器
 
 >为什么此代码连标题都隐藏了，没有解决。
 
-&emsp;&emsp;3. 再次加强效果
+3. 再次加强效果
 
 	<!doctype html>
 	<html lang="en">
@@ -915,7 +899,7 @@ tags: jquery css选择器
 	 </body>
 	</html>
 
-&emsp;&emsp;事件冒泡，当多个元素响应同一个事件的时候，并且这些元素之间存在嵌套的关系，点击内部的元素会触发外部元素的事件，这样想冒泡一样沿着DOM树直到顶端，称之为事件冒泡。示例代码：
+事件冒泡，当多个元素响应同一个事件的时候，并且这些元素之间存在嵌套的关系，点击内部的元素会触发外部元素的事件，这样想冒泡一样沿着DOM树直到顶端，称之为事件冒泡。示例代码：
 
 	<!doctype html>
 	<html lang="en">
@@ -950,7 +934,7 @@ tags: jquery css选择器
 	 </body>
 	</html>
 
-&emsp;&emsp;解决冒泡事件，JQuery中取得事件对象，示例代码：
+解决冒泡事件，JQuery中取得事件对象，示例代码：
 
 	<!doctype html>
 	<html lang="en">
@@ -986,7 +970,7 @@ tags: jquery css选择器
 	 </body>
 	</html>
 
-&emsp;&emsp;阻止默认行为，例如在验证表单时，某个元素不够6位，不符合提交要求时，要组织表单的的提交(默认行为)，用event.preventDefault() ;示例代码：
+阻止默认行为，例如在验证表单时，某个元素不够6位，不符合提交要求时，要组织表单的的提交(默认行为)，用event.preventDefault() ;示例代码：
 
 	<!doctype html>
 	<html lang="en">
@@ -1016,46 +1000,46 @@ tags: jquery css选择器
 
 >阻止事件冒泡或者阻止默认行为，都可以用`return false ;`代替JQuery语句。
 
-&emsp;&emsp;事件捕获，事件捕获和事件冒泡刚好相反，事件捕获是从最顶端往下开始触发，如果需要使用事件捕获，请使用原生态的JavaScript。
+事件捕获，事件捕获和事件冒泡刚好相反，事件捕获是从最顶端往下开始触发，如果需要使用事件捕获，请使用原生态的JavaScript。
 
-&emsp;&emsp;事件对象(event)的属性：even.type() ;event.preventDefault() ;event.stopPropagation() ;event.target()获取触发事件的元素...
+事件对象(event)的属性：even.type() ;event.preventDefault() ;event.stopPropagation() ;event.target()获取触发事件的元素...
 
-&emsp;&emsp;移除事件：`$("#btn").unbind("click")`；unbind的语法结构：`unbind([type],[ ,data)`，说明：如果没有参数则删除所有的绑定事件，如果提供了事件类型，只删除该类型的绑定事件；如果第二个参数是处理函数，则之后此函数的事件被删除。
+移除事件：`$("#btn").unbind("click")`；unbind的语法结构：`unbind([type],[ ,data)`，说明：如果没有参数则删除所有的绑定事件，如果提供了事件类型，只删除该类型的绑定事件；如果第二个参数是处理函数，则之后此函数的事件被删除。
 
-&emsp;&emsp;模拟操作：
+模拟操作：
 
-&emsp;&emsp;1. 常用模拟，以上触发事件必须通过单击才能触发，有时需要模拟用户操作，来达到单击的效果。例如用户输入银行卡六位密码时自动提交表单。
+1. 常用模拟，以上触发事件必须通过单击才能触发，有时需要模拟用户操作，来达到单击的效果。例如用户输入银行卡六位密码时自动提交表单。
 
-&emsp;&emsp;在JQuery中，可以通过trigger()方法完成模拟操作，完成的操作时当用户进入界面后就触发事件，代码：`$("#sub").trigger("click")`或者简写为：`$("#sub").click()`
+在JQuery中，可以通过trigger()方法完成模拟操作，完成的操作时当用户进入界面后就触发事件，代码：`$("#sub").trigger("click")`或者简写为：`$("#sub").click()`
 
-&emsp;&emsp;2. 触发自定义事件
+2. 触发自定义事件
 
 	$("#btn").bind("myClick",function(){
 		$('#text').append("<p>我的自定义事件</p>") ;
 	})
 	$("#btn").trigger("myClick") ;
 
-&emsp;&emsp;3. 传递数据
+3. 传递数据
 
-&emsp;&emsp;4. 执行默认操作，`$("input").trigger("focus")`会触发input元素绑定的focus事件，同时也会使input元素本事得到焦点；如果只想触发事件不想得到焦点：`$("input").triggerHandler("focus")`
+4. 执行默认操作，`$("input").trigger("focus")`会触发input元素绑定的focus事件，同时也会使input元素本事得到焦点；如果只想触发事件不想得到焦点：`$("input").triggerHandler("focus")`
 
 >所谓的获得焦点讲的是将鼠标选中。
 
 ### JQuery中的动画
 
-&emsp;&emsp;1. show()和hide()方法是JQuery中最基本的动画方法，产生动画效果需要触底参数：`show("slow")`或者`show(1000)`在一秒内隐藏或者展示
+1. show()和hide()方法是JQuery中最基本的动画方法，产生动画效果需要触底参数：`show("slow")`或者`show(1000)`在一秒内隐藏或者展示
 
-&emsp;&emsp;2. fadein()和fadeOut()方法，只会改变元素的不透明度。
+2. fadein()和fadeOut()方法，只会改变元素的不透明度。
 
-&emsp;&emsp;3. slideUp()和slideDown()方法，该方法只会改变元素的高度。
+3. slideUp()和slideDown()方法，该方法只会改变元素的高度。
 
 >jquery中的任何动画效果都可以指定参数，slow、normal、fast分别是0.6、0.4、0.2秒，也可以指定具体的时间，时间参数以秒为单位，不加引号。
 
-&emsp;&emsp;自定义动画方法animate()
+自定义动画方法animate()
 
-&emsp;&emsp;animate()方法的语法结构是：`animate(params,speed,callback)`，参数说明：params包含样式属性及值的映射；speed速度，可选；callback完成动画时执行的函数
+animate()方法的语法结构是：`animate(params,speed,callback)`，参数说明：params包含样式属性及值的映射；speed速度，可选；callback完成动画时执行的函数
 
-&emsp;&emsp;简单动画：
+简单动画：
 
 	<!doctype html>
 	<html lang="en">
@@ -1086,7 +1070,7 @@ tags: jquery css选择器
 	 </body>
 	</html>
 
-&emsp;&emsp;累加累减动画
+累加累减动画
 
 	<!doctype html>
 	<html lang="en">
@@ -1117,7 +1101,7 @@ tags: jquery css选择器
 	 </body>
 	</html>
 
-&emsp;&emsp;多重动画-同时执行动画
+多重动画-同时执行动画
 
 	<!doctype html>
 	<html lang="en">
@@ -1148,7 +1132,7 @@ tags: jquery css选择器
 	 </body>
 	</html>
 
-&emsp;&emsp;多重动画顺序执行
+多重动画顺序执行
 
 	<!doctype html>
 	<html lang="en">
@@ -1180,7 +1164,7 @@ tags: jquery css选择器
 	 </body>
 	</html>
 
-&emsp;&emsp;综合动画
+综合动画
 
 	<!doctype html>
 	<html lang="en">
@@ -1214,7 +1198,7 @@ tags: jquery css选择器
 	 </body>
 	</html>
 
-&emsp;&emsp;动画回掉函数
+动画回掉函数
 
 	<!doctype html>
 	<html lang="en">
@@ -1251,7 +1235,7 @@ tags: jquery css选择器
 
 >回调函数适合于JQuery所有动画效果，例如：`$("#element").slideDown("normal",function(){//执行完动画后的效果})`
 
-&emsp;&emsp;简单的实现动态图片切换效果示例：
+简单的实现动态图片切换效果示例：
 
 	<!doctype html>
 	<html lang="en">
@@ -1299,7 +1283,7 @@ tags: jquery css选择器
 
 ### 文本应用
 
-&emsp;&emsp;1. 单行文本框的应用：
+1. 单行文本框的应用：
 
 	<!doctype html>
 	<html lang="en">
@@ -1382,7 +1366,7 @@ tags: jquery css选择器
 
 >对于一些浏览器不兼容的情况，上述代码利用JQuery能提供同样的效果。
 
-&emsp;&emsp;2. 多行文本框的应用，评论框的放大缩小
+2. 多行文本框的应用，评论框的放大缩小
 
 	<!doctype html>
 	<html lang="en">
@@ -1421,7 +1405,7 @@ tags: jquery css选择器
 	 </body>
 	</html>
 
-&emsp;&emsp;增加动画效果设置评论框的放大缩小
+增加动画效果设置评论框的放大缩小
 
 	<!doctype html>
 	<html lang="en">
@@ -1462,7 +1446,7 @@ tags: jquery css选择器
 
 >此效果会使评论框有一定的放大缩小时的缓冲效果。
 
-&emsp;&emsp;控制滚动条的变化
+控制滚动条的变化
 
 	<!doctype html>
 	<html lang="en">
@@ -1501,7 +1485,7 @@ tags: jquery css选择器
 	 </body>
 	</html>
 
-&emsp;&emsp;复选框的应用，示例代码：
+复选框的应用，示例代码：
 
 	<!doctype html>
 	<html lang="en">
@@ -1636,7 +1620,7 @@ tags: jquery css选择器
 
 >还没有解决问什么第三次点击全选之后就不起作用了。
 
-&emsp;&emsp;下拉列框应用
+下拉列框应用
 
 	<!doctype html>
 	<html lang="en">
@@ -1698,7 +1682,7 @@ tags: jquery css选择器
 	 </body>
 	</html>
 
-&emsp;&emsp;表单验证
+表单验证
 
 	<!doctype html>
 	<html lang="en">
@@ -1775,7 +1759,7 @@ tags: jquery css选择器
 
 ### 表格应用
 
-&emsp;&emsp;1. 普通的隔行变色
+1. 普通的隔行变色
 
 	<!doctype html>
 	<html lang="en">
@@ -1809,7 +1793,7 @@ tags: jquery css选择器
 	 </body>
 	</html>
 
-&emsp;&emsp;另外一种更加简单的做法
+另外一种更加简单的做法
 
 	<!doctype html>
 	<html lang="en">
@@ -1849,7 +1833,7 @@ tags: jquery css选择器
 	 </body>
 	</html>
 
-&emsp;&emsp;2. 单选框控制表格行高亮
+2. 单选框控制表格行高亮
 
 	<!doctype html>
 	<html lang="en">
@@ -1893,7 +1877,7 @@ tags: jquery css选择器
 
 >记住，单选框的作用是只选一个，所以属性nane要相同，不容没有意义。
 
-&emsp;&emsp;3. 复选框表格行高亮
+3. 复选框表格行高亮
 
 	<!doctype html>
 	<html lang="en">
@@ -1985,7 +1969,7 @@ tags: jquery css选择器
 
 #### 表格内容的筛选
 
-&emsp;&emsp;用contains筛选
+用contains筛选
 
 	<!doctype html>
 	<html lang="en">
@@ -2024,7 +2008,7 @@ tags: jquery css选择器
 	 </body>
 	</html>
 
-&emsp;&emsp;利用过滤器筛选
+利用过滤器筛选
 
 	<!doctype html>
 	<html lang="en">
@@ -2065,7 +2049,7 @@ tags: jquery css选择器
 	 </body>
 	</html>
 
-&emsp;&emsp;利用过滤器输入筛选
+利用过滤器输入筛选
 
 	<!doctype html>
 	<html lang="en">
@@ -2215,7 +2199,7 @@ tags: jquery css选择器
 	 </body>
 	</html>
 
-&emsp;&emsp;增加hover功能
+增加hover功能
 
 	<!doctype html>
 	<html lang="en">
