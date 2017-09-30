@@ -116,3 +116,11 @@ url可以写成两种情况
 **git重命名文件**
 
 `git mv old_filename new_filename`
+
+**git-reset**
+
+`git reset [--mixed] HEAD /path/to/somefile`: 将文件状态定位到working dir
+
+`git reset [--soft] HEAD~1 `: 将文件状态定位到staged
+
+`git reset [--hard] SHA-CODE `: 将文件状态定位到某个commit
