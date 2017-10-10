@@ -507,8 +507,6 @@ public关键字修饰的成员对于每一个人来说都是可用的，尤其�
 
 ---
 
-# continue...
-
 <h2 id="7">7 复用类</h2>
 
 <h3 id="7.1">7.1 组合语法</h3>
@@ -778,7 +776,7 @@ public关键字修饰的成员对于每一个人来说都是可用的，尤其�
 
 组合和继承都是允许在新的类中放置子类对象，组合是显式的这样做，而继承则是隐式的做。
 
-组合技术通常想用于在新的类中使用现有类的功能而非它的接口的情形。即，在新类中嵌入某个对象，让其实现所需要的功能，但是新类用户看到的只是新类的接口，而非嵌入对象的接口。为了取得此效果，需要在新的类中嵌入现有类的一个private对象。有时候允许类的用户直接访问类中的组合对象也是由必要的，如果组合进新类的对象自身隐藏了具体的实现，这种做法也是安全的。但这种情况极少数，大部分的组合都因该使域变为private。
+组合技术通常想用于在新的类中使用现有类的功能而非它的接口的情形。即，在新类中嵌入某个对象，让其实现所需要的功能，但是新类用户看到的只是新类的接口，而非嵌入对象的接口。为了取得此效果，需要在新的类中嵌入现有类的一个private对象。有时候允许类的用户直接访问类中的组合对象也是有必要的，如果组合进新类的对象自身隐藏了具体的实现，这种做法也是安全的。但这种情况极少数，大部分的组合都因该使域变为private。
 
 如果是 is-a 的关系，则使用继承；如果是 has-a 的关系，则使用组合。
 
@@ -806,20 +804,27 @@ final关键字通常是指：这是不能改变的。不想改变的原因有两
 
 > 带有恒定初始值(即，编译常量)的static finial基本数据类型取用大写字母命名，并且字与字之间用下划线隔开
 
-##### 空白finial
+##### 空白final
 
-所谓的空白finial是指被声明为finial但为给定初始值的域，但是finial在定义的时候必须别赋值。
+A blank final instance variable must be definitely assigned at the end of every constructor of the class in which it is declared; otherwise a compile-time error occurs.
 
-##### finial参数
+- Final变量
+    - Instance variable level
+        - A final variable can be initialized only once
+        - A final variable at class level must be initialized before the end of the constructor.
+    - Local(method) level
+        - A final variable at method level can be initialized only once
+        - It must be initialized before it is used
+
+##### final参数
 
 当使用finial参数到时候，你可以读参数，但是无法修改参数
 
-#### finial方法
+#### final方法
 
 使用finial方法的原因主要有两个：
 
 1. 处于设计的考虑。把方法锁定，以防止任何继承类修改它的含义。
-
 2. 处于效率的考虑。在最近的java版本中，出于此种的考虑已经渐渐过时了，因为java虚拟机本身就能优化许多问题了。
 
 #### finial和private关键字
@@ -929,7 +934,7 @@ final关键字通常是指：这是不能改变的。不想改变的原因有两
 	k = 47
 	j = 39
 
-> 加载与初始化过程：在Beetle上运行java时所发生的第一件事情是试图访问Beetle.main()(一个static方法)，于是加载器就开始启动并且找出Beetle类的编译代码(在Beetle.class的文件中中)。在对它进行加载的过程中，编译器会注意到它有一个基类(这是有关键字extends得知的)，于是继续进行加载。不管你是否要产生一基类，这都要放生.
+> 加载与初始化过程：在Beetle上运行java时所发生的第一件事情是试图访问Beetle.main()(一个static方法)，于是加载器就开始启动并且找出Beetle类的编译代码(在Beetle.class的文件中中)。在对它进行加载的过程中，编译器会注意到它有一个基类(这是有关键字extends得知的)，于是继续进行加载。不管你是否要产生一基类，这都要发生.
 
 > 如果该基类还有自身的基类，那么第二个基类就会被加载，如此类推。接下来，根基类中的static初始化会被执行，然后是下一个导出类，以此类推。这种方法很重要，因为导出类的static初始化可能会依赖于基类成员是否被正确的初始化。
 
