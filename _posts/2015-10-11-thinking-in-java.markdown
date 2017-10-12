@@ -998,7 +998,7 @@ A blank final instance variable must be definitely assigned at the end of every 
 		}
 	}
 
->Music.java，定义方法将接口的引用作为参数导入，实现了多态性。
+> Music.java，定义方法将接口的引用作为参数导入，实现了多态性。
 
 #### 忘记数据类型
 
@@ -1014,7 +1014,7 @@ A blank final instance variable must be definitely assigned at the end of every 
 		}
 	}
 
->Stringed.java，增加一种新的乐器。
+> Stringed.java，增加一种新的乐器。
 
 	package org.fmz.polymorphism ;
 
@@ -1024,7 +1024,7 @@ A blank final instance variable must be definitely assigned at the end of every 
 		}
 	}
 
->Brass.java，增加另外一种新的乐器。
+> Brass.java，增加另外一种新的乐器。
 
 	package org.fmz.polymorphism ;
 
@@ -1048,7 +1048,7 @@ A blank final instance variable must be definitely assigned at the end of every 
 		}
 	}
 
->Music2.java，这时候，如果想实现音乐的播放功能，而没有忘记数据类型(没有把接口的引用作为参数传递)，就需要为每一中新增加的乐器增加一种相对应的方法。而如果忘记数据类型，则会少做很多工作，而且实现同样的功能。示例代码：
+> Music2.java，这时候，如果想实现音乐的播放功能，而没有忘记数据类型(没有把接口的引用作为参数传递)，就需要为每一中新增加的乐器增加一种相对应的方法。而如果忘记数据类型，则会少做很多工作，而且实现同样的功能。示例代码：
 
 	package org.fmz.polymorphism ;
 
@@ -1066,19 +1066,19 @@ A blank final instance variable must be definitely assigned at the end of every 
 		}
 	}
 
->Music.java，Music2中还存在一个问题，如果我们忘记重载任何一种乐器参数的方法，编译器并不会报错。这就使得整个类变得不可控。如果我们进行向上转型，可以使得我们不管导出类是否存在，因为我们只与接口打交道。这样会变得更好。
+> Music.java，Music2中还存在一个问题，如果我们忘记重载任何一种乐器参数的方法，编译器并不会报错。这就使得整个类变得不可控。如果我们进行向上转型，可以使得我们不管导出类是否存在，因为我们只与接口打交道。这样会变得更好。
 
 <h3 id="8.2">8.2 转机</h3>
 
 #### 方法调用的绑定
 
-将一个方法的调用同方法主体关联起来被称作绑定。若程序在执行之前进行绑定(如果有的话，有编译器和连接程序实现)，叫做前期绑定。C语言只有一种方法的调用：前期绑定。
+将一个方法的调用同方法主体关联起来被称作绑定。若程序在执行之前进行绑定(如果有的话，由编译器和链接程序实现)，叫做前期绑定。C语言只有一种方法的调用：前期绑定。
 
 后期绑定也叫作动态绑定或者运行时绑定。含义是：运行时根据对象的类型进行绑定。这种后期绑定是由一种机制实现的：在运行时能判断出对象的类型，从而调用恰当的方法。
 
 在java中，除了static和final(private方法属于final方法)之外，其他所有的方法都是后期绑定。
 
->为什么要使用final方法呢？这样可以防止其他人覆盖掉该方法。更重要的是这样可以有效地关闭动态绑定，或者告诉编译器不需要对其进行动态绑定。
+> 为什么要使用final方法呢？这样可以防止其他人覆盖掉该方法。更重要的是这样可以有效地关闭动态绑定，或者告诉编译器不需要对其进行动态绑定。
 
 #### 产生正确的行为
 
@@ -1091,7 +1091,7 @@ A blank final instance variable must be definitely assigned at the end of every 
 		public void erase(){} ;
 	}
 
->Shape.java 基类
+> Shape.java 基类
 
 	package org.fmz.polymorphism.shape ;
 
@@ -1104,7 +1104,7 @@ A blank final instance variable must be definitely assigned at the end of every 
 		}
 	}
 
->Circle.java，子类
+> Circle.java，子类
 
 	package org.fmz.polymorphism.shape ;
 
@@ -1117,7 +1117,7 @@ A blank final instance variable must be definitely assigned at the end of every 
 		}
 	}
 
->Square.java，子类
+> Square.java，子类
 
 	package org.fmz.polymorphism.shape ;
 
@@ -1130,7 +1130,7 @@ A blank final instance variable must be definitely assigned at the end of every 
 		}
 	}
 
->Triangle.java，子类
+> Triangle.java，子类
 
 	package org.fmz.polymorphism.shape ;
 
@@ -1148,7 +1148,7 @@ A blank final instance variable must be definitely assigned at the end of every 
 		}
 	}
 
->随机生成器工厂，在return语句中返回指向某个子类的引用，并将其以Shape类型从next()方法中发送出去。所以无论什么时候在调用next()方法的时候，绝对不知道具体类型到底是什么，因为我们总是能获得一个通用的Shape引用。
+> 随机生成器工厂，在return语句中返回指向某个子类的引用，并将其以Shape类型从next()方法中发送出去。所以无论什么时候在调用next()方法的时候，绝对不知道具体类型到底是什么，因为我们总是能获得一个通用的Shape引用。
 
 	package org.fmz.polymorphism.shape ;
 
@@ -1165,9 +1165,7 @@ A blank final instance variable must be definitely assigned at the end of every 
 		}
 	}
 
->Shapes.java，测试类。main()方法中包含了shape引用组成的数组，这个数组通过RandomShapeGenerator.next()来填入数据。此时，我们只是知道我们拥有了一些Shape，并不知道Shape的具体情况(编译器也不知道)。只有当我们便利数组时，并为每个元素调用draw()方法时，才会发生动态绑定的行为。
-
-#### 可扩展性
+> Shapes.java，测试类。main()方法中包含了shape引用组成的数组，这个数组通过RandomShapeGenerator.next()来填入数据。此时，我们只是知道我们拥有了一些Shape，并不知道Shape的具体情况(编译器也不知道)。只有当我们遍历数组时，并为每个元素调用draw()方法时，才会发生动态绑定的行为。
 
 #### 缺陷：覆盖私有方法
 
@@ -1190,7 +1188,7 @@ A blank final instance variable must be definitely assigned at the end of every 
 		}
 	}
 
->基类中的私有化方法不会被覆盖掉，因为它使私有的不属于基类中的一部分。
+> 基类中的私有化方法不会被覆盖掉，因为它使私有的不属于基类中的一部分。
 
 #### 缺陷：域与静态方法
 
@@ -1222,13 +1220,15 @@ A blank final instance variable must be definitely assigned at the end of every 
 			Sub sub = new Sub() ;
 			System.out.println("sub.field = " + sub.field + "，sub.getField() = " + sub.getField() +"，sub.getSuperField = " + sub.getSuperField()) ;
 		}
-	}
+	}/*output:
+    sup.field = 0，sup.getField() = 1
+    sub.field = 1，sub.getField() = 1，sub.getSuperField = 0
+    */
 
->当Sub对象转型为Super引用时，任何域的访问操作都将由编译器来解析。因此不会是多态的。要想得到基类中的域，必须显式的指明super.field
 
->在实践中，很难发生这样的情况，一方面一般会把所有的域设置为private，因此不能直接访问它，副作用就是必须用方法来访问；另一方面我们不会将子类中域的名字和基类中重复，因为这样做会产生混淆。
-
-如果一个方法是静态的，那么其行为也就不具有多态性。这是因为静态方法是与类，并不是与单个对象相关联的。示例代码：
+> - 当Sub对象转型为Super引用时，任何域的访问操作都将由编译器来解析。因此不会是多态的。要想得到基类中的域，必须显式的指明super.field
+- 在实践中，很难发生这样的情况，一方面一般会把所有的域设置为private，因此不能直接访问它，副作用就是必须用方法来访问；另一方面我们不会将子类中域的名字和基类中重复，因为这样做会产生混淆。
+- 如果一个方法是静态的，那么其行为也就不具有多态性。这是因为静态方法是与类，并不是与单个对象相关联的。示例代码：
 
 	package org.fmz.polymorphism ;
 
@@ -1256,18 +1256,19 @@ A blank final instance variable must be definitely assigned at the end of every 
 			ssup.staticGet() ;//不会发生多态性
 			ssup.dynamicGet() ;
 		}
-	}
+	}/*
+    Base staticGet()
+    Derived dynamicGet()
+    */
 
->static方法不会有多态性的发生。
+> static方法不会有多态性的发生。
 
 <h3 id="8.3">8.3 构造器与多态</h3>
 
 构造器不具有多态性(它们实际上是static方法，只不过是static的声明是隐式的)
 
 1. 调用基类中的构造器
-
 2. 按照声明顺序调用成员的初始化方法
-
 3. 调用导出类的构造器主体
 
 #### 继承与清理
@@ -1386,9 +1387,8 @@ A blank final instance variable must be definitely assigned at the end of every 
 	Disposing Characteristic is alive
 	*///:~
 
->销毁的顺序应该是：首先对导出类进行销毁，然后是基类。因为导出类的清理可能会调用基类中的方法。所以销毁的顺序应该是与声明的顺序相反(因为字段的初始化是按照声明的顺序记性的)
-
->如果成员对象中存在一个或者多个对象共享的情况，那么久不能简单的调用dispose()方法了。这种情况下需要使用引用计数来跟踪仍旧访问着共享对象的对象数量了。
+> - 销毁的顺序应该是：首先对导出类进行销毁，然后是基类。因为导出类的清理可能会调用基类中的方法。所以销毁的顺序应该是与声明的顺序相反(因为字段的初始化是按照声明的顺序记性的)
+- 如果成员对象中存在一个或者多个对象共享的情况，那么久不能简单的调用dispose()方法了。这种情况下需要使用引用计数来跟踪仍旧访问着共享对象的对象数量了。
 
 #### 构造器内部多态方法的行为
 
@@ -1441,16 +1441,12 @@ A blank final instance variable must be definitely assigned at the end of every 
 #### 实例化的实际过程
 
 1. 在其他任何事情发生之前，将分配对象的储存空间初始化为二进制的0。
-
 2. 调用基类中的构造器。
-
 3. 按照声明的顺序调用成员的初始化方法。
-
 4. 调用导出类的构造器主体。
 
->这样做的优点是多有的东西都至少初始化为0，其中通过组合而嵌入类内部的对象的引用，其值为null，如果忘记对该引用进行初始化，在运行时就会发生异常，这也正是我们发现问题证据的地方。
-
-通过上面的陈述，我么得出结论，编写构造器时有一条有效的准则：用尽量可能简单的方法使对象进入正常状态；如果可能的话避免调用其他方法。在构造器中唯一能够安全调用的方法是基类中的final方法(private方法也隐式属于final方法)
+> - 这样做的优点是多有的东西都至少初始化为0，其中通过组合而嵌入类内部的对象的引用，其值为null，如果忘记对该引用进行初始化，在运行时就会发生异常，这也正是我们发现问题证据的地方。
+- 通过上面的陈述，我么得出结论，编写构造器时有一条有效的准则：用尽量可能简单的方法使对象进入正常状态；如果可能的话避免调用其他方法。在构造器中唯一能够安全调用的方法是基类中的final方法(private方法也隐式属于final方法)
 
 <h3 id="8.4">8.4 协变返回类型</h3>
 
@@ -1540,9 +1536,8 @@ A blank final instance variable must be definitely assigned at the end of every 
 		}
 	}
 
->这道程序用了继承和组合，组合不会强制我们的程序设计进入继承层次结构中；而且，组合更加灵活，因为它可以动态的选择了类型(也就选择了行为)，相反，继承在编译的时候就要知道确切的类型。
-
->这种通过继承和组合一起使用的模式称之为：状态模式。在程序中，由继承来表现演员的不同行为(happy or sad)，由组合(stage类)来决定类的动态绑定，也就更加灵活的实现了行为的选择。
+> - 这道程序用了继承和组合，组合不会强制我们的程序设计进入继承层次结构中；而且，组合更加灵活，因为它可以动态的选择了类型(也就选择了行为)，相反，继承在编译的时候就要知道确切的类型。
+- 这种通过继承和组合一起使用的模式称之为：状态模式。在程序中，由继承来表现演员的不同行为(happy or sad)，由组合(stage类)来决定类的动态绑定，也就更加灵活的实现了行为的选择。
 
 #### 纯继承与扩展
 
@@ -1550,17 +1545,14 @@ A blank final instance variable must be definitely assigned at the end of every 
 
 扩展关系也就是："is-like-a"，导出类在复写基类的方法的同时，增加了自己特有的方法，我们称之为导出类像一个基类。
 
->纯继承关系也是纯替代关系，通过向上转型的多态性，将导出类对象的引用转换为基类对象的引用之后，基类可以接收发给导出类的任何消息。
-
->扩展关系中的基类和导出类有着共同的接口，但是导出类还具有额外的方法实现其他特性。这时候，导出类中接口的扩展部分不能被基类访问，因此我们一旦向上转型就不能调用那些方法了。
+> - 纯继承关系也是纯替代关系，通过向上转型的多态性，将导出类对象的引用转换为基类对象的引用之后，基类可以接收发给导出类的任何消息。
+- 扩展关系中的基类和导出类有着共同的接口，但是导出类还具有额外的方法实现其他特性。这时候，导出类中接口的扩展部分不能被基类访问，因此我们一旦向上转型就不能调用那些方法了。
 
 #### 向下转型和运行时类型的识别
 
 RTTI(Running Time Type Identification，运行时类型识别)，这是java的一种机制来确保对向下转型进行检查。
 
-***
-
-***
+---
 
 <h2 id="9">9 接口</h2>
 
@@ -1590,7 +1582,7 @@ package org.fmz.interfaces ;
 		}
 	}
 
->纯粹的抽象类(抽象类中全部的方法都是抽象方法)不能创建对象
+> 纯粹的抽象类(抽象类中全部的方法都是抽象方法)不能创建对象
 
 	package org.fmz.interfaces ;
 
@@ -1605,9 +1597,8 @@ package org.fmz.interfaces ;
 		}
 	}
 
->不纯粹的抽象类(抽象类中的方法不全是抽象方法，甚至可以全部不是抽象方法)也不能创建对象
-
->抽象类可以含有自己的构造器
+> - 不纯粹的抽象类(抽象类中的方法不全是抽象方法，甚至可以全部不是抽象方法)也不能创建对象
+- 抽象类可以含有自己的构造器
 
 <h3 id="9.2">9.2 接口</h3>
 
@@ -1676,15 +1667,11 @@ interface也具有权限，但是只有public和默认权限。如果是默认�
 	[Disagreement, with, beliefs, is, by, definition, incorrect]
 	*/
 
->像本例这样，创建一个能够根据所传递的参数对象的不同而具有不同的行为的方法，被称为：策略模式。策略就是传递进去的参数对象，Processor对象就是一个策略。
-
->split()方法是String类的一部分，接收String类的对象，并以传递进来的参数作为边界，将该String对象分隔开，然后返回一个数组String[]
-
->java编译器无法从静态方法的上下文中引用非静态的变量
-
->静态域和栈都是只有一份储存空间，其中的内容可以共享，不存在引用，每一个域都有一个名称，所有的成员处在一个空间中；堆中每个对象都有自己的空间，且其引用都是在栈中存在，对象之间不能共享，一旦对象发生改变，则应用就发生了改变。
-
->静态域是针对类来说的，对于一个类来说只有声明的那一个静态域；而对于实例域来说，每一个对象都有其一份拷贝；产生多少个对象就有多少个实例域，而不管产生多少对象，静态域只有一个。
+> - 像本例这样，创建一个能够根据所传递的参数对象的不同而具有不同的行为的方法，被称为：策略模式。策略就是传递进去的参数对象，Processor对象就是一个策略。
+- split()方法是String类的一部分，接收String类的对象，并以传递进来的参数作为边界，将该String对象分隔开，然后返回一个数组String[]
+- java编译器无法从静态方法的上下文中引用非静态的变量
+- 静态域和栈都是只有一份储存空间，其中的内容可以共享，不存在引用，每一个域都有一个名称，所有的成员处在一个空间中；堆中每个对象都有自己的空间，且其引用都是在栈中存在，对象之间不能共享，一旦对象发生改变，则引用就发生了改变。
+- 静态域是针对类来说的，对于一个类来说只有声明的那一个静态域；而对于实例域来说，每一个对象都有其一份拷贝；产生多少个对象就有多少个实例域，而不管产生多少对象，静态域只有一个。
 
 上述代码耦合的过紧，当我们想复用Apply.process()的时候，无法进行复用，可以用下面的办法解决：
 
