@@ -1673,7 +1673,9 @@ interface也具有权限，但是只有public和默认权限。如果是默认�
 - 静态域和栈都是只有一份储存空间，其中的内容可以共享，不存在引用，每一个域都有一个名称，所有的成员处在一个空间中；堆中每个对象都有自己的空间，且其引用都是在栈中存在，对象之间不能共享，一旦对象发生改变，则引用就发生了改变。
 - 静态域是针对类来说的，对于一个类来说只有声明的那一个静态域；而对于实例域来说，每一个对象都有其一份拷贝；产生多少个对象就有多少个实例域，而不管产生多少对象，静态域只有一个。
 
-上述代码耦合的过紧，当我们想复用Apply.process()的时候，无法进行复用，可以用下面的办法解决：
+上述代码耦合的过紧，当我们想复用Apply.process()的时候，无法进行复用. Apply.process(Processor p, Object s)的参数Processor是一个具体类,如果要复用,必须复用Processor对象本身或者其子类对象,如果一个类和Processor相似,但是并不在Processor的继承结构中,也就没办法复用了.接口能很好的解决这样的问题,因为接口是多实现关系,而继承是单继承,如果这个类已经继承了其他类,就没办法在继承Processor类了,这样就无法复用.
+
+可以用下面的办法解决：
 
 	package org.fmz.interfaces ;
 
@@ -1682,7 +1684,7 @@ interface也具有权限，但是只有public和默认权限。如果是默认�
 		Object process(Object input) ;
 	}
 
->Processor.java，将Processor定义为接口
+> Processor.java，将Processor定义为接口
 
 	package org.fmz.interfaces ;
 
@@ -1693,7 +1695,7 @@ interface也具有权限，但是只有public和默认权限。如果是默认�
 		}
 	}
 
->Apply.java，能进行复用的静态方法独立出来为一个类。
+> Apply.java，能进行复用的静态方法独立出来为一个类。
 
 	package org.fmz.interfaces ;
 
@@ -1730,7 +1732,7 @@ interface也具有权限，但是只有public和默认权限。如果是默认�
 		}
 	}
 
->一个抽象类类实现接口，并且由其他类来继承这个抽象类，这样就可以复用Apply.process()方法了。
+> 一个抽象类类实现接口，并且由其他类来继承这个抽象类，这样就可以复用Apply.process()方法了。
 
 如果对类无法进行修改就需要一个适配器，这样的模式叫做适配器模式，适配器将接受你所拥有的接口，并产生你所需要的接口，示例代码：
 
@@ -1744,7 +1746,7 @@ interface也具有权限，但是只有public和默认权限。如果是默认�
 		}
 	}
 
->WaveForm.java，辅助类
+> WaveForm.java，辅助类
 
 	package org.fmz.interfaces ;
 
@@ -1757,7 +1759,7 @@ interface也具有权限，但是只有public和默认权限。如果是默认�
 		}
 	}
 
->Filter.java，接口类或者说是基类
+> Filter.java，接口类或者说是基类
 
 	package org.fmz.interfaces ;
 
@@ -1771,7 +1773,7 @@ interface也具有权限，但是只有public和默认权限。如果是默认�
 		}
 	}
 
->LowPass.java，子类或者说是实现类
+> LowPass.java，子类或者说是实现类
 
 	package org.fmz.interfaces ;
 
@@ -1785,7 +1787,7 @@ interface也具有权限，但是只有public和默认权限。如果是默认�
 		}
 	}
 
->HighPass.java，子类
+> HighPass.java，子类
 
 	package org.fmz.interfaces ;
 
@@ -1800,7 +1802,7 @@ interface也具有权限，但是只有public和默认权限。如果是默认�
 		}
 	}
 
->BandPass.java，子类
+> BandPass.java，子类
 
 	package org.fmz.interfaces ;
 
@@ -1835,11 +1837,9 @@ interface也具有权限，但是只有public和默认权限。如果是默认�
 		WaveForm2
 	*/
 
->FilterProcessor.java，为了能够复用而创造的适配器，在适配器中实现接口，覆写方法，最重要的是复用代码。
- 
->在FilterAdapter构造器中接收了你拥有的Filter，然后生成了你所需要的Processor接口对象，实际上还用到了代理。
-
->WaveForm中有一个静态的与：计数器，对于整个类来说不管产生多少对象都只有并且共享这样一个域，实现计数的功能。如果将static域改为实例域，输出的结果为：
+> - FilterProcessor.java，为了能够复用而创造的适配器，在适配器中实现接口，覆写方法，最重要的是复用代码。
+-在FilterAdapter构造器中接收了你拥有的Filter，然后生成了你所需要的Processor接口对象，实际上还用到了代理。
+-WaveForm中有一个静态的与：计数器，对于整个类来说不管产生多少对象都只有并且共享这样一个域，实现计数的功能。如果将static域改为实例域，输出的结果为：
 
 	Using Processor LowPass
 	WaveForm0
@@ -1848,7 +1848,7 @@ interface也具有权限，但是只有public和默认权限。如果是默认�
 	Using Processor BandPass
 	WaveForm0
 
->这个时候每一个WaveForm对象都有自己的计数器，因此都是0。
+> 这个时候每一个WaveForm对象都有自己的计数器，因此都是0。
 
 <h3 id="9.4">9.4 java中的多重继承</h3>
 
@@ -1935,7 +1935,7 @@ JavaSE的Scanner类的构造器就是就收的一个Readable接口。此Readable
 		}
 	}
 
->利用适配器的方式，我们可以在任何现有的类之上添加新的接口，即可以让方法就收接口的类型，这是使用接口，而不是类的强大之处。
+> 利用适配器的方式，我们可以在任何现有的类之上添加新的接口，即可以让方法就收接口的类型，这是使用接口，而不是类的强大之处。
 
 <h3 id="9.7">9.7 接口中的域</h3>
 
@@ -1957,7 +1957,7 @@ package org.fmz.interfaces ;
 		double RAND_DOUBLE = RAND.nextDouble() * 10 ;
 	}
 
->既然是static的，它们在类第一次被加载的时候进行初始化，这发生在任何域首次被访问时。
+> 既然是static的，它们在类第一次被加载的时候进行初始化，这发生在任何域首次被访问时。
 
 测试代码：
 
@@ -1972,7 +1972,7 @@ package org.fmz.interfaces ;
 		}
 	}
 
->这些域不是接口的一部分(能够被覆写的，向上转型的才是接口的一部分。而接口中的常量是static和final的)，它们被储存在接口的静态储存区域中。
+> 这些域不是接口的一部分(能够被覆写的，向上转型的才是接口的一部分。而接口中的常量是static和final的)，它们被储存在接口的静态储存区域中。
 
 <h3 id="9.8">9.8 嵌套接口</h3>
 
@@ -2045,7 +2045,7 @@ package org.fmz.interfaces ;
 	Implementation2 method2
 	*/
 
->如果不是工厂方法模式，你就必须在某处要创建的Service的确切类型，以便调用合适的构造器。
+> 如果不是工厂方法模式，你就必须在某处要创建的Service的确切类型，以便调用合适的构造器。
 
 为什么我们要添加这些额外级别的间接性呢？一个常见的原因就是想创建框架。一个对弈游戏框架的示例代码：
 
@@ -2103,19 +2103,17 @@ package org.fmz.interfaces ;
 		}
 	}
 
->如果Gmaes表示一段很复杂的代码，那么这种方式就允许你在不同的游戏中复用这段代码，妙极！
+> 如果Gmaes表示一段很复杂的代码，那么这种方式就允许你在不同的游戏中复用这段代码，妙极！
 
 总结：
 
 1. 对于创建类，几乎在任何时刻，都可以替代为创建一个接口和一个工厂。
-
 2. 任何的抽象性都是应该在真正的需求而产生的。当必须时候，应该重构接口而不是到处添加额外级别的间接性，并且由此带来的复杂性。
-
 3. 恰当的原则是优先选择类而不是接口，从类开始，如果接口的必要性变得非常明确，那么就进行重构。接口是一种重要的工具，很容易被滥用。
 
-***
+---
 
-***
+# Continue...
 
 <h2 id="10">10 内部类</h2>
 
