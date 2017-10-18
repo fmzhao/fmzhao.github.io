@@ -44,7 +44,7 @@ Spring Boot的目的是提供一系列工具帮助快速构建易于配置的Sri
 
 ---
 
-<h3 id="2">开始使用Spring Boot](#2)</h3>
+<h3 id="2">开始使用Spring Boot</h3>
 
 **starter**
 
