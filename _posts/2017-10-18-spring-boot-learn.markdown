@@ -5,7 +5,7 @@ category: spring java
 tags: framework springboot
 ---
 
-<p style="color:red">注: 这是spring cloud技术学习之`spring boot`,后续还有`微服务构建`和`spring cloud`两部分</p>
+<p style="color:red">注: 这是spring cloud技术学习之<b>spring boot</b>,后续还有<b>微服务构架</b>和<b>spring cloud</b>两部分</p>
 
 **Spring Cloud**是一个微服务开发和治理框架,包含了微服务运行功能,比如远程调用过程,动态服务发现,负载均衡,限流等.
 
