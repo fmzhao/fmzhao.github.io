@@ -5,6 +5,19 @@ category: spring java
 tags: framework springboot
 ---
 
+<p style:"color:red">注: 这是spring cloud技术学习之`spring boot`,后续还有`微服务构建`和`spring cloud`两部分</p>
+
+**Spring Cloud**是一个微服务开发和治理框架,包含了微服务运行功能,比如远程调用过程,动态服务发现,负载均衡,限流等.
+
+**Spring Boot**是一个内嵌Web服务器(Tomcat/Jetty)的可执行程序框架,利用SpringBoot开发的程序不需要作为war包部署到web服务器中,而是作为一个可执行的程序,直接启动执行.
+
+**微服务构架**(Microservice Architecture)是将传统的整体风格(monolithic style)应用程序分解为一套小服务的集合,每个服务运行在自己的进程中,并使用轻量级通信机制,通常是HTTP API.这些服务围绕业务能力来构建,并通过完全自动化部署机制来独立部署.这些服务使用不同的编程语言书写,以及不同存储技术,并保持最低限度的集中式管理.
+
+Spring boot比较适合微服务部署方式,因此Spring Cloud是建立在Spring Boot的基础之上提供快速实现分布式系统中各种问题的组件,而且没项都不是一种选择,在替换的时候业务代码是不受影响的. 
+
+<p style:"color:red">注: </p>
+
+
 ## 目录
 
 - [Spring Boot是什么](#1)
