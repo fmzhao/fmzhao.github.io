@@ -10,6 +10,7 @@ tags: framework springboot
 - [Spring Boot是什么](#1)
 - [开始使用Spring Boot](#2)
     - [Hello World Project](#2.1)
+- [参考资料](#3)
 
 ---
 
@@ -168,5 +169,12 @@ Spring Boot使用注解`@EnableAutoConfiguration`来自动配置应用.自动配
 ![创建可执行jar文件](../image/create-jar.png)
 
 > java -jar target/springbootdemo-0.0.1-SNAPSHOT.jar即可执行成功
+
+---
+
+<h3 id="3">参考资料</h3>
+
+- [原文出处](https://www.ibm.com/developerworks/library/j-spring-boot-basics-perry/)
+- [项目源码](http://gitlab.thunisoft.com/ZHSPDCSJ/spring-boot-practice)
 
 ---
