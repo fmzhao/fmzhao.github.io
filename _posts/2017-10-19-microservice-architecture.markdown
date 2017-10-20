@@ -259,3 +259,5 @@ Netfix已经大规模的从整体应用转向SOA.它每天从多于800种不同�
 - [微服务(Microservice)](http://mp.weixin.qq.com/s/fzk-kENu0I22P3F2Vu7KBA)
 
 ---
+
+> 由于能力有限,翻译和原文可能有偏差,如果感觉有问题,以原文为准.
