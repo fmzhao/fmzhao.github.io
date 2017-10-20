@@ -256,3 +256,5 @@ Netfix已经大规模的从整体应用转向SOA.它每天从多于800中不同�
 ---
 
 [参考: 原文](https://smartbear.com/learn/api-design/what-are-microservices/)
+
+---
