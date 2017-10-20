@@ -1,6 +1,6 @@
 ---
-title: 学习git-flow
 layout: post
+title: 学习git-flow
 categories: 版本控制
 tages: git git-flow
 ---
