@@ -1,7 +1,7 @@
 ---
 title: 微服务构架
 layout: post
-categories: 架构
+category: 架构
 tags: 微服务 microservice
 ---
 
