@@ -1,6 +1,6 @@
 ---
-title: 微服务构架
 layout: post
+title: 微服务构架
 category: 架构
 tags: 微服务 microservice
 ---
@@ -256,5 +256,6 @@ Netfix已经大规模的从整体应用转向SOA.它每天从多于800中不同�
 ---
 
 [参考: 原文](https://smartbear.com/learn/api-design/what-are-microservices/)
+[微服务(Microservice)](http://mp.weixin.qq.com/s/fzk-kENu0I22P3F2Vu7KBA)
 
 ---
