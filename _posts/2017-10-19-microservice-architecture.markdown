@@ -16,8 +16,8 @@ tags: 微服务 microservice
     - [5.2 微服务:避免整体(Monoliths)](#5.2)
     - [5.3 服务对象和数据识别(Service Objects and Identifying Data)](#5.3)
     - [5.4 协作和Dumb Pies](#5.4)
--[6 微服务的优点和缺点](#6)
--[7 微服务的未来](#7)
+- [6 微服务的优点和缺点](#6)
+- [7 微服务的未来](#7)
 
 ---
 
