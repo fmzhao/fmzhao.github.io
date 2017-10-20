@@ -2,7 +2,7 @@
 layout: post
 title: 学习git-flow
 categories: 版本控制
-tages: git git-flow
+tags: git git-flow
 ---
 
 Git Flow是构建在Git之上的一个组织软件开发活动模型,是Git之上构建的一项软件开发最佳实践.Git Flow是一套使用Git进行源代码管理时的一套行为规范和简化部分Git操作的工具.

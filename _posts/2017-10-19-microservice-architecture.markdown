@@ -43,7 +43,7 @@ tags: 微服务 microservice
 
 ---
 
-<h3 id="3">微服务实例]</h3>
+<h3 id="3">微服务实例</h3>
 
 Martin Fowler指出:Netflix,eBay,亚马逊等,以及将来的Twitter,PayPal等很多大规模网站和应用都从整体服务架构转向微服务架构.
 
