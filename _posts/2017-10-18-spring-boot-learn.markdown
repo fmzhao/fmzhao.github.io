@@ -184,7 +184,7 @@ Spring Boot使用注解`@EnableAutoConfiguration`来自动配置应用.自动配
 
 <h3 id="3">参考资料</h3>
 
-- [原文出处](https://www.ibm.com/developerworks/library/j-spring-boot-basics-perry/)
+- [原文](https://www.ibm.com/developerworks/library/j-spring-boot-basics-perry/)
 - [项目源码](http://gitlab.thunisoft.com/ZHSPDCSJ/spring-boot-practice)
 - [spring vs springMVC vs springboot](https://dzone.com/articles/spring-boot-vs-spring-mvc-vs-spring-how-do-they-compare)
 
