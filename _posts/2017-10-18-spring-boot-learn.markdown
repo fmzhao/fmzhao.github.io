@@ -5,7 +5,6 @@ category: spring java
 tags: framework springboot
 ---
 
-<p style="color:red">注: 这是spring cloud技术学习之spring boot,后续还有<b>微服务构架</b>和<b>spring cloud</b>两部分</p>
 
 **Spring Cloud**是一个微服务开发和治理框架,包含了微服务运行功能,比如远程调用过程,动态服务发现,负载均衡,限流等.
 
@@ -189,3 +188,5 @@ Spring Boot使用注解`@EnableAutoConfiguration`来自动配置应用.自动配
 - [spring vs springMVC vs springboot](https://dzone.com/articles/spring-boot-vs-spring-mvc-vs-spring-how-do-they-compare)
 
 ---
+
+> 注: 这是spring cloud技术学习之**spring boot**,后续还有[微服务构架](https://fmzhao.github.io/microservice-architecture/)和[spring cloud](https://fmzhao.github.io/spring-cloud-learn/)两部分.
