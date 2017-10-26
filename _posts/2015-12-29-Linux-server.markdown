@@ -1965,12 +1965,19 @@ fi
 
 #### Linux中Java环境增加CLASSPATH[?]
 
-`echo $CLASSPAT`: 查看用户下Java环境的CLASSPATH
+**临时添加变量**
+
+`echo ${CLASSPAT}`: 查看用户下Java环境的CLASSPATH
 
 `export CLASSPATH = $CLASSPATH:/path/to/classpath`: 为当前用户的Java环境临时添加CLASSPATH
 
-`javac -d . -cp ".:/path/to/classpath"` *.java: 为Java file编译时添加CLASSPATH
+**永久性添加变量**
 
+`vim /etc/profile.d/java.sh|maven.sh`
+
+将export语句加入java.sh(Java环境变量)或者maven.sh(maven环境变量)
+
+`javac -d . -cp ".:/path/to/classpath"` *.java: 为Java file编译时添加CLASSPATH
 
 #### Linux时区设置正确,时间不正确[?]
 

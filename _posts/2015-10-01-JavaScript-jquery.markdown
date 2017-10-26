@@ -78,9 +78,7 @@ JQuery选择器，示例：
 <h3 id="2.2">JQuery选择器</h3>
 
 1. 简洁的写法
-
 2. 支持CSS1到css3选择器
-
 3. 完善的处理机制
 
 ### JQuery基本选择器同css类似，加上`$("")`即可
@@ -88,11 +86,8 @@ JQuery选择器，示例：
 ### JQuery层次选择器
 
 1. `$("ancestor descentant")`表示ancestor元素里的所有descendant元素
-
 2. `$("parent>child")`表示parent元素下的child元素
-
 3. `$('prev+next')`表示紧跟在prev元素下面的next元素
-
 4. `$('prev~siblings')`表示prev元素之后的所有siblings元素
 
 ### 过滤选择器
@@ -100,26 +95,18 @@ JQuery选择器，示例：
 #### 基本的过滤选择器
 
 1. `:first`表示选取第一个元素；`:last`表示选取最后一个元素
-
 2. `:not(selector)`去除所有与给定选择器匹配的元素
-
 3. `:even`选取索引是偶数的所有元素，索引从0开始；`:odd`选取索引是奇数的所有元素，索引从0开始
-
 4. `:eq(index)`选取索引等于index的元素，索引从0开始；`:gt(index)`选取索引大于index的元素，索引从0开始；`:lt(index)`选取索引小于index的元素，索引从0开始
-
 5. `:header`选取所有的标题元素
-
 6. `:animated`选取所有正在执行动画的所以元素
 
 #### 内容过滤选择器
 
 1. `:contains(text)`表示含有文本内容为text是元素
-
 2. `:empty`表示不包含子元素或者文本的空元素
-
-3: `:has(selector)`选取含有选择器所匹配的元素的元素
-
-4：`:parent`表示选取含有子元素或者文本的元素
+3. `:has(selector)`选取含有选择器所匹配的元素的元素
+4. `:parent`表示选取含有子元素或者文本的元素
 
 #### 可见过滤选择器
 

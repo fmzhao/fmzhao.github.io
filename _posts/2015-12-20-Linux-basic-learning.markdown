@@ -5,10 +5,6 @@ categories: 技术 OS 笔记
 tags: linux 域名解析 网卡配置 alternatives
 ---
 
-***
-
-***
-
 ### Linux 系统安装
 
 设置系统计入模式：`vi /etc/inittab`，需改`id:5:inindefault`为`id:3:initdefault`
@@ -514,6 +510,21 @@ Chmod权限分配
 
 7. `service mysqld stop`，之后重新启动mysql-server，然后 `mysql -u root -p`进入MySQL(命令敲击后，会让你输入密码)
 
-***
+#### 安装ruby,调试jeklly静态博客
 
-***
+[下载ruby源代码](https://www.ruby-lang.org/en/downloads/)
+
+Linux环境中如果没有gcc,安装group: `Development Tools`
+
+`sudo yum groupinstall 'Development Tools'`
+
+安装开发环境
+
+`yum install openssl* openssl-devel zlib-devel gcc gcc-c++ make autoconf readline-devel curl-devel expat-devel gettext-devel`
+
+安装ruby
+
+    ./configure --enable-shared --enable-pthread --prefix=/usr/local/ruby
+    make && make install
+
+---
