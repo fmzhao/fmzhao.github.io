@@ -83,6 +83,7 @@ tags: 数据库 学习 PostgreSQL
 
     # 添加栏位
     ALTER TABLE table_name ADD email VARCHAR(40);
+    ALTER TABLE table_name ADD id serial PRIMARY KEY;
 
     # 更新结构     
     ALTER TABLE table_name ALTER COLUMN time SET NOT NULL;
@@ -104,7 +105,13 @@ tags: 数据库 学习 PostgreSQL
     DELETE FROM table_name;
 
     # 转变column类型
-    SELECT * FROM table_name ORDER BY colunmn_str::integer
+    SELECT * FROM table_name ORDER BY colunmn_str::integer;
+
+    # 增加主键
+    ALTER TABLE table_name ADD PRIMARY KEY (column_name);
+
+    # 删除主键
+    ALTER TABLE table_name DROP CONSTRAINT table_name_pkey;
 
 ##### 备份还原操作
 
