@@ -5,7 +5,7 @@ category: SQL
 tags: 数据库 学习 PostgreSQL
 ---
 
-##### 安装之后允许non-host连接
+### 安装之后允许non-host连接
 
 **修改data目录下的`pg_hba.conf`**
 
@@ -13,7 +13,7 @@ tags: 数据库 学习 PostgreSQL
 
 > all DATABASE all users all host will be trust
 
-##### 常用的数据库命令
+### 常用数据库命令-控制台
 
     # 控制台连接数据库
     psql -U user_name -d database_name -h host -p port
@@ -33,7 +33,7 @@ tags: 数据库 学习 PostgreSQL
     \password user_name: 为用户设置密码
     \q: 退出控制台
 
-##### 用户管理常用命令-控制台
+### 用户管理常用命令-控制台
 
     # 创建用户[设置密码]
     CREATE USER user_name [WITH PASSWORD 'password'];
@@ -56,7 +56,7 @@ tags: 数据库 学习 PostgreSQL
     # 更改数据库的owner
     alter DATABASE database_name owner TO user_name
 
-##### 用户管理常用命令-shell
+### 用户管理常用命令-shell
 
     # 创建用户
     sudo -u postgres CREATEuser --superuser user_name
@@ -67,7 +67,7 @@ tags: 数据库 学习 PostgreSQL
     # shell命令下创建数据库并指定拥有者
     sudo -u postgres CREATEdb -O user_name database_name
 
-##### 数据库操作
+### 数据库操作
 
     # 创建新表
     CREATE TABLE table_name(name VARCHAR(20), time DATE);
@@ -113,7 +113,13 @@ tags: 数据库 学习 PostgreSQL
     # 删除主键
     ALTER TABLE table_name DROP CONSTRAINT table_name_pkey;
 
-##### 备份还原操作
+    # 获取数据库内schema下的所有表信息
+    SELECT * FROM INFORMATION_SCHEMA.TALBES WHERE TABLE_SCHEMA = <schema_name>
+
+    # 获取表的所有字段信息
+    SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = <schema_name> AND TABLE_NAME = <table_name>
+
+### 备份还原操作
 
     # 执行sql文件
     psql -U user_name [-d] database_name < sql_file
