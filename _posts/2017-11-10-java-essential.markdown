@@ -23,6 +23,7 @@ tags: Java核心 基础知识
     - [4.5 Guarded Block](#4.5)
     - [4.6 不可更改(Immutable)对象](#4.6)
     - [4.7 并发进阶](#4.7)
+    - [4.8 并发安全策略](#4.8)
 - [5. JVM内存模型](#5)
     - [5.1 JVM内存模型](#5.1)
     - [5.2 Java垃圾回收](#5.2)
@@ -892,6 +893,46 @@ Synchronized同步方法能够阻止线程干扰和内存一致性的问题.
 
 - Atomic Variables
     - `AtomicInteger`
+    - `AtomicBoolean`
+    - `AtomicIntegerArray`
+    - `AtomicLong`
+    - `AtomicLongArray`
+    - `AtomicMarkableReference`
+    - `AtomicReference`
+    - `AtomicReferenceArray`
+    - `AtomicStampedReference`
+    - `...`
+
+<h4 id="4.8">4.8 并发安全策略</h4>
+
+多线程听起来是一个很酷的概念,当你使用的时候,才会让你欢喜让你忧.
+
+并发的出现,主要带来了两个方面的问题:线程的相互干扰和内存的一致性.解决这两个问题的策略称之为并发访问策略.
+
+- 假设1: 线程之间的冲突会发生-悲观锁
+    - 通过锁定资源的方式,独占的访问临界区
+    - block-based algorithm
+    - 优点:
+        - 同时解决线程干扰和内存一致性问题
+        - 利用lock object,较容易编写正确的并发程序
+    - 缺点:
+        - bolck queue的管理,调度等消耗CPU
+        - 活跃性问题: 死锁,活锁,饿死
+- 假设2: 线程之间的冲突不会发生-乐观锁
+    - 通过CAS的方式尝试-成功-执行或者尝试-不成功-重新尝试
+        - 将临界区数据保存为一个副本,尝试改变这个副本,并验证是否和临界区数据相等(改变临界区数据过程中,是否数据别其他线程修改),如果是,改变临界区数据为副本,如果不是,重新尝试
+    - nonblock-based algorithm
+    - 优点:
+        - 当执行线程delay(网络或者I/O等原因),是其他线程不会受干扰
+        - 使用乐观锁有很好的扩展性(避免了锁产生的活跃性问题)
+    - 缺点
+        - 适用于线程竞争低或者中等的情况,改变副本的程序不易过长
+        - 不易编写正确的并发程序
+
+**为什么Java API中提供了Synchronized方式的并发,而atomic包中要用CAS方式实现并发安全控制?**
+
+- concurrent包中并发类集很多依赖于atomic包,atomic包提供的CAS并发机制有很好的扩展性
+- 基本数据类型的操作都是相对简单的,适合与CAS方式的并发机制
 
 ---
 
