@@ -15,3 +15,5 @@ weibo: 1911291317
 hub: fmzhao 
 safe: false
 about: "留余"
+disqus:
+    shortname: fengmengzhao
