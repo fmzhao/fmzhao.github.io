@@ -1,56 +1,56 @@
 ---
-title: Spring BatchÑ§Ï°
+title: Spring Batchå­¦ä¹ 
 layout: post
 category: spring java
 tags: framework springbatch
 ---
 
-**Spring Batch**ÊÇÒ»¸öÓÃÀ´¿ª·¢*Åú´¦Àí*ÆóÒµ¼¶³ÌĞòµÄÇáÁ¿¼¶¿ò¼Ü¡£
+**Spring Batch**æ˜¯ä¸€ä¸ªç”¨æ¥å¼€å‘*æ‰¹å¤„ç†*ä¼ä¸šçº§ç¨‹åºçš„è½»é‡çº§æ¡†æ¶ã€‚
 
-> Åú´¦Àí£ºÒ»ÏµÁĞÃ»ÓĞÓÃ»§½»»¥×Ô¶¯Íê³ÉµÄ¸´ÔÓÈÎÎñµÄÖ´ĞĞ¹ı³Ì¡£
+> æ‰¹å¤„ç†ï¼šä¸€ç³»åˆ—æ²¡æœ‰ç”¨æˆ·äº¤äº’è‡ªåŠ¨å®Œæˆçš„å¤æ‚ä»»åŠ¡çš„æ‰§è¡Œè¿‡ç¨‹ã€‚
 
-### Ä¿Â¼
+### ç›®å½•
 
-- [1. Spring BatchÊÇÊ²Ã´?](#1)
-- [2. Spring BatchÏîÄ¿](#2)
-    - [2.1 Spring Batch»ù±¾»·¾³JavaÏîÄ¿](#2.1)
-    - [2.2 Spring Batch XML-To-MysqlJavaÏîÄ¿](#2.2)
+- [1. Spring Batchæ˜¯ä»€ä¹ˆ?](#1)
+- [2. Spring Batché¡¹ç›®](#2)
+    - [2.1 Spring BatchåŸºæœ¬ç¯å¢ƒJavaé¡¹ç›®](#2.1)
+    - [2.2 Spring Batch XML-To-MysqlJavaé¡¹ç›®](#2.2)
 
 ---
 
-<h3 id="1">1. Spring BatchÊÇÊ²?</h3>
+<h3 id="1">1. Spring Batchæ˜¯ä»€?</h3>
 
-Spring Batch¿ò¼Ü³ıÁËÌá¹©*Åú´¦Àí*¹¦ÄÜÍâ£¬¿ò¼Ü»¹Ìá¹©£º
+Spring Batchæ¡†æ¶é™¤äº†æä¾›*æ‰¹å¤„ç†*åŠŸèƒ½å¤–ï¼Œæ¡†æ¶è¿˜æä¾›ï¼š
 
-- ÈÕÖ¾ºÍ¸ú×Ù
-- ÊÂÎñ¹ÜÀí
-- Job´¦ÀíÍ³¼Æ
-- JobÖØÆô
-- Ìø²½(Skip)ºÍ×ÊÔ´¹ÜÀí
+- æ—¥å¿—å’Œè·Ÿè¸ª
+- äº‹åŠ¡ç®¡ç†
+- Jobå¤„ç†ç»Ÿè®¡
+- Jobé‡å¯
+- è·³æ­¥(Skip)å’Œèµ„æºç®¡ç†
 
-Spring BatchÌØÕ÷£º
+Spring Batchç‰¹å¾ï¼š
 
-- Áé»îĞÔ
-    - ĞŞ¸ÄxmlÎÄ¼ş¿ÉÒÔ¸Ä±äÅú´¦ÀíÓ¦ÓÃµÄÖ´ĞĞË³Ğò
-- ¿ÉÎ¬»¤ĞÔ
-    - Åú´¦ÀíJobµÄÃ¿Ò»¸öStepÊÇ½âñîµÄ£¬¿ÉÒÔ¶ÀÁ¢²âÊÔ£¬¸üĞÂ
-- ¿ÉÀ©Õ¹ĞÔ
-    - ²¢·¢Ö´ĞĞÅú´¦ÀíJobÖĞµÄ¶à¸öStep
-    - ²¢·¢Ö´ĞĞÒ»¸öµ¥¶ÀÏß³Ì
-- Ö§³Ö¶àÎÄ¼ş¸ñÊ½
+- çµæ´»æ€§
+    - ä¿®æ”¹xmlæ–‡ä»¶å¯ä»¥æ”¹å˜æ‰¹å¤„ç†åº”ç”¨çš„æ‰§è¡Œé¡ºåº
+- å¯ç»´æŠ¤æ€§
+    - æ‰¹å¤„ç†Jobçš„æ¯ä¸€ä¸ªStepæ˜¯è§£è€¦çš„ï¼Œå¯ä»¥ç‹¬ç«‹æµ‹è¯•ï¼Œæ›´æ–°
+- å¯æ‰©å±•æ€§
+    - å¹¶å‘æ‰§è¡Œæ‰¹å¤„ç†Jobä¸­çš„å¤šä¸ªStep
+    - å¹¶å‘æ‰§è¡Œä¸€ä¸ªå•ç‹¬çº¿ç¨‹
+- æ”¯æŒå¤šæ–‡ä»¶æ ¼å¼
     - XML, Flat files, CSV, MYSQL, Hibernate, JDBC, Mongo, Neo4j, ect 
-- ¶à·½·¨Æô¶¯Åú´¦ÀíJob
-    - Java³ÌĞò, Web³ÌĞò, ÃüÁîĞĞµÈ
+- å¤šæ–¹æ³•å¯åŠ¨æ‰¹å¤„ç†Job
+    - Javaç¨‹åº, Webç¨‹åº, å‘½ä»¤è¡Œç­‰
 
 ---
 
-<h3 id="2">2. Spring BatchÏîÄ¿</h3>
+<h3 id="2">2. Spring Batché¡¹ç›®</h3>
 
-<h4 id="2.1">2.1 Spring Batch»ù±¾»·¾³JavaÏîÄ¿</h4>
+<h4 id="2.1">2.1 Spring BatchåŸºæœ¬ç¯å¢ƒJavaé¡¹ç›®</h4>
 
-**#1** ½¨Á¢Ò»¸ömavenÏîÄ¿
+**#1** å»ºç«‹ä¸€ä¸ªmavené¡¹ç›®
 
-**#2** ĞŞ¸ÄpomÎÄ¼ş
+**#2** ä¿®æ”¹pomæ–‡ä»¶
 
     <project xmlns = "http://maven.apache.org/POM/4.0.0" 
        xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance" 
@@ -149,7 +149,7 @@ Spring BatchÌØÕ÷£º
        </build> 
     </project>     
 
-**#3** Ìí¼ÓÅäÖÃÎÄ¼ş
+**#3** æ·»åŠ é…ç½®æ–‡ä»¶
 
     <?xml version="1.0" encoding="UTF-8"?>
     <beans xmlns = "http://www.springframework.org/schema/beans" 
@@ -170,7 +170,7 @@ Spring BatchÌØÕ÷£º
         </batch:job>  
     </beans> 
 
-> Ö÷ÅäÖÃÎÄ¼ş£ºjobConfig.xml¡£ÅäÖÃJobºÍsteps of Job(readers or writers)
+> ä¸»é…ç½®æ–‡ä»¶ï¼šjobConfig.xmlã€‚é…ç½®Jobå’Œsteps of Job(readers or writers)
 
     <beans xmlns = "http://www.springframework.org/schema/beans" 
        xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance" 
@@ -191,9 +191,9 @@ Spring BatchÌØÕ÷£º
        </bean> 
     </beans>
 
-> context.xml¡£ÅäÖÃ£ºjob repository, job launcher, transaction manager
+> context.xmlã€‚é…ç½®ï¼šjob repository, job launcher, transaction manager
 
-**#4** ¶¨Òåtasklet
+**#4** å®šä¹‰tasklet
 
     package com.fmz.springbatch.springbatchsample;
 
@@ -211,7 +211,7 @@ Spring BatchÌØÕ÷£º
        } 
     } 
 
-**#5** ¶¨Òå³ÌĞòÈë¿Ú
+**#5** å®šä¹‰ç¨‹åºå…¥å£
 
     package com.fmz.springbatch.springbatchsample;
 
@@ -245,11 +245,11 @@ Spring BatchÌØÕ÷£º
 
 ---
 
-<h4 id="2.2">2.2 Spring Batch XML-To-Mysql JavaÏîÄ¿</h4>
+<h4 id="2.2">2.2 Spring Batch XML-To-Mysql Javaé¡¹ç›®</h4>
 
-> ½«xmlÎÄ¼şÊı¾İ±£´æµ½MySQLÊı¾İ¿â£¬Í¬Ê±Ğ´ÈëPDFÎÄ¼şÖĞ
+> å°†xmlæ–‡ä»¶æ•°æ®ä¿å­˜åˆ°MySQLæ•°æ®åº“ï¼ŒåŒæ—¶å†™å…¥PDFæ–‡ä»¶ä¸­
 
-**#1** ¸ù¾İ2.1´´½¨»ù±¾»·¾³JavaÏîÄ¿
+**#1** æ ¹æ®2.1åˆ›å»ºåŸºæœ¬ç¯å¢ƒJavaé¡¹ç›®
 
     <project xmlns = "http://maven.apache.org/POM/4.0.0" 
        xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance" 
@@ -363,7 +363,7 @@ Spring BatchÌØÕ÷£º
 
 > pom.xml
 
-**#2** Ìí¼ÓÅäÖÃÎÄ¼ş
+**#2** æ·»åŠ é…ç½®æ–‡ä»¶
 
     <?xml version="1.0" encoding="UTF-8"?>
     <beans xmlns = "http://www.springframework.org/schema/beans" 
@@ -464,7 +464,7 @@ Spring BatchÌØÕ÷£º
 
 > context.xml
 
-**#3** Ìí¼Ó×ÊÔ´ÎÄ¼ş
+**#3** æ·»åŠ èµ„æºæ–‡ä»¶
 
     <?xml version="1.0" encoding="UTF-8"?> 
     <tutorials> 
@@ -507,9 +507,9 @@ Spring BatchÌØÕ÷£º
        </tutorial> 
     </tutorials>
 
-> tutorial.xml¡£ÎÄ¼şÂ·¾¶£º`CLASSPATH:resources/tutorial.xml`
+> tutorial.xmlã€‚æ–‡ä»¶è·¯å¾„ï¼š`CLASSPATH:resources/tutorial.xml`
 
-**#4** BeanÎÄ¼ş
+**#4** Beanæ–‡ä»¶
 
     package com.fmz.springbatch.bean;
 
@@ -577,7 +577,7 @@ Spring BatchÌØÕ÷£º
            } 
         }
 
-**#5** MapperÎÄ¼ş
+**#5** Mapperæ–‡ä»¶
 
     package com.fmz.springbatch.mapper;
 
@@ -604,7 +604,7 @@ Spring BatchÌØÕ÷£º
        }  
     } 
 
-**#6** Job´¦ÀíÎÄ¼ş
+**#6** Jobå¤„ç†æ–‡ä»¶
 
     package com.fmz.springbatch.step;
 
@@ -690,7 +690,7 @@ Spring BatchÌØÕ÷£º
        }    
     }  
 
-**#7** ³ÌĞòÈë¿Ú
+**#7** ç¨‹åºå…¥å£
 
     package com.fmz.springbatch;
 
