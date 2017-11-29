@@ -48,9 +48,9 @@ Spring Batch特征：
 
 <h4 id="2.1">2.1 Spring Batch基本环境Java项目</h4>
 
-**1. **建立一个maven项目
+**Step 1:**建立一个maven项目
 
-**2. **修改pom文件
+**Step 2:**修改pom文件
 
     <project xmlns = "http://maven.apache.org/POM/4.0.0" 
        xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance" 
@@ -149,7 +149,7 @@ Spring Batch特征：
        </build> 
     </project>     
 
-**3. **添加配置文件
+**Step 3:**添加配置文件
 
     <?xml version="1.0" encoding="UTF-8"?>
     <beans xmlns = "http://www.springframework.org/schema/beans" 
@@ -193,7 +193,7 @@ Spring Batch特征：
 
 > context.xml。配置：job repository, job launcher, transaction manager
 
-**4. **定义tasklet
+**Step 4:**定义tasklet
 
     package com.fmz.springbatch.springbatchsample;
 
@@ -211,7 +211,7 @@ Spring Batch特征：
        } 
     } 
 
-**5. **定义程序入口
+**Step 5:**定义程序入口
 
     package com.fmz.springbatch.springbatchsample;
 
@@ -249,7 +249,7 @@ Spring Batch特征：
 
 > 将xml文件数据保存到MySQL数据库，同时写入PDF文件中
 
-**1. **根据2.1创建基本环境Java项目
+**Step 1:**根据2.1创建基本环境Java项目
 
     <project xmlns = "http://maven.apache.org/POM/4.0.0" 
        xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance" 
@@ -363,7 +363,7 @@ Spring Batch特征：
 
 > pom.xml
 
-**2. **添加配置文件
+**Step 2:**添加配置文件
 
     <?xml version="1.0" encoding="UTF-8"?>
     <beans xmlns = "http://www.springframework.org/schema/beans" 
@@ -464,7 +464,7 @@ Spring Batch特征：
 
 > context.xml
 
-**3. **添加资源文件
+**Step 3:**添加资源文件
 
     <?xml version="1.0" encoding="UTF-8"?> 
     <tutorials> 
@@ -509,7 +509,7 @@ Spring Batch特征：
 
 > tutorial.xml。文件路径：`CLASSPATH:resources/tutorial.xml`
 
-**4. **Bean文件
+**Step 4:**Bean文件
 
     package com.fmz.springbatch.bean;
 
@@ -577,7 +577,7 @@ Spring Batch特征：
            } 
         }
 
-**5. **Mapper文件
+**Step 5:**Mapper文件
 
     package com.fmz.springbatch.mapper;
 
@@ -604,7 +604,7 @@ Spring Batch特征：
        }  
     } 
 
-**6. **Job处理文件
+**Step 6:**Job处理文件
 
     package com.fmz.springbatch.step;
 
@@ -690,7 +690,7 @@ Spring Batch特征：
        }    
     }  
 
-**7. **程序入口
+**Step 7:**程序入口
 
     package com.fmz.springbatch;
 
