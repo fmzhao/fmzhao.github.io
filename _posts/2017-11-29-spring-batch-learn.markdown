@@ -677,10 +677,11 @@ Spring Batch特征：
           doc.addPage( page ); 
           PDPageContentStream contentStream =  new PDPageContentStream(doc, page);  
           
-          String[][] content = {{"Id",""+item.getTutorial_id()},
-          {"Title", item.getTutorial_title()}, 
-          {"Authour", item.getTutorial_author()}, 
-          {"Submission Date", item.getSubmission_date()}} ;  
+          String[][] content = new String[4][2];
+          content[0] = {"Id", ""+item.getTutorial_id()};
+          content[1] = {"Title", item.getTutorial_title()};
+          content[2] = {"Authour", item.getTutorial_author()};
+          content[3] = {"Submission Date", item.getSubmission_date()};
           drawTable(page, contentStream, 700, 100, content);       
           
           contentStream.close(); 
