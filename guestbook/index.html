@@ -56,6 +56,8 @@ thread: 616
 			</div>
 		</div>
 	</div>
-    {% include disqus.html %}
+    {% if site.disqus.shortname %}
+      {% include disqus.html %}
+    {% endif %}
 </body>
 </html>
