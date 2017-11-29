@@ -128,4 +128,31 @@ url可以写成两种情况
       endif
     endif
 
+**查看本地repo使用的Remote URL**
+
+    git config --get remote.origin.url
+
+    git remote show origin
+
+**设置文件字符集和展示字符集**
+
+    set encoding=utf-8 " The encoding displayed
+    set fileencoding=utf-8 " The encoding written to file
+
+**分支(branch)相关**
+
+`git branch <new_branch>`：创建一个新的分支。新的分支会来源分支的内容。
+
+`git checkout <new_branch>`：转到新的分支
+
+`git branch -d(--delete) <branch_name>`：删除本地分支；`git branch -D(--delte --force) <branch_name>`：强制删除本地分支
+
+`git push -d <remote_name> <branch_name>`：删除远程分支
+
+`git branch [-a]`：列出[所有]的分支
+
+`git push -u origin <branch_name>`：推送到某个远程分支
+
+`git remote -r`：列出远程分支
+
 ---
