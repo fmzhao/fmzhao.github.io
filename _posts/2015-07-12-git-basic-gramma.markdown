@@ -7,7 +7,7 @@ tags: git
 
 **Git Clone**
 
-`$ git clone url`
+`git clone url`
 
 url可以写成两种情况
 
